@@ -1,5 +1,7 @@
 package v1.cn.unionc_pad.network_frame;
 
+import com.huawei.hms.support.api.push.GetTagResult;
+
 import java.util.Map;
 
 import io.reactivex.Observable;
@@ -19,6 +21,8 @@ import v1.cn.unionc_pad.model.DoctorInfoData;
 import v1.cn.unionc_pad.model.DoctorInfoIdentifierData;
 import v1.cn.unionc_pad.model.DoctorOrClinicData;
 import v1.cn.unionc_pad.model.DoctorScheduleData;
+import v1.cn.unionc_pad.model.GetGuardianshipInfoData;
+import v1.cn.unionc_pad.model.GetRongTokenData;
 import v1.cn.unionc_pad.model.HeartHistoryData;
 import v1.cn.unionc_pad.model.HeartHistoryListData;
 import v1.cn.unionc_pad.model.HeartIndicationData;
@@ -520,6 +524,7 @@ public interface UnionAPI {
     @FormUrlEncoded
     @POST("user/save-doctor-conversation")
     Observable<BaseData> savetalk(@FieldMap Map<String, Object> params);
+
     /**
      * 获取融云token
      *
@@ -528,7 +533,16 @@ public interface UnionAPI {
      */
     @FormUrlEncoded
     @POST("rongyun/rongyun_token")
-    Observable<IsDoctorData> getRongToken(@FieldMap Map<String, Object> params);
+    Observable<GetRongTokenData> getRongToken(@FieldMap Map<String, Object> params);
+    /**
+     * 获取一键呼叫监护人信息
+     *
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("rongyun/chat_object_info")
+    Observable<GetGuardianshipInfoData> GetGuardianshipInfo(@FieldMap Map<String, Object> params);
 
 
 }

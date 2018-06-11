@@ -22,6 +22,8 @@ import v1.cn.unionc_pad.model.DoctorInfoData;
 import v1.cn.unionc_pad.model.DoctorInfoIdentifierData;
 import v1.cn.unionc_pad.model.DoctorOrClinicData;
 import v1.cn.unionc_pad.model.DoctorScheduleData;
+import v1.cn.unionc_pad.model.GetGuardianshipInfoData;
+import v1.cn.unionc_pad.model.GetRongTokenData;
 import v1.cn.unionc_pad.model.HeartHistoryData;
 import v1.cn.unionc_pad.model.HeartHistoryListData;
 import v1.cn.unionc_pad.model.HeartIndicationData;
@@ -795,5 +797,25 @@ public class UnionAPIPackage {
     }
 
 
+
+
+    /**
+     * 获取融云token
+     */
+    public static Observable<GetRongTokenData> getRongToken(String token) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+
+        return ConnectHttp.getUnionAPI().getRongToken(dataProcess(params));
+    }
+    /**
+     * 获取融云token
+     */
+    public static Observable<GetGuardianshipInfoData> GetGuardianshipInfo(String token) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+
+        return ConnectHttp.getUnionAPI().GetGuardianshipInfo(dataProcess(params));
+    }
 
 }

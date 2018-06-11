@@ -112,6 +112,12 @@
 
 
         </activity>
+        <activity
+            android:name=".ui.PrepareCallActivity"
+            android:screenOrientation="landscape">
+
+
+        </activity>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

@@ -139,4 +139,6 @@ public class StartActivity extends BaseActivity {
                 .getSystemService(NOTIFICATION_SERVICE);
         notificationManager.cancelAll();
     }
+
+
 }

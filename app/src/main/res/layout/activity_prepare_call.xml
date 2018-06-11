@@ -7,29 +7,63 @@
     android:orientation="vertical"
     android:background="@color/background"
     tools:context="v1.cn.unionc_pad.ui.PrepareCallActivity">
+
     <include layout="@layout/include_toolbar" />
 
     <com.dinuscxj.progressbar.CircleProgressBar
         android:id="@+id/myProgress"
         android:layout_width="284px"
         android:layout_height="284px"
+        android:layout_marginTop="18.6px"
         android:layout_gravity="center_horizontal"
         android:max="60"
         app:draw_progress_text="true"
         app:line_count="30"
-        app:line_width="6px"
+        app:line_width="14px"
         app:progress_background_color="@color/white"
-        app:progress_end_color="#FFFFFF"
+        app:progress_end_color="#F75C43"
         app:progress_shader="sweep"
 
 
-        app:progress_start_color="#FFFFFF"
+        app:progress_start_color="#F75C43"
         app:progress_stroke_cap="round"
-        app:progress_stroke_width="4dp"
+        app:progress_stroke_width="6px"
 
-        app:progress_text_color="#FFFFFF"
-        app:progress_text_size="36sp"
+        app:progress_text_color="@color/white"
+        app:progress_text_size="24px"
         app:style="solid_line"
 
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="66px"
+        android:layout_marginTop="21.2px"
+        android:text="此功能会造成监护人、医生的紧张，\n非紧急时刻请勿使用"
+        android:layout_gravity="center_horizontal"
+android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="24px"
+        />
+    <Button
+        android:id="@+id/bt_call"
+        android:layout_width="480px"
+        android:layout_height="64px"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="52px"
+        android:text="立即呼叫"
+        android:textSize="30px"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_button_blue"
+        />
+    <Button
+        android:id="@+id/bt_cancel"
+        android:layout_width="480px"
+        android:layout_height="64px"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="52px"
+        android:text="取消"
+        android:textSize="30px"
+        android:textColor="@color/blue"
+        android:background="@drawable/bg_button_f0f4f9"
         />
 </LinearLayout>

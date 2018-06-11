@@ -100,5 +100,6 @@
 
     <color name="background">#26282E</color>
     <color name="orange">#F75C43</color>
+    <color name="blue">#4E78F6</color>
 
 </resources>
