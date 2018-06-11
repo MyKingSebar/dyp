@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#ffffff</color>
+    <color name="qm_blue">#4e78f6</color>
+    <color name="tab_grey">#9B9CA0</color>
+    <color name="bt_grey">#B6B8Bf</color>
+    <color name="line">#e1e5f2</color>
+    <color name="main_text">#26282E</color>
+    <color name="main_text2">#999999</color>
+    <color name="describe_color">#4F5360</color>
+    <color name="detail_text">#9B9CA0</color>
+    <color name="tool_bar">#FAFAFA</color>
+    <color name="windowbackground">#F2F2F2</color>
+    <color name="red_rz">#F75C43</color>
+    <color name="color_arrowhead">#93969F</color>
+    <color name="color_location">#F2F4F7</color>
+
+    <color name="black_26">#42000000</color>
+    <color name="black_10">#19000000</color>
+    <color name="black_70">#c2000000</color>
+    <color name="black_30">#4c000000</color>
+    <color name="black_40">#66000000</color>
+    <color name="black_54">#89000000</color>
+    <color name="allcolor">#1CC6A3</color>
+    <color name="colorSearchGreen">#1cc6a3</color>
+    <color name="line_color">#e6e6e6</color>
+    <color name="gray">#808080</color>
+    <color name="black_34">#222222</color>
+    <color name="text_all_green">#1cc6a3</color>
+    <color name="text_153">#999999</color>
+    <color name="green_bg">#01bb91</color>
+    <color name="grey_text_bluetooth">#99E2D3</color>
+    <color name="grey_bg">#f0f2f5</color>
+    <color name="pressed">#DFE3E8</color>
+    <color name="reward_tv_content_tip">#1CC6A3</color>
+    <color name="nurse_order_detail_pay_bg_color">#fbf2bf</color>
+    <color name="nurse_order_detail_pay_text_color">#856543</color>
+    <color name="c7c7cd">#C7C7CD</color>
+    <color name="text_34">#222222</color>
+    <color name="dialog_cancle_color">#f5f7fa</color>
+    <color name="light_green">#1CC6A3</color> // (28,198,163)
+    <color name="trans">#00000000</color>
+    <color name="text_102">#666666</color>
+    <color name="black_87">#DF000000</color>
+    <color name="black_trans_87">#404040</color>
+    <color name="black_trans_26">#d2d2d2</color>
+
+    <color name="maptext">#999999</color>
+    <color name="circle">#d0dcf2</color>
+    <!--<color name="circle">#144E78F6</color>-->
+
+    <!-- PickerUI lines colors -->
+    <color name="lines_panel_pickerui">@color/line_color</color>
+
+    <!-- PickerUI panel colors -->
+    <color name="background_panel_pickerui">#fffafafa</color>
+
+    <!-- PickerUI items colors -->
+    <color name="text_center_pickerui">#1CC6A3</color>
+    <color name="text_no_center_pickerui">#aaa</color>
+    <drawable name="list_item_selected">#aaaaaa</drawable>
+
+    <!-- PickerUI shadow colors -->
+    <color name="grey1">#00CCCCCC</color>
+    <color name="grey2">#10CCCCCC</color>
+    <color name="grey3">#20CCCCCC</color>
+    <color name="grey4">#30CCCCCC</color>
+    <color name="grey5">#50747474</color>
+    <color name="grey_clicked">#CCCCCC</color>
+    <color name="background_picker">#ff579fff</color>
+    <color name="keshi">#e9efef</color>
+    <color name="color_yellow">#ffdd00</color>
+    <color name="drawmoney_yellow">#fffc0a</color>
+    <color name="sharebtn_yellow">#f8e72d</color>
+
+    <color name="tznursrtimegrey">#e6e6e6</color>
+    <color name="L4085E7">#4085E7</color>
+    <color name="text8D8D8D">#8D8D8D</color>
+    <color name="vertical_line_divide">#e1e1e1</color>
+    <color name="sign_red">#ef6666</color>
+    <color name="appoint_green_color">#70ED3A</color>
+    <color name="green_146">#92E23A</color>
+
+    <color name="green_pressed_text">#8ee3d1</color>
+    <color name="linearlayout_pressed_color">#DFE3E8</color>
+    <color name="colorCommonBlack">#000000</color>
+    <color name="colorSearchGray">#23000000</color>
+    <color name="grey_line">#e5e5e5</color>
+    <color name="blue_elven">#13a3ff</color>
+    <color name="green_pressed">#117762</color>
+
+
+
+    <color name="green_oml">#25C191</color>
+
+
+
+    <color name="background">#26282E</color>
+    <color name="orange">#F75C43</color>
+
+</resources>

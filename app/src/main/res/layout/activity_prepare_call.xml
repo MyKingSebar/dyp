@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context="v1.cn.unionc_pad.ui.PrepareCallActivity">
+    <include layout="@layout/include_toolbar" />
+
+    <com.dinuscxj.progressbar.CircleProgressBar
+        android:id="@+id/myProgress"
+        android:layout_width="284px"
+        android:layout_height="284px"
+        android:layout_gravity="center_horizontal"
+        android:max="60"
+        app:draw_progress_text="true"
+        app:line_count="30"
+        app:line_width="6px"
+        app:progress_background_color="@color/white"
+        app:progress_end_color="#FFFFFF"
+        app:progress_shader="sweep"
+
+
+        app:progress_start_color="#FFFFFF"
+        app:progress_stroke_cap="round"
+        app:progress_stroke_width="4dp"
+
+        app:progress_text_color="#FFFFFF"
+        app:progress_text_size="36sp"
+        app:style="solid_line"
+
+        />
+</LinearLayout>

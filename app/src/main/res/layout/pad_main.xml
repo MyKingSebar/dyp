@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#26282E"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64px">
+
+            <TextView
+                android:id="@+id/tv_login"
+                android:layout_width="161px"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="40px"
+                android:text="登录"
+                android:textColor="#FFFFFF"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tv_bind"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/icon_main_two"
+                android:drawablePadding="11px"
+                android:gravity="center_vertical"
+                android:text="亲情监护绑定"
+                android:textColor="#FFFFFF"
+                android:textSize="30px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="305px"
+            android:layout_marginTop="10px"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/bt1"
+                android:layout_width="595px"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5px"
+                android:background="@drawable/pad_main1" />
+
+            <Button
+                android:id="@+id/bt2"
+                android:layout_width="595px"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5px"
+                android:background="@drawable/pad_main2" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="305px"
+            android:layout_marginTop="10px"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/bt3"
+                android:layout_width="595px"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5px"
+                android:background="@drawable/pad_main3" />
+
+            <Button
+                android:id="@+id/bt4"
+                android:layout_width="595px"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5px"
+                android:background="@drawable/pad_main4" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt5"
+        android:layout_width="275px"
+        android:layout_height="275px"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="257px"
+        android:background="@drawable/pad_main5" />
+</FrameLayout>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.jaywei:compresstool-1.0.4">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/compresstool-1.0.4.aar/eb6c011ff6da5aa63a7221d5210ab7ca/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/compresstool-1.0.4.aar/eb6c011ff6da5aa63a7221d5210ab7ca/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jaywei/compresstool/1.0.4/8fa52e9cb28ff0385ccb750257e8f491e8360084/compresstool-1.0.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
