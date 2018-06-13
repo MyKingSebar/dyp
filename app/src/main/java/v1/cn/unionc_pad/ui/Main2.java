@@ -61,10 +61,20 @@ public class Main2 extends BaseActivity {
 
                 break;
             case R.id.tv_login:
+                if(TextUtils.equals(tvLogin.getText().toString(),"退出登录")){
+
+                    tvLogin.setText("登录");
+                    showTost("退出登录成功");
+                }else if(TextUtils.equals(tvLogin.getText().toString(),"登录")){
+
+//goNewActivity(ChrisActivity.class);
+                    Intent intent=new Intent(Main2.this,ChrisActivity.class);
+                    startActivityForResult(intent,1);
+                }
 
                 break;
             case R.id.tv_bind:
-
+goNewActivity(BindActivity.class);
                 break;
         }
     }
@@ -147,5 +157,27 @@ private void getRongInfo(){
                     }
                 });
 
+    }
+
+    /**
+     * 设置跳转  接受返回数据
+     * @param requestCode
+     *              请求码
+     * @param resultCode
+     *              返回码
+     * @param data
+     *              返回数据
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        //  如果请求码与返回码等于预期设置的值  则进行后续操作
+        if (requestCode == 1 ){
+            // 获取返回的数据
+
+            // 设置给页面的文本TextView显示
+            tvLogin.setText("退出登录");
+        }
     }
 }

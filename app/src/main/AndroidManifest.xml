@@ -109,14 +109,22 @@
         <activity
             android:name=".ui.Main2"
             android:screenOrientation="landscape">
-
-
+        </activity>
+        <activity
+            android:name=".ui.BindActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".ui.CaptureActivity"
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".ui.PrepareCallActivity"
             android:screenOrientation="landscape">
-
-
+        </activity>
+        <activity
+            android:name=".ui.ChrisActivity"
+            android:screenOrientation="landscape">
         </activity>
 
         <provider
@@ -132,7 +140,7 @@
         <activity
             android:name="io.rong.callkit.MultiVideoCallActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"
+            android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <action android:name="io.rong.intent.action.voip.MULTIVIDEO" />
@@ -143,7 +151,7 @@
         <activity
             android:name="io.rong.callkit.SingleCallActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"
+            android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <action android:name="io.rong.intent.action.voip.SINGLEVIDEO" />
@@ -157,7 +165,7 @@
         <activity
             android:name="io.rong.callkit.MultiAudioCallActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"
+            android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <action android:name="io.rong.intent.action.voip.MULTIAUDIO" />

@@ -45,17 +45,30 @@ public class PrepareCallActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.bt_call:
+                progresstime=-1;
+                handler.removeMessages(5000);
                 Call();
                 break;
             case R.id.bt_cancel:
+                progresstime=-1;
+                handler.removeMessages(5000);
                 finish();
                 break;
             case R.id.img_back:
+                progresstime=-1;
+                handler.removeMessages(5000);
                 finish();
                 break;
 
 
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        progresstime=-1;
+        handler.removeMessages(5000);
     }
 
     @Override
@@ -111,5 +124,6 @@ public class PrepareCallActivity extends BaseActivity {
 
     private void Call(){
         RongCallKit.startSingleCall(PrepareCallActivity.this,IMUserId, RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
+        finish();
     }
 }
