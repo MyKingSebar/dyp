@@ -16,7 +16,7 @@
         android:layout_height="284px"
         android:layout_marginTop="18.6px"
         android:layout_gravity="center_horizontal"
-        android:max="60"
+        android:max="30"
         app:draw_progress_text="true"
         app:line_count="30"
         app:line_width="14px"

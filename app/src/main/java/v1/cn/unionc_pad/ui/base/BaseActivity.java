@@ -82,7 +82,9 @@ public class BaseActivity extends FragmentActivity {
      */
     protected void logout() {
         SPUtil.remove(context, Common.USER_TOKEN);
-        SPUtil.remove(context, Common.USER_ADD);
+        SPUtil.remove(context, Common.RONG_TOKEN);
+        SPUtil.remove(context, Common.IDENTIFIER);
+        RongIM.getInstance().logout();
         //登出
 //        TIMManager.getInstance().logout(new TIMCallBack() {
 //            @Override

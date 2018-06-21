@@ -6,11 +6,20 @@ import android.support.multidex.MultiDexApplication;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
+import com.baidu.idl.face.platform.LivenessTypeEnum;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.Message;
 
 public class UnioncApp extends MultiDexApplication {
+    //百度人脸识别
+    public static List<LivenessTypeEnum> livenessList = new ArrayList<LivenessTypeEnum>();
+    public static boolean isLivenessRandom = false;
+
 
     private static UnioncApp app;
 

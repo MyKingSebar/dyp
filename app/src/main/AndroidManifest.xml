@@ -137,7 +137,7 @@
                 android:resource="@xml/rc_file_path" />
         </provider>
 
-        <activity
+      <!--  <activity
             android:name="io.rong.callkit.MultiVideoCallActivity"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
@@ -171,9 +171,9 @@
                 <action android:name="io.rong.intent.action.voip.MULTIAUDIO" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>
+        </activity>-->
 
-        <activity android:name="io.rong.callkit.CallSelectMemberActivity" />
+       <!-- <activity android:name="io.rong.callkit.CallSelectMemberActivity" />-->
 
         <activity
             android:name=".Rong.ConversationListActivity"
@@ -385,7 +385,33 @@
         <!-- MeiZu 配置结束 < -->
 
         <!--第三方推送的权限 广播 服务 配置结束-->
-
+<!-- 百度人脸识别-->
+        <activity
+            android:name="com.baidu.idl.face.example.MainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme_NoTitle">
+        </activity>
+        <!-- 活体图像采集界面 -->
+        <activity
+            android:name="com.baidu.idl.face.example.FaceLivenessExpActivity"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme_NoTitle" />
+        <!-- 人脸跟踪采集界面 -->
+        <activity
+            android:name="com.baidu.idl.face.example.FaceDetectExpActivity"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme_NoTitle" />
+        <!-- 设置相关 -->
+        <activity
+            android:name="com.baidu.idl.face.example.SettingsActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme_NoTitle" />
     </application>
 
 </manifest>

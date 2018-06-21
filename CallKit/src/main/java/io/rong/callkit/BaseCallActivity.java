@@ -157,21 +157,27 @@ public class BaseCallActivity extends BaseNoActionBarActivity implements IRongCa
         AudioRecordManager.getInstance().destroyRecord();
         RongContext.getInstance().getEventBus().register(this);
 
-        mMediaPlayer = new MediaPlayer();
-        mMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                if (mp != null) {
-                    mp.setLooping(true);
-                    mp.start();
-                }
-            }
-        });
+        initMp();
 
         //注册 BroadcastReceiver 监听情景模式的切换
         IntentFilter filter = new IntentFilter();
         filter.addAction(AudioManager.RINGER_MODE_CHANGED_ACTION);
         registerReceiver(mRingModeReceiver, filter);
+    }
+
+    private void initMp() {
+        if(mMediaPlayer==null){
+            mMediaPlayer = new MediaPlayer();
+            mMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    if (mp != null) {
+                        mp.setLooping(true);
+                        mp.start();
+                    }
+                }
+            });
+        }
     }
 
     @Override
@@ -187,6 +193,7 @@ public class BaseCallActivity extends BaseNoActionBarActivity implements IRongCa
     public void onOutgoingCallRinging() {
         isIncoming = false;
         try {
+			initMp();
             AssetFileDescriptor assetFileDescriptor = getResources().openRawResourceFd(R.raw.voip_outgoing_ring);
             mMediaPlayer.setDataSource(assetFileDescriptor.getFileDescriptor(),
                     assetFileDescriptor.getStartOffset(), assetFileDescriptor.getLength());
@@ -211,8 +218,12 @@ public class BaseCallActivity extends BaseNoActionBarActivity implements IRongCa
             }
         } catch (IOException e) {
             e.printStackTrace();
+            Log.e("linshi",e.getMessage());
+        }catch (IllegalStateException  e1){
+            Log.i("bugtags","---IllegalStateException---");
         }
     }
+
 
     public void onIncomingCallRinging() {
         isIncoming = true;
@@ -243,6 +254,9 @@ public class BaseCallActivity extends BaseNoActionBarActivity implements IRongCa
 
     @SuppressLint("MissingPermission")
     protected void stopRing() {
+        if (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
+            mMediaPlayer.stop();
+        }
         if (mMediaPlayer != null) {
             mMediaPlayer.reset();
         }
@@ -266,6 +280,8 @@ public class BaseCallActivity extends BaseNoActionBarActivity implements IRongCa
             } catch (IOException e1) {
                 e1.printStackTrace();
                 RLog.e(TAG, "Ringtone not found: " + uri);
+            }catch (IllegalStateException el) {
+                e.printStackTrace();
             }
         }
     }
@@ -281,7 +297,6 @@ public class BaseCallActivity extends BaseNoActionBarActivity implements IRongCa
 
     @Override
     public void onCallOutgoing(RongCallSession callProfile, SurfaceView localVideo) {
-        Log.d("linshi","BaseCallActivity.onCallOutgoing");
     }
 
     @Override
@@ -434,14 +449,25 @@ public class BaseCallActivity extends BaseNoActionBarActivity implements IRongCa
 
     @Override
     protected void onDestroy() {
-        RongContext.getInstance().getEventBus().unregister(this);
-        handler.removeCallbacks(updateTimeRunnable);
-        unregisterReceiver(mRingModeReceiver);
-        mMediaPlayer.release();
-        // 退出此页面后应设置成正常模式，否则按下音量键无法更改其他音频类型的音量
-        AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        if (am != null) {
-            am.setMode(AudioManager.MODE_NORMAL);
+        try {
+            RongContext.getInstance().getEventBus().unregister(this);
+            handler.removeCallbacks(updateTimeRunnable);
+            unregisterReceiver(mRingModeReceiver);
+            if(mMediaPlayer!=null && mMediaPlayer.isPlaying()){
+                mMediaPlayer.stop();
+            }
+            mMediaPlayer.release();
+            // 退出此页面后应设置成正常模式，否则按下音量键无法更改其他音频类型的音量
+            AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+            if (am != null) {
+                am.setMode(AudioManager.MODE_NORMAL);
+            }
+            if(mMediaPlayer!=null){
+                mMediaPlayer=null;
+            }
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+            Log.i("bugtags","--- onDestroy IllegalStateException---");
         }
         super.onDestroy();
     }

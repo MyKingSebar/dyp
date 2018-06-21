@@ -29,6 +29,7 @@ import v1.cn.unionc_pad.model.HeartHistoryListData;
 import v1.cn.unionc_pad.model.HeartIndicationData;
 import v1.cn.unionc_pad.model.HomeListData;
 import v1.cn.unionc_pad.model.HomeToHomeData;
+import v1.cn.unionc_pad.model.IsBindJianhurenData;
 import v1.cn.unionc_pad.model.IsDoctorData;
 import v1.cn.unionc_pad.model.IsDoctorSignData;
 import v1.cn.unionc_pad.model.LoginData;
@@ -40,6 +41,7 @@ import v1.cn.unionc_pad.model.MyRecommenDoctorsData;
 import v1.cn.unionc_pad.model.OMLHistoryData;
 import v1.cn.unionc_pad.model.RecommendDoctorsData;
 import v1.cn.unionc_pad.model.TIMSigData;
+import v1.cn.unionc_pad.model.UpdateBaiduFileData;
 import v1.cn.unionc_pad.model.UpdateFileData;
 import v1.cn.unionc_pad.model.UserInfoData;
 import v1.cn.unionc_pad.model.WatchingActivityData;
@@ -817,5 +819,30 @@ public class UnionAPIPackage {
 
         return ConnectHttp.getUnionAPI().GetGuardianshipInfo(dataProcess(params));
     }
+    /**
+     * 是否有监护人
+     */
+    public static Observable<IsBindJianhurenData> ishasguardian(String token) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+
+        return ConnectHttp.getUnionAPI().ishasguardian(dataProcess(params));
+    }
+
+
+    /**
+     * 人脸识别
+     *
+     * @return
+     */
+    public static Observable<UpdateBaiduFileData> uploadbaiduImge(File file) {
+        HashMap<String, String> params = new HashMap<>();
+        String data = gson.toJson(params).toString();
+        RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+        // MultipartBody.Part 和后端约定好Key，这里的partName是用image
+        MultipartBody.Part body = MultipartBody.Part.createFormData("image", file.getName(), requestFile);
+        return ConnectHttp.getUnionAPI().uploadbaiduImge(data,body);
+    }
+
 
 }

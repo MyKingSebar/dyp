@@ -1,5 +1,9 @@
 package v1.cn.unionc_pad.ui;
 
+import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -7,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +25,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.rong.callkit.RongCallKit;
+import v1.cn.unionc_pad.PadTest;
 import v1.cn.unionc_pad.R;
+import v1.cn.unionc_pad.data.Common;
+import v1.cn.unionc_pad.data.SPUtil;
+import v1.cn.unionc_pad.model.GetGuardianshipInfoData;
+import v1.cn.unionc_pad.network_frame.ConnectHttp;
+import v1.cn.unionc_pad.network_frame.UnionAPIPackage;
+import v1.cn.unionc_pad.network_frame.core.BaseObserver;
 import v1.cn.unionc_pad.ui.base.BaseActivity;
 
 public class PrepareCallActivity extends BaseActivity {
@@ -90,10 +102,16 @@ public class PrepareCallActivity extends BaseActivity {
     private void init() {
         sp = new SpannableString("秒后自动呼叫");
         sp.setSpan(new AbsoluteSizeSpan(24,false),0,5,Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-        progresstime=60;
+        progresstime=30;
 
-        myProgress.setProgressTextFormatPattern("60\n秒后自动呼叫" );
+        myProgress.setProgressTextFormatPattern("30\n秒后自动呼叫" );
         handler.sendEmptyMessageDelayed(5000, 1000);
+        MediaPlayer mMediaPlayer;
+        mMediaPlayer=MediaPlayer.create(this, R.raw.call);
+        mMediaPlayer.start();
+//        SoundPool soundPool=new  SoundPool(100, AudioManager.STREAM_MUSIC,0);//构建对象
+//        int soundId=soundPool.load(context,R.raw.call,1);//加载资源，得到soundId
+//        int streamId= soundPool.play(soundId, 1,1,1,0,1);//播放，得到StreamId
 
     }
 
@@ -110,7 +128,7 @@ public class PrepareCallActivity extends BaseActivity {
                     progresstime--;
 
 
-                    myProgress.setProgress(60-progresstime);
+                    myProgress.setProgress(30-progresstime);
                     myProgress.setProgressTextFormatPattern("" + progresstime+"\n"+"秒后自动呼叫");
 //                    myProgress.setProgressTextFormatPattern(Html.fromHtml("今天" + "<font color='#FF0000'>" + progresstime + "</font>"));
                     handler.sendEmptyMessageDelayed(5000, 1000);
@@ -123,7 +141,42 @@ public class PrepareCallActivity extends BaseActivity {
     };
 
     private void Call(){
-        RongCallKit.startSingleCall(PrepareCallActivity.this,IMUserId, RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
-        finish();
+        getRongInfo();
     }
+    private void getRongInfo(){
+        String Token=(String) SPUtil.get(context, Common.USER_TOKEN, "");
+        if(TextUtils.isEmpty(Token)){
+            showTost("请重新登录!");
+            return;
+        }
+        ConnectHttp.connect(UnionAPIPackage.GetGuardianshipInfo(Token),
+                new BaseObserver<GetGuardianshipInfoData>(context) {
+                    @Override
+                    public void onResponse(GetGuardianshipInfoData data) {
+                        closeDialog();
+                        if (TextUtils.equals("4000", data.getCode())) {
+                            if (!TextUtils.isEmpty(data.getData().getIMUserId())) {
+                                RongCallKit.startSingleCall(PrepareCallActivity.this,data.getData().getIMUserId(), RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
+                                finish();
+                            }
+
+
+                        } else {
+                            showTost(data.getMessage() + "");
+                        }
+                    }
+
+                    @Override
+                    public void onFail(Throwable e) {
+                        closeDialog();
+                    }
+                });
+
+
+
+    }
+//    private void Call(){
+//        RongCallKit.startSingleCall(PrepareCallActivity.this,IMUserId, RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
+//        finish();
+//    }
 }

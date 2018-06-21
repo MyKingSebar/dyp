@@ -17,6 +17,8 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import v1.cn.unionc_pad.R;
+import v1.cn.unionc_pad.data.Common;
+import v1.cn.unionc_pad.data.SPUtil;
 import v1.cn.unionc_pad.ui.base.BaseActivity;
 
 public class StartActivity extends BaseActivity {
@@ -66,6 +68,11 @@ public class StartActivity extends BaseActivity {
             }
         } else {
             init();
+        }
+        if (isLogin()){
+            String Token=(String) SPUtil.get(context, Common.RONG_TOKEN, "");
+
+            connect(Token);
         }
     }
 

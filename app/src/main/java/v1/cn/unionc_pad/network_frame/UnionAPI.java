@@ -28,6 +28,7 @@ import v1.cn.unionc_pad.model.HeartHistoryListData;
 import v1.cn.unionc_pad.model.HeartIndicationData;
 import v1.cn.unionc_pad.model.HomeListData;
 import v1.cn.unionc_pad.model.HomeToHomeData;
+import v1.cn.unionc_pad.model.IsBindJianhurenData;
 import v1.cn.unionc_pad.model.IsDoctorData;
 import v1.cn.unionc_pad.model.IsDoctorSignData;
 import v1.cn.unionc_pad.model.LoginData;
@@ -39,6 +40,7 @@ import v1.cn.unionc_pad.model.MyRecommenDoctorsData;
 import v1.cn.unionc_pad.model.OMLHistoryData;
 import v1.cn.unionc_pad.model.RecommendDoctorsData;
 import v1.cn.unionc_pad.model.TIMSigData;
+import v1.cn.unionc_pad.model.UpdateBaiduFileData;
 import v1.cn.unionc_pad.model.UpdateFileData;
 import v1.cn.unionc_pad.model.UserInfoData;
 import v1.cn.unionc_pad.model.WatchingActivityData;
@@ -224,6 +226,7 @@ public interface UnionAPI {
     Observable<UpdateFileData> uploadImge(@Query("data") String data,
                                           @Query("encryption") boolean encryption,
                                           @Part MultipartBody.Part imgs);
+
 
     /**
      * 修改用户信息
@@ -544,5 +547,20 @@ public interface UnionAPI {
     @POST("rongyun/chat_object_info")
     Observable<GetGuardianshipInfoData> GetGuardianshipInfo(@FieldMap Map<String, Object> params);
 
-
+    /**
+     * 人脸识别
+     *
+     * @return
+     */
+    @Multipart
+    @POST("old-man/login")
+    Observable<UpdateBaiduFileData> uploadbaiduImge(@Query("data") String data, @Part MultipartBody.Part imgs);
+    /**
+     * 是否绑定监护人
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("old-man/has-guardian")
+    Observable<IsBindJianhurenData> ishasguardian(@FieldMap Map<String, Object> params);
 }

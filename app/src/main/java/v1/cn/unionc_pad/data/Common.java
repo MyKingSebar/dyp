@@ -20,6 +20,8 @@ public class Common {
 
     public static final String PUSH_ACTIVITY_LOCAL = "pushactivitylocal";
     public static final String USER_TOKEN = "userToken";
+    public static final String USER_ID = "userId";
+    public static final String RONG_TOKEN = "rongToken";
     public static final String TIM_SIG = "timSig";
     public static final String IDENTIFIER = "identifier";
     public static final String HEARTRATE = "HeartRate";
