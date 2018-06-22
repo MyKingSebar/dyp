@@ -60,6 +60,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     compile project(':IMKit')
     compile project(':CallKit')
+//    compile project(':facesdk')
     implementation project(':CallLib')
     implementation project(':IMLib')
     compile 'com.android.support:multidex:1.0.1'

@@ -2,13 +2,10 @@ package v1.cn.unionc_pad.ui;
 
 import android.Manifest;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,14 +19,11 @@ import android.widget.TextView;
 import com.baidu.idl.face.example.Config;
 import com.baidu.idl.face.example.ExampleApplication;
 import com.baidu.idl.face.example.FaceDetectExpActivity;
-import com.baidu.idl.face.example.FaceLivenessExpActivity;
 import com.baidu.idl.face.platform.FaceConfig;
 import com.baidu.idl.face.platform.FaceEnvironment;
 import com.baidu.idl.face.platform.FaceSDKManager;
 import com.baidu.idl.face.platform.LivenessTypeEnum;
 import com.squareup.otto.Subscribe;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,7 +31,6 @@ import butterknife.OnClick;
 import v1.cn.unionc_pad.BusProvider;
 import v1.cn.unionc_pad.PadTest;
 import v1.cn.unionc_pad.R;
-import v1.cn.unionc_pad.Rong.Test;
 import v1.cn.unionc_pad.data.Common;
 import v1.cn.unionc_pad.data.SPUtil;
 import v1.cn.unionc_pad.model.GetGuardianshipInfoData;
@@ -49,6 +42,15 @@ import v1.cn.unionc_pad.network_frame.ConnectHttp;
 import v1.cn.unionc_pad.network_frame.UnionAPIPackage;
 import v1.cn.unionc_pad.network_frame.core.BaseObserver;
 import v1.cn.unionc_pad.ui.base.BaseActivity;
+
+//import com.baidu.idl.face.example.Config;
+//import com.baidu.idl.face.example.ExampleApplication;
+//import com.baidu.idl.face.example.FaceDetectExpActivity;
+//import com.baidu.idl.face.example.FaceLivenessExpActivity;
+//import com.baidu.idl.face.platform.FaceConfig;
+//import com.baidu.idl.face.platform.FaceEnvironment;
+//import com.baidu.idl.face.platform.FaceSDKManager;
+//import com.baidu.idl.face.platform.LivenessTypeEnum;
 
 public class Main2 extends BaseActivity {
     @BindView(R.id.tv_login)
@@ -113,6 +115,7 @@ public class Main2 extends BaseActivity {
                 } else {
                     showTost("请先登陆");
                     goNewActivity(FaceDetectExpActivity.class);
+//                    goNewActivity(DetectActivity.class);
                 }
                 break;
             case R.id.tv_login:

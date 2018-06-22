@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/faceplatform-release/faceplatform-release.iml" filepath="$PROJECT_DIR$/faceplatform-release/faceplatform-release.iml" />
       <module fileurl="file://$PROJECT_DIR$/faceplatform-ui/faceplatform-ui.iml" filepath="$PROJECT_DIR$/faceplatform-ui/faceplatform-ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/facesdk/facesdk.iml" filepath="$PROJECT_DIR$/facesdk/facesdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/v1.cn.unionc_pad.iml" filepath="$PROJECT_DIR$/v1.cn.unionc_pad.iml" />
     </modules>
   </component>
