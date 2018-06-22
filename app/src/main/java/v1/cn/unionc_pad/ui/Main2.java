@@ -146,7 +146,8 @@ public class Main2 extends BaseActivity {
 
                 break;
             case R.id.tv_bind:
-                goNewActivity(BindActivity.class);
+//                goNewActivity(BindActivity.class);
+                twocode();
                 break;
         }
     }
@@ -242,6 +243,34 @@ public class Main2 extends BaseActivity {
                                 goNewActivity(PrepareCallActivity.class);
                             }else{
                                 showTost("请先绑定监护人");
+                                goNewActivity(BindActivity.class);
+                            }
+
+
+
+                        } else {
+                            showTost(data.getMessage() + "");
+                        }
+                    }
+
+                    @Override
+                    public void onFail(Throwable e) {
+                        closeDialog();
+                    }
+                });
+
+    }
+    private void twocode() {
+        String Token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
+        ConnectHttp.connect(UnionAPIPackage.ishasguardian(Token),
+                new BaseObserver<IsBindJianhurenData>(context) {
+                    @Override
+                    public void onResponse(IsBindJianhurenData data) {
+                        closeDialog();
+                        if (TextUtils.equals("4000", data.getCode())) {
+                            if(TextUtils.equals(data.getData().getHasGuardian(),"1")){
+                                showTost("您已绑定监护人");
+                            }else{
                                 goNewActivity(BindActivity.class);
                             }
 

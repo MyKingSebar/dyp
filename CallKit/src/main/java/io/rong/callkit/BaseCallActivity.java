@@ -218,7 +218,6 @@ public class BaseCallActivity extends BaseNoActionBarActivity implements IRongCa
             }
         } catch (IOException e) {
             e.printStackTrace();
-            Log.e("linshi",e.getMessage());
         }catch (IllegalStateException  e1){
             Log.i("bugtags","---IllegalStateException---");
         }

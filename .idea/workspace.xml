@@ -11,72 +11,12 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="linshi" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3737f9c2-4d21-49d0-8a56-67bdb3d3b4f7" name="Default" comment="初步demo">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/idl-license.face-android" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/baidu/idl/face/example/Config.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/baidu/idl/face/example/ExampleApplication.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/baidu/idl/face/example/MainActivity.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/baidu/idl/face/example/SettingsActivity.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/BusProvider.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/model/LogInEventData.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/model/UpdateBaiduFileData.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/color/text_color_selector1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_round_btn_item.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_round_btn_item_main.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_round_input_item.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_main.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/widget_face_dialog.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-release/build.gradle" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-release/faceplatform-release.aar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/.gitignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/build.gradle" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/libs/ast.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/proguard-rules.pro" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/AndroidManifest.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/java/com/baidu/idl/face/platform/ui/FaceDetectActivity.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/java/com/baidu/idl/face/platform/ui/FaceLivenessActivity.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/java/com/baidu/idl/face/platform/ui/FaceSDKResSettings.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/java/com/baidu/idl/face/platform/ui/utils/CameraUtils.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/java/com/baidu/idl/face/platform/ui/utils/VolumeUtils.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/java/com/baidu/idl/face/platform/ui/widget/FaceDetectRoundView.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/java/v1/cn/unionc_pad/utils/BitmapFileSetting.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/jniLibs/arm64-v8a/libFaceSDK.so" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/jniLibs/arm64-v8a/libidl_license.so" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/jniLibs/armeabi-v7a/libFaceSDK.so" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/jniLibs/armeabi-v7a/libidl_license.so" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/jniLibs/x86/libFaceSDK.so" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/jniLibs/x86/libidl_license.so" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/drawable/bg_tips.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/drawable/bg_tips_no.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/layout/activity_face_detect.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/layout/activity_face_detect_v3100.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/layout/activity_face_detect_v31002.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/layout/activity_face_liveness.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/layout/activity_face_liveness_v3100.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/mipmap-xhdpi/bg_face_round.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/mipmap-xhdpi/ic_close.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/mipmap-xhdpi/ic_disable_sound.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/mipmap-xhdpi/ic_enable_sound.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/mipmap-xxhdpi/ic_close_ext.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/mipmap-xxhdpi/ic_disable_sound_ext.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/mipmap-xxhdpi/ic_enable_sound_ext.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/mipmap-xxhdpi/ic_success.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/mipmap-xxhdpi/ic_warning.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/raw/detect_face_in.mp3" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/raw/face_good.mp3" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/raw/liveness_eye.mp3" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/raw/liveness_head_down.mp3" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/raw/liveness_head_left.mp3" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/raw/liveness_head_left_right.mp3" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/raw/liveness_head_right.mp3" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/raw/liveness_head_up.mp3" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/raw/liveness_mouth.mp3" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/faceplatform-ui/src/main/res/values/strings.xml" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" />
@@ -84,88 +24,17 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/CallKit/CallKit.iml" afterPath="$PROJECT_DIR$/CallKit/CallKit.iml" />
-      <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/classes/debug/io/rong/callkit/BaseCallActivity$2.class" afterPath="$PROJECT_DIR$/CallKit/build/intermediates/classes/debug/io/rong/callkit/BaseCallActivity$2.class" />
       <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/classes/debug/io/rong/callkit/BaseCallActivity$3.class" afterPath="$PROJECT_DIR$/CallKit/build/intermediates/classes/debug/io/rong/callkit/BaseCallActivity$3.class" />
       <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/classes/debug/io/rong/callkit/BaseCallActivity$UpdateTimeRunnable.class" afterPath="$PROJECT_DIR$/CallKit/build/intermediates/classes/debug/io/rong/callkit/BaseCallActivity$UpdateTimeRunnable.class" />
       <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/classes/debug/io/rong/callkit/BaseCallActivity.class" afterPath="$PROJECT_DIR$/CallKit/build/intermediates/classes/debug/io/rong/callkit/BaseCallActivity.class" />
-      <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/extractedTypedefs/debug/typedefs.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/incremental/debug-mergeJavaRes/merge-state" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/CallKit/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" />
       <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/intermediate-jars/debug/classes.jar" afterPath="$PROJECT_DIR$/CallKit/build/intermediates/intermediate-jars/debug/classes.jar" />
-      <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/packaged-classes/debug/classes.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/transforms/mergeJavaRes/debug/0.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/transforms/mergeJavaRes/debug/__content__.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallKit/build/outputs/aar/CallKit-debug.aar" afterPath="" />
       <change beforePath="$PROJECT_DIR$/CallKit/src/main/java/io/rong/callkit/BaseCallActivity.java" afterPath="$PROJECT_DIR$/CallKit/src/main/java/io/rong/callkit/BaseCallActivity.java" />
-      <change beforePath="$PROJECT_DIR$/CallLib/CallLib.iml" afterPath="$PROJECT_DIR$/CallLib/CallLib.iml" />
-      <change beforePath="$PROJECT_DIR$/CallLib/build/intermediates/extractedTypedefs/debug/typedefs.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallLib/build/intermediates/incremental/debug-mergeJavaRes/merge-state" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallLib/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/CallLib/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" />
-      <change beforePath="$PROJECT_DIR$/CallLib/build/intermediates/library_and_local_jars_jni/debug/arm64-v8a/lib_blink_so.so" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallLib/build/intermediates/library_and_local_jars_jni/debug/arm64-v8a/libgojni.so" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallLib/build/intermediates/library_and_local_jars_jni/debug/armeabi-v7a/lib_blink_so.so" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallLib/build/intermediates/library_and_local_jars_jni/debug/armeabi-v7a/libgojni.so" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallLib/build/intermediates/packaged-classes/debug/classes.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallLib/build/intermediates/packaged-classes/debug/libs/CallEngine_Blink.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallLib/build/intermediates/packaged-classes/debug/libs/Rong_CallLib.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallLib/build/intermediates/packaged-classes/debug/libs/bailingquic-sources.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallLib/build/intermediates/packaged-classes/debug/libs/blink-engine-api_1.5.3.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallLib/build/intermediates/packaged-classes/debug/libs/blink_quic.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallLib/build/intermediates/transforms/mergeJavaRes/debug/0.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallLib/build/intermediates/transforms/mergeJavaRes/debug/__content__.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallLib/build/outputs/aar/CallLib-debug.aar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMKit/IMKit.iml" afterPath="$PROJECT_DIR$/IMKit/IMKit.iml" />
-      <change beforePath="$PROJECT_DIR$/IMKit/build/intermediates/extractedTypedefs/debug/typedefs.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMKit/build/intermediates/incremental/debug-mergeJavaRes/merge-state" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMKit/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/IMKit/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" />
-      <change beforePath="$PROJECT_DIR$/IMKit/build/intermediates/packaged-classes/debug/classes.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMKit/build/intermediates/packaged-classes/debug/libs/Rong_IMKit.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMKit/build/intermediates/transforms/mergeJavaRes/debug/0.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMKit/build/intermediates/transforms/mergeJavaRes/debug/__content__.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMKit/build/outputs/aar/IMKit-debug.aar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMLib/IMLib.iml" afterPath="$PROJECT_DIR$/IMLib/IMLib.iml" />
-      <change beforePath="$PROJECT_DIR$/IMLib/build/intermediates/extractedTypedefs/debug/typedefs.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMLib/build/intermediates/incremental/debug-mergeJavaRes/merge-state" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMLib/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/IMLib/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" />
-      <change beforePath="$PROJECT_DIR$/IMLib/build/intermediates/library_and_local_jars_jni/debug/arm64-v8a/libRongIMLib.so" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMLib/build/intermediates/library_and_local_jars_jni/debug/armeabi-v7a/libRongIMLib.so" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMLib/build/intermediates/library_and_local_jars_jni/debug/armeabi/libRongIMLib.so" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMLib/build/intermediates/library_and_local_jars_jni/debug/x86/libRongIMLib.so" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMLib/build/intermediates/packaged-classes/debug/classes.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMLib/build/intermediates/packaged-classes/debug/libs/Rong_IMLib.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMLib/build/intermediates/transforms/mergeJavaRes/debug/0.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMLib/build/intermediates/transforms/mergeJavaRes/debug/__content__.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMLib/build/outputs/aar/IMLib-debug.aar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/PadTest.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/PadTest.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/UnioncApp.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/UnioncApp.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/data/Common.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/data/Common.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnionAPI.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnionAPI.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnionAPIPackage.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnionAPIPackage.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnioncURL.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnioncURL.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/BindActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/BindActivity.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main2.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main2.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/PrepareCallActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/PrepareCallActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/StartActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/StartActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/base/BaseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/base/BaseActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_prepare_call.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_prepare_call.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/pad_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/pad_main.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -202,8 +71,8 @@
       <file leaf-file-name="PrepareCallActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/PrepareCallActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
+            <state relative-caret-position="282">
+              <caret line="82" column="8" lean-forward="false" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="37" />
               <folding>
                 <element signature="e#3621#4470#0" expanded="true" />
                 <element signature="e#4469#4470#0" expanded="true" />
@@ -215,13 +84,15 @@
       <file leaf-file-name="Main2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14">
-              <caret line="225" column="29" lean-forward="false" selection-start-line="225" selection-start-column="29" selection-end-line="225" selection-end-column="29" />
+            <state relative-caret-position="380">
+              <caret line="289" column="5" lean-forward="false" selection-start-line="262" selection-start-column="4" selection-end-line="289" selection-end-column="5" />
               <folding>
-                <element signature="e#7654#7655#0" expanded="true" />
-                <element signature="e#7715#7716#0" expanded="true" />
-                <element signature="e#9684#9685#0" expanded="true" />
-                <element signature="e#9745#9746#0" expanded="true" />
+                <element signature="e#7683#7684#0" expanded="true" />
+                <element signature="e#7744#7745#0" expanded="true" />
+                <element signature="e#9713#9714#0" expanded="true" />
+                <element signature="e#9774#9775#0" expanded="true" />
+                <element signature="e#10752#10753#0" expanded="true" />
+                <element signature="e#10813#10814#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -240,36 +111,26 @@
       <file leaf-file-name="BaseCallActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CallKit/src/main/java/io/rong/callkit/BaseCallActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1365">
-              <caret line="192" column="25" lean-forward="false" selection-start-line="192" selection-start-column="25" selection-end-line="192" selection-end-column="25" />
+            <state relative-caret-position="-48">
+              <caret line="644" column="0" lean-forward="false" selection-start-line="644" selection-start-column="0" selection-end-line="644" selection-end-column="0" />
               <folding>
                 <element signature="e#6184#6478#0" expanded="true" />
                 <element signature="e#6477#6478#0" expanded="true" />
-                <element signature="e#11186#11223#0" expanded="true" />
-                <element signature="e#11296#11333#0" expanded="true" />
-                <element signature="e#11439#11481#0" expanded="true" />
-                <element signature="e#11564#11599#0" expanded="true" />
-                <element signature="e#11679#11716#0" expanded="true" />
-                <element signature="e#11796#11833#0" expanded="true" />
-                <element signature="e#11918#11960#0" expanded="true" />
-                <element signature="e#12132#12176#0" expanded="true" />
-                <element signature="e#12268#12306#0" expanded="true" />
-                <element signature="e#14273#14309#0" expanded="true" />
-                <element signature="e#14400#14442#0" expanded="true" />
-                <element signature="e#14445#14487#0" expanded="true" />
-                <element signature="e#14664#14716#0" expanded="true" />
-                <element signature="e#21080#21132#0" expanded="true" />
+                <element signature="e#11142#11179#0" expanded="true" />
+                <element signature="e#11252#11289#0" expanded="true" />
+                <element signature="e#11395#11437#0" expanded="true" />
+                <element signature="e#11520#11555#0" expanded="true" />
+                <element signature="e#11635#11672#0" expanded="true" />
+                <element signature="e#11752#11789#0" expanded="true" />
+                <element signature="e#11874#11916#0" expanded="true" />
+                <element signature="e#12088#12132#0" expanded="true" />
+                <element signature="e#12224#12262#0" expanded="true" />
+                <element signature="e#14229#14265#0" expanded="true" />
+                <element signature="e#14356#14398#0" expanded="true" />
+                <element signature="e#14401#14443#0" expanded="true" />
+                <element signature="e#14620#14672#0" expanded="true" />
+                <element signature="e#21036#21088#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChrisActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/ChrisActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="73" column="18" lean-forward="false" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -310,9 +171,12 @@
       <file leaf-file-name="BindActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/BindActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="43" column="71" lean-forward="false" selection-start-line="43" selection-start-column="71" selection-end-line="43" selection-end-column="71" />
-              <folding />
+            <state relative-caret-position="323">
+              <caret line="108" column="61" lean-forward="true" selection-start-line="108" selection-start-column="61" selection-end-line="108" selection-end-column="61" />
+              <folding>
+                <element signature="e#1890#2322#0" expanded="true" />
+                <element signature="e#2321#2322#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -354,8 +218,8 @@
       <find>LAUNCHER</find>
       <find>android.intent.category.LAUNCHER</find>
       <find>mMediaPlayer</find>
-      <find>ishas</find>
       <find>try</find>
+      <find>ishas</find>
     </findStrings>
     <replaceStrings>
       <replace>android:screenOrientation=&quot;landscape&quot;</replace>
@@ -7053,7 +6917,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/data/Common.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/baidu/idl/face/example/FaceDetectExpActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_bind_linshi2.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/BindActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/model/IsBindJianhurenData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnionAPIPackage.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnionAPI.java" />
@@ -7061,10 +6924,11 @@
         <option value="$PROJECT_DIR$/CallKit/src/main/java/io/rong/callkit/SingleCallActivity.java" />
         <option value="$PROJECT_DIR$/CallKit/src/main/java/io/rong/callkit/MultiVideoCallActivity.java" />
         <option value="$PROJECT_DIR$/CallKit/src/main/java/io/rong/callkit/MultiAudioCallActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main2.java" />
-        <option value="$PROJECT_DIR$/CallKit/src/main/java/io/rong/callkit/BaseCallActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/PrepareCallActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_prepare_call.xml" />
+        <option value="$PROJECT_DIR$/CallKit/src/main/java/io/rong/callkit/BaseCallActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main2.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/BindActivity.java" />
       </list>
     </option>
   </component>
@@ -7399,7 +7263,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32867134" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32867134" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18041958" sideWeight="0.566838" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1944056" sideWeight="0.566838" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -7840,19 +7704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="225" column="29" lean-forward="false" selection-start-line="225" selection-start-column="29" selection-end-line="225" selection-end-column="29" />
-          <folding>
-            <element signature="e#7654#7655#0" expanded="true" />
-            <element signature="e#7715#7716#0" expanded="true" />
-            <element signature="e#9684#9685#0" expanded="true" />
-            <element signature="e#9745#9746#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CallKit/src/main/java/io/rong/callkit/SingleCallActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
@@ -7872,50 +7723,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/PrepareCallActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
-          <folding>
-            <element signature="e#3621#4470#0" expanded="true" />
-            <element signature="e#4469#4470#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/ChrisActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="73" column="18" lean-forward="false" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CallKit/src/main/java/io/rong/callkit/BaseCallActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="192" column="25" lean-forward="false" selection-start-line="192" selection-start-column="25" selection-end-line="192" selection-end-column="25" />
-          <folding>
-            <element signature="e#6184#6478#0" expanded="true" />
-            <element signature="e#6477#6478#0" expanded="true" />
-            <element signature="e#11186#11223#0" expanded="true" />
-            <element signature="e#11296#11333#0" expanded="true" />
-            <element signature="e#11439#11481#0" expanded="true" />
-            <element signature="e#11564#11599#0" expanded="true" />
-            <element signature="e#11679#11716#0" expanded="true" />
-            <element signature="e#11796#11833#0" expanded="true" />
-            <element signature="e#11918#11960#0" expanded="true" />
-            <element signature="e#12132#12176#0" expanded="true" />
-            <element signature="e#12268#12306#0" expanded="true" />
-            <element signature="e#14273#14309#0" expanded="true" />
-            <element signature="e#14400#14442#0" expanded="true" />
-            <element signature="e#14445#14487#0" expanded="true" />
-            <element signature="e#14664#14716#0" expanded="true" />
-            <element signature="e#21080#21132#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/baidu/idl/face/example/FaceDetectExpActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
@@ -7924,11 +7731,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/ChrisActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1007">
+          <caret line="73" column="18" lean-forward="false" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CallKit/src/main/java/io/rong/callkit/BaseCallActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-48">
+          <caret line="644" column="0" lean-forward="false" selection-start-line="644" selection-start-column="0" selection-end-line="644" selection-end-column="0" />
+          <folding>
+            <element signature="e#6184#6478#0" expanded="true" />
+            <element signature="e#6477#6478#0" expanded="true" />
+            <element signature="e#11142#11179#0" expanded="true" />
+            <element signature="e#11252#11289#0" expanded="true" />
+            <element signature="e#11395#11437#0" expanded="true" />
+            <element signature="e#11520#11555#0" expanded="true" />
+            <element signature="e#11635#11672#0" expanded="true" />
+            <element signature="e#11752#11789#0" expanded="true" />
+            <element signature="e#11874#11916#0" expanded="true" />
+            <element signature="e#12088#12132#0" expanded="true" />
+            <element signature="e#12224#12262#0" expanded="true" />
+            <element signature="e#14229#14265#0" expanded="true" />
+            <element signature="e#14356#14398#0" expanded="true" />
+            <element signature="e#14401#14443#0" expanded="true" />
+            <element signature="e#14620#14672#0" expanded="true" />
+            <element signature="e#21036#21088#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="289" column="5" lean-forward="false" selection-start-line="262" selection-start-column="4" selection-end-line="289" selection-end-column="5" />
+          <folding>
+            <element signature="e#7683#7684#0" expanded="true" />
+            <element signature="e#7744#7745#0" expanded="true" />
+            <element signature="e#9713#9714#0" expanded="true" />
+            <element signature="e#9774#9775#0" expanded="true" />
+            <element signature="e#10752#10753#0" expanded="true" />
+            <element signature="e#10813#10814#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/PrepareCallActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="82" column="8" lean-forward="false" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="37" />
+          <folding>
+            <element signature="e#3621#4470#0" expanded="true" />
+            <element signature="e#4469#4470#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/BindActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="43" column="71" lean-forward="false" selection-start-line="43" selection-start-column="71" selection-end-line="43" selection-end-column="71" />
-          <folding />
+        <state relative-caret-position="323">
+          <caret line="108" column="61" lean-forward="true" selection-start-line="108" selection-start-column="61" selection-end-line="108" selection-end-column="61" />
+          <folding>
+            <element signature="e#1890#2322#0" expanded="true" />
+            <element signature="e#2321#2322#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
