@@ -35,6 +35,7 @@ import v1.cn.unionc_pad.model.LoginData;
 import v1.cn.unionc_pad.model.MapClinicData;
 import v1.cn.unionc_pad.model.MeWatchingDoctorListData;
 import v1.cn.unionc_pad.model.MeWatchingHospitalListData;
+import v1.cn.unionc_pad.model.MeguardianshipData;
 import v1.cn.unionc_pad.model.MyDutyDoctorsData;
 import v1.cn.unionc_pad.model.MyRecommenDoctorsData;
 import v1.cn.unionc_pad.model.OMLHistoryData;
@@ -563,4 +564,14 @@ public interface UnionAPI {
     @FormUrlEncoded
     @POST("old-man/has-guardian")
     Observable<IsBindJianhurenData> ishasguardian(@FieldMap Map<String, Object> params);
+
+    /**
+     *获取亲情监护列表
+     *
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("old-man/guardians")
+    Observable<MeguardianshipData> GetGuardianshipListInfo(@FieldMap Map<String, Object> params);
 }

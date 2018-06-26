@@ -20,6 +20,7 @@ import v1.cn.unionc_pad.R;
 import v1.cn.unionc_pad.data.Common;
 import v1.cn.unionc_pad.data.SPUtil;
 import v1.cn.unionc_pad.model.IsBindJianhurenData;
+import v1.cn.unionc_pad.model.MeguardianshipData;
 import v1.cn.unionc_pad.network_frame.ConnectHttp;
 import v1.cn.unionc_pad.network_frame.UnionAPIPackage;
 import v1.cn.unionc_pad.network_frame.core.BaseObserver;
@@ -97,7 +98,7 @@ init();
                         closeDialog();
                         if (TextUtils.equals("4000", data.getCode())) {
                             if(TextUtils.equals(data.getData().getHasGuardian(),"1")){
-                                showTost("您已绑定监护人");
+                                showTost("您已绑定监护人:"+data.getData().getGuardian().getGuardianName());
                                 finish();
                             }else{
                                 handler.sendEmptyMessageDelayed(4000, 1000);
@@ -119,4 +120,40 @@ init();
                 });
 
     }
+//    private void twocode2() {
+//        String Token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
+//        ConnectHttp.connect(UnionAPIPackage.GetGuardianshipListInfo(Token),
+//                new BaseObserver<MeguardianshipData>(context) {
+//                    @Override
+//                    public void onResponse(MeguardianshipData data) {
+//                        closeDialog();
+//                        if (TextUtils.equals("4000", data.getCode())) {
+//                            if(TextUtils.equals(data.getData().getHasGuardian(),"1")){
+//                                if(data.getData().getGuardian().size()>0){
+//
+//                                    showTost("您已绑定监护人："+data.getData().getGuardian().get(0).getGuardianName());
+//                                }else{
+//                                    showTost("您已绑定监护人");
+//                                }
+//                                finish();
+//                            }else{
+//                                handler.sendEmptyMessageDelayed(4000, 1000);
+//                            }
+//
+//
+//
+//                        } else {
+//                            showTost(data.getMessage() + "");
+//                            handler.sendEmptyMessageDelayed(4000, 1000);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFail(Throwable e) {
+//                        closeDialog();
+//                        handler.sendEmptyMessageDelayed(4000, 1000);
+//                    }
+//                });
+//
+//    }
 }
