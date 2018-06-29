@@ -16,20 +16,98 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3737f9c2-4d21-49d0-8a56-67bdb3d3b4f7" name="Default" comment="初步demo">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/model/MeguardianshipData.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/arm64-v8a/libneliveplayer.so" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/arm64-v8a/libnelpengine.so" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/arm64-v8a/libnelprender.so" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/armeabi-v7a/libneliveplayer.so" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/armeabi-v7a/libnelpengine.so" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/armeabi-v7a/libnelprender.so" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/armeabi/libneliveplayer.so" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/armeabi/libnelpengine.so" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/armeabi/libnelprender.so" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/barcodescanner-core-1.8.4.aar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/neliveplayer-1.8.0.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/tbs_sdk_thirdapp_v3.6.0.1183_43604_sharewithdownload_withoutGame_obfs_20180211_105126.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/x86/libneliveplayer.so" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/x86/libnelpengine.so" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/x86/libnelprender.so" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/activity/NEMainActivity.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/activity/NEQRCodeScanActivity.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/activity/NEVideoPlayerActivity.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/activity/NEWelcomeActivity.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/application/CrashApplication.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/application/CrashHandler.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/media/NEMeasureHelper.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/media/NEMediaController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/media/NERenderView.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/media/NESurfaceRenderView.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/media/NEVideoView.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/receiver/NEIncomingCallReceiver.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/receiver/NELivePlayerObserver.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/receiver/NELivePlayerReceiver.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/receiver/NEPhoneCallStateObserver.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/receiver/NEScreenStateObserver.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/receiver/Observer.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/receiver/ObserverUtils.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/services/NELivePlayerService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/util/HttpPostUtils.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/WebViewActivity.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/view/X5WebView.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/audio_remind.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/decode_type_selected.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/decode_type_unselected.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_background_black.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_background_gray.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_play_exit.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_start_play.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/media_type_selected.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/media_type_unselected.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/nemediacontroller_bg.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/nemediacontroller_mute01.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/nemediacontroller_mute02.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/nemediacontroller_pause.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/nemediacontroller_play.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/nemediacontroller_progressbar.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/nemediacontroller_progressbar_thumb.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/nemediacontroller_scale01.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/nemediacontroller_scale02.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/nemediacontroller_takesnap.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/progressbar_background.9.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/progressbar_buffered.9.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/progressbar_current.9.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/progressbar_thumb_normal.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/progressbar_track.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/progressbar_track_radius.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/qr_code.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/shape.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/welcome.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_player.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_qrcode.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_search_x5_web_view.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/demo_activity_main.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/demo_activity_welcome.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/mediacontroller.xml" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/model/IsBindJianhurenData.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/model/IsBindJianhurenData.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnionAPI.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnionAPI.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnionAPIPackage.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnionAPIPackage.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/BindActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/BindActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main2.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main2.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,54 +141,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main2.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main2.java">
+      <file leaf-file-name="NEMainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/demo/activity/NEMainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-437">
-              <caret line="22" column="35" lean-forward="false" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+            <state relative-caret-position="1463">
+              <caret line="116" column="42" lean-forward="false" selection-start-line="116" selection-start-column="42" selection-end-line="116" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BindActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/BindActivity.java">
+      <file leaf-file-name="demo_activity_main.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/demo_activity_main.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="108" column="32" lean-forward="true" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
-              <folding>
-                <element signature="e#1940#2372#0" expanded="true" />
-                <element signature="e#2371#2372#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="3173">
+              <caret line="167" column="17" lean-forward="false" selection-start-line="167" selection-start-column="17" selection-end-line="167" selection-end-column="17" />
+              <folding />
             </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FaceDetectActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/faceplatform-ui/src/main/java/com/baidu/idl/face/platform/ui/FaceDetectActivity.java">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8721">
-              <caret line="516" column="30" lean-forward="false" selection-start-line="516" selection-start-column="30" selection-end-line="516" selection-end-column="30" />
+            <state relative-caret-position="8379">
+              <caret line="441" column="48" lean-forward="false" selection-start-line="441" selection-start-column="48" selection-end-line="441" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-manifest">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2166">
+              <caret line="114" column="47" lean-forward="false" selection-start-line="114" selection-start-column="47" selection-end-line="114" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BitmapFileSetting.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/faceplatform-ui/src/main/java/v1/cn/unionc_pad/utils/BitmapFileSetting.java">
+      <file leaf-file-name="WebViewActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/WebViewActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+            <state relative-caret-position="380">
+              <caret line="32" column="56" lean-forward="true" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UnioncApp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/UnioncApp.java">
+      <file leaf-file-name="X5WebView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/view/X5WebView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="20" column="51" lean-forward="false" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
+            <state relative-caret-position="0">
+              <caret line="0" column="8" lean-forward="false" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NEMediaController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/demo/media/NEMediaController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2432">
+              <caret line="168" column="53" lean-forward="false" selection-start-line="168" selection-start-column="53" selection-end-line="168" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -118,11 +219,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <file leaf-file-name="NEVideoPlayerActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/demo/activity/NEVideoPlayerActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1178">
-              <caret line="62" column="33" lean-forward="false" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
+            <state relative-caret-position="2926">
+              <caret line="178" column="30" lean-forward="false" selection-start-line="178" selection-start-column="30" selection-end-line="178" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NEWelcomeActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/demo/activity/NEWelcomeActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="16" column="56" lean-forward="false" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -139,7 +250,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>android:screenOrientation=&quot;portrait&quot;</find>
       <find>R.lyout</find>
       <find>R.layout.</find>
       <find>mUserInfoContainer</find>
@@ -169,6 +279,7 @@
       <find>initLib</find>
       <find>bmp</find>
       <find>old-man/guardians</find>
+      <find>main</find>
     </findStrings>
     <replaceStrings>
       <replace>android:screenOrientation=&quot;landscape&quot;</replace>
@@ -7687,19 +7798,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/CaptureActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_bind_linshi.xml" />
-        <option value="$PROJECT_DIR$/CallKit/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/include_toolbar.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/ChrisActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/surfaceview_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/pad_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnioncURL.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/PadTest.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/src/main/java/example/ExampleApplication.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/baidu/idl/face/example/ExampleApplication.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/baidu/idl/face/example/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/baidu/idl/face/example/FaceLivenessExpActivity.java" />
@@ -7724,20 +7824,31 @@
         <option value="$PROJECT_DIR$/app/src/main/java/fl/model/Frame.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/baidu/api/fl/model/Frame.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/baidu/aip/fl/model/Frame.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/settings.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/baidu/aip/fl/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/utils/BitmapFileSetting.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/baidu/aip/fl/DetectActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/UnioncApp.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main2.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/model/MeguardianshipData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnionAPI.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnionAPIPackage.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/model/IsBindJianhurenData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/BindActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_player.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/media/NEVideoView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main2.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/activity/NEMainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/activity/NEVideoPlayerActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/activity/NEWelcomeActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/demo/media/NEMediaController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/demo_activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/view/X5WebView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search_x5_web_view.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/WebViewActivity.java" />
       </list>
     </option>
   </component>
@@ -7765,10 +7876,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -7809,25 +7918,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="baidu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="v1" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -7850,30 +7940,6 @@
               <item name="v1" type="462c0819:PsiDirectoryNode" />
               <item name="cn" type="462c0819:PsiDirectoryNode" />
               <item name="unionc_pad" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="v1" type="462c0819:PsiDirectoryNode" />
-              <item name="cn" type="462c0819:PsiDirectoryNode" />
-              <item name="unionc_pad" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="v1" type="462c0819:PsiDirectoryNode" />
-              <item name="cn" type="462c0819:PsiDirectoryNode" />
-              <item name="unionc_pad" type="462c0819:PsiDirectoryNode" />
-              <item name="network_frame" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
@@ -7890,174 +7956,38 @@
             <path>
               <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
               <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="faceplatform-ui" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="faceplatform-ui" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="faceplatform-ui" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="faceplatform-ui" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="faceplatform-ui" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="faceplatform-ui" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="baidu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="faceplatform-ui" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="baidu" type="462c0819:PsiDirectoryNode" />
-              <item name="idl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="faceplatform-ui" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="baidu" type="462c0819:PsiDirectoryNode" />
-              <item name="idl" type="462c0819:PsiDirectoryNode" />
-              <item name="face" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="faceplatform-ui" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="baidu" type="462c0819:PsiDirectoryNode" />
-              <item name="idl" type="462c0819:PsiDirectoryNode" />
-              <item name="face" type="462c0819:PsiDirectoryNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="faceplatform-ui" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="baidu" type="462c0819:PsiDirectoryNode" />
-              <item name="idl" type="462c0819:PsiDirectoryNode" />
-              <item name="face" type="462c0819:PsiDirectoryNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="faceplatform-ui" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="baidu" type="462c0819:PsiDirectoryNode" />
-              <item name="idl" type="462c0819:PsiDirectoryNode" />
-              <item name="face" type="462c0819:PsiDirectoryNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="faceplatform-ui" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="baidu" type="462c0819:PsiDirectoryNode" />
-              <item name="idl" type="462c0819:PsiDirectoryNode" />
-              <item name="face" type="462c0819:PsiDirectoryNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="faceplatform-ui" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="v1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="faceplatform-ui" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="v1" type="462c0819:PsiDirectoryNode" />
-              <item name="cn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
-              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="faceplatform-ui" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="v1" type="462c0819:PsiDirectoryNode" />
               <item name="cn" type="462c0819:PsiDirectoryNode" />
               <item name="unionc_pad" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
               <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="faceplatform-ui" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="v1" type="462c0819:PsiDirectoryNode" />
-              <item name="cn" type="462c0819:PsiDirectoryNode" />
-              <item name="unionc_pad" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v1.cn.unionc_pad" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v1.cn.unionc_pad" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -8076,23 +8006,24 @@
     <property name="android.profiler.active" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\work\gitlab\pad\v1.cn.unionc_pad\app\src\main\res\layout" />
+      <recent name="E:\work\gitlab\pad\v1.cn.unionc_pad\app\libs" />
+      <recent name="E:\work\gitlab\pad\v1.cn.unionc_pad\app\src\main\res\drawable" />
+      <recent name="E:\work\gitlab\pad\v1.cn.unionc_pad\app\src\main\java\v1\cn" />
+      <recent name="E:\work\gitlab\pad\v1.cn.unionc_pad\app\src\main\res\values" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="v1.cn.unionc_pad.view" />
+      <recent name="v1.cn.unionc_pad.ui" />
+      <recent name="v1.cn.unionc_pad.model" />
+      <recent name="v1.cn.unionc_pad.utils" />
+      <recent name="v1.cn.unionc_pad" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\work\gitlab\pad\v1.cn.unionc_pad\CallKit\src\main\java\io\rong\callkit" />
       <recent name="E:\work\gitlab\pad\v1.cn.unionc_pad\app\src\main\res\drawable" />
       <recent name="E:\work\gitlab\pad\v1.cn.unionc_pad\app\src\main\res\drawable-xhdpi" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="v1.cn.unionc_pad.model" />
-      <recent name="v1.cn.unionc_pad.utils" />
-      <recent name="v1.cn.unionc_pad" />
-      <recent name="v1.cn.unionc_pad.ui" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\work\gitlab\pad\v1.cn.unionc_pad\app\src\main\res\values" />
-      <recent name="E:\work\gitlab\pad\v1.cn.unionc_pad\app\src\main\res" />
-      <recent name="E:\work\gitlab\pad\v1.cn.unionc_pad\app\src\main\res\layout" />
-      <recent name="E:\work\gitlab\pad\v1.cn.unionc_pad" />
-      <recent name="E:\work\gitlab\pad\v1.cn.unionc_pad\app\src\main\java" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -8297,30 +8228,30 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32867134" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32867134" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32867134" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28598973" sideWeight="0.50735295" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53706294" sideWeight="0.43316194" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32867134" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32867134" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18321678" sideWeight="0.566838" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24935733" sideWeight="0.49264705" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10489511" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24475524" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14652957" sideWeight="0.49264705" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23496504" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -8328,6 +8259,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24475524" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -8376,123 +8308,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/windo">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CallKit/src/main/java/io/rong/callkit/MultiVideoCallActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="283" column="32" lean-forward="true" selection-start-line="283" selection-start-column="32" selection-end-line="283" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CallKit/src/main/java/io/rong/callkit/MultiAudioCallActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="277" column="32" lean-forward="true" selection-start-line="277" selection-start-column="32" selection-end-line="277" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CallKit/src/main/java/io/rong/callkit/SingleCallActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="343" column="35" lean-forward="false" selection-start-line="343" selection-start-column="35" selection-end-line="343" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_prepare_call.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="13" column="20" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/baidu/idl/face/example/FaceDetectExpActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="112" column="26" lean-forward="false" selection-start-line="112" selection-start-column="26" selection-end-line="112" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/ChrisActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1007">
-          <caret line="73" column="18" lean-forward="false" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CallKit/src/main/java/io/rong/callkit/BaseCallActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-48">
-          <caret line="644" column="0" lean-forward="false" selection-start-line="644" selection-start-column="0" selection-end-line="644" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/PrepareCallActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="82" column="8" lean-forward="false" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="37" />
-          <folding>
-            <element signature="e#3621#4470#0" expanded="false" />
-            <element signature="e#4469#4470#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="32" column="31" lean-forward="false" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/baidu/aip/fl/model/RegResult.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/baidu/aip/fl/utils/LogUtil.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/baidu/aip/fl/utils/HttpUtil.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/baidu/aip/fl/APIService.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/baidu/aip/fl/model/DynamicParams.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/baidu/aip/fl/RecyAdapter.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/baidu/aip/fl/utils/FileUtil.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/baidu/aip/fl/utils/Util.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/baidu/aip/fl/model/ResponseResult.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/baidu/aip/fl/model/Frame.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="418" column="48" lean-forward="false" selection-start-line="418" selection-start-column="48" selection-end-line="418" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="33" column="57" lean-forward="false" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/baidu/aip/fl/AttrActivity.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_horizon.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -8538,7 +8353,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -8557,7 +8371,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="4" column="34" lean-forward="false" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -8565,7 +8378,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -8573,7 +8385,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -8588,7 +8399,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -8596,26 +8406,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/utils/BitmapFileSetting.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/baidu/aip/fl/DetectActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1178">
-          <caret line="62" column="33" lean-forward="false" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/UnioncApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="20" column="51" lean-forward="false" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -8624,7 +8425,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8721">
           <caret line="516" column="30" lean-forward="false" selection-start-line="516" selection-start-column="30" selection-end-line="516" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -8632,7 +8432,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
           <caret line="825" column="55" lean-forward="false" selection-start-line="825" selection-start-column="50" selection-end-line="825" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -8640,29 +8439,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="25" column="43" lean-forward="false" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
-          <folding>
-            <element signature="e#667#668#0" expanded="false" />
-            <element signature="e#725#726#0" expanded="false" />
-            <element signature="e#773#774#0" expanded="false" />
-            <element signature="e#815#816#0" expanded="false" />
-            <element signature="e#857#858#0" expanded="false" />
-            <element signature="e#915#916#0" expanded="false" />
-            <element signature="e#969#970#0" expanded="false" />
-            <element signature="e#1269#1270#0" expanded="false" />
-            <element signature="e#1321#1322#0" expanded="false" />
-            <element signature="e#1387#1388#0" expanded="false" />
-            <element signature="e#1448#1449#0" expanded="false" />
-            <element signature="e#1495#1496#0" expanded="false" />
-            <element signature="e#1546#1547#0" expanded="false" />
-            <element signature="e#1610#1611#0" expanded="false" />
-            <element signature="e#1669#1670#0" expanded="false" />
-            <element signature="e#1718#1719#0" expanded="false" />
-            <element signature="e#1771#1772#0" expanded="false" />
-            <element signature="e#1953#1954#0" expanded="false" />
-            <element signature="e#2008#2009#0" expanded="false" />
-            <element signature="e#2198#2199#0" expanded="false" />
-            <element signature="e#2253#2254#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -8670,15 +8446,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
           <caret line="565" column="44" lean-forward="false" selection-start-line="565" selection-start-column="36" selection-end-line="565" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-437">
-          <caret line="22" column="35" lean-forward="false" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -8686,23 +8453,235 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="51" column="28" lean-forward="false" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
-          <folding>
-            <element signature="e#885#886#0" expanded="false" />
-            <element signature="e#927#928#0" expanded="false" />
-            <element signature="e#1144#1145#0" expanded="false" />
-            <element signature="e#1183#1184#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/BindActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
-          <caret line="108" column="32" lean-forward="true" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
+          <caret line="108" column="32" lean-forward="false" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/demo/receiver/NEIncomingCallReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/demo/receiver/ObserverUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/demo/application/CrashApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/demo/util/HttpPostUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/demo/receiver/NELivePlayerReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/demo_activity_welcome.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/mediacontroller.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="134" column="4" lean-forward="false" selection-start-line="134" selection-start-column="4" selection-end-line="134" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_qrcode.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_player.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/demo/media/NEVideoView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="973" column="22" lean-forward="false" selection-start-line="973" selection-start-column="22" selection-end-line="973" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/pad_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="102" column="6" lean-forward="false" selection-start-line="102" selection-start-column="6" selection-end-line="102" selection-end-column="6" />
           <folding>
-            <element signature="e#1940#2372#0" expanded="true" />
-            <element signature="e#2371#2372#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/demo/activity/NEQRCodeScanActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/demo/activity/NEVideoPlayerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2926">
+          <caret line="178" column="30" lean-forward="false" selection-start-line="178" selection-start-column="30" selection-end-line="178" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/demo/activity/NEWelcomeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="16" column="56" lean-forward="false" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/demo/media/NEMediaController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2432">
+          <caret line="168" column="53" lean-forward="false" selection-start-line="168" selection-start-column="53" selection-end-line="168" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/demo_activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3173">
+          <caret line="167" column="17" lean-forward="false" selection-start-line="167" selection-start-column="17" selection-end-line="167" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8379">
+          <caret line="441" column="48" lean-forward="false" selection-start-line="441" selection-start-column="48" selection-end-line="441" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2166">
+          <caret line="114" column="47" lean-forward="false" selection-start-line="114" selection-start-column="47" selection-end-line="114" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/view/X5WebView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="8" lean-forward="false" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search_x5_web_view.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/demo/activity/NEMainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1463">
+          <caret line="116" column="42" lean-forward="false" selection-start-line="116" selection-start-column="42" selection-end-line="116" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/WebViewActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="32" column="56" lean-forward="true" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>

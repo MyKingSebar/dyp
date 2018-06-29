@@ -28,6 +28,7 @@ import com.squareup.otto.Subscribe;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import v1.cn.demo.activity.NEMainActivity;
 import v1.cn.unionc_pad.BusProvider;
 import v1.cn.unionc_pad.PadTest;
 import v1.cn.unionc_pad.R;
@@ -99,7 +100,8 @@ public class Main2 extends BaseActivity {
 
                 break;
             case R.id.bt2:
-
+//健康直播
+                goNewActivity(NEMainActivity.class);
                 break;
             case R.id.bt3:
 

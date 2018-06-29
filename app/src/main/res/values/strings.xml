@@ -32,4 +32,13 @@
     <string name="liveness_head_down">缓慢低头</string>
     <string name="liveness_good">非常好</string>
     <string name="track_tips">提示：仅实时检测画面内面积最大的人脸</string>
+
+
+    <string name="buffering">缓冲中</string>
+
+    <string name="mediacontroller_play_pause">Play/Pause</string>
+    <string name="_drawable_mediacontroller_mute02">\@drawable/mediacontroller_mute02</string>
+
+    <string name="player_option">播 放 选 项</string>
+
 </resources>
