@@ -2,19 +2,26 @@ package v1.cn.unionc_pad.ui;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.baidu.idl.face.example.Config;
 import com.baidu.idl.face.example.ExampleApplication;
@@ -23,26 +30,51 @@ import com.baidu.idl.face.platform.FaceConfig;
 import com.baidu.idl.face.platform.FaceEnvironment;
 import com.baidu.idl.face.platform.FaceSDKManager;
 import com.baidu.idl.face.platform.LivenessTypeEnum;
+import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
+import com.netease.neliveplayer.sdk.NEDynamicLoadingConfig;
+import com.netease.neliveplayer.sdk.NELivePlayer;
+import com.netease.neliveplayer.sdk.NESDKConfig;
 import com.squareup.otto.Subscribe;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.jpush.android.api.JPushInterface;
+import io.rong.callkit.RongCallKit;
 import v1.cn.demo.activity.NEMainActivity;
+import v1.cn.demo.activity.NEVideoPlayerActivity;
+import v1.cn.demo.receiver.NELivePlayerObserver;
+import v1.cn.demo.receiver.Observer;
+import v1.cn.demo.util.HttpPostUtils;
 import v1.cn.unionc_pad.BusProvider;
 import v1.cn.unionc_pad.PadTest;
 import v1.cn.unionc_pad.R;
 import v1.cn.unionc_pad.data.Common;
 import v1.cn.unionc_pad.data.SPUtil;
+import v1.cn.unionc_pad.model.DocOrNurseData;
 import v1.cn.unionc_pad.model.GetGuardianshipInfoData;
 import v1.cn.unionc_pad.model.GetRongTokenData;
 import v1.cn.unionc_pad.model.IsBindJianhurenData;
+import v1.cn.unionc_pad.model.JiGuangData;
 import v1.cn.unionc_pad.model.LogInEventData;
 import v1.cn.unionc_pad.model.LogInFailEventData;
+import v1.cn.unionc_pad.model.NetCouldPullData;
 import v1.cn.unionc_pad.network_frame.ConnectHttp;
 import v1.cn.unionc_pad.network_frame.UnionAPIPackage;
 import v1.cn.unionc_pad.network_frame.core.BaseObserver;
 import v1.cn.unionc_pad.ui.base.BaseActivity;
+import v1.cn.unionc_pad.utils.MacUtil;
+import v1.cn.unionc_pad.utils.jiguang.ExampleUtil;
+import v1.cn.unionc_pad.utils.jiguang.LocalBroadcastManager;
 
 //import com.baidu.idl.face.example.Config;
 //import com.baidu.idl.face.example.ExampleApplication;
@@ -54,10 +86,42 @@ import v1.cn.unionc_pad.ui.base.BaseActivity;
 //import com.baidu.idl.face.platform.LivenessTypeEnum;
 
 public class Main2 extends BaseActivity {
+    private String decodeType = "software";  //解码类型，默认软件解码
+    private String mediaType = "livestream"; //媒体类型，默认网络直播
+    Gson gson = new Gson();
+
+    private NESDKConfig config;
+
+
     @BindView(R.id.tv_login)
     TextView tvLogin;
     @BindView(R.id.tv_bind)
     TextView tv_bind;
+    @BindView(R.id.bt2)
+    ImageView bt2;
+
+    @BindView(R.id.re_bt1)
+    RelativeLayout re_bt1;
+    @BindView(R.id.re_bt3)
+    RelativeLayout re_bt3;
+    @BindView(R.id.bt3_bt)
+    RelativeLayout bt3_bt;
+    @BindView(R.id.bt1_bt)
+    RelativeLayout bt1_bt;
+    @BindView(R.id.im_img)
+    ImageView im_img;
+    @BindView(R.id.im_img3)
+    ImageView im_img3;
+    @BindView(R.id.tv_call)
+    TextView tv_call;
+    @BindView(R.id.tv_name)
+    TextView tv_name;
+    @BindView(R.id.tv_name3)
+    TextView tv_name3;
+    @BindView(R.id.tv_add)
+    TextView tv_add;
+    @BindView(R.id.tv_add3)
+    TextView tv_add3;
 
 
     @Override
@@ -65,6 +129,9 @@ public class Main2 extends BaseActivity {
         super.onCreate(savedInstanceState);
         BusProvider.getInstance().register(this);
         setContentView(R.layout.pad_main);
+        /**   6.0权限申请     **/
+        bPermission = checkPublishPermission();
+
         ButterKnife.bind(this);
 //        initData();
         if (isLogin()) {
@@ -74,6 +141,89 @@ public class Main2 extends BaseActivity {
         }
         initBaiDu();
         getAndroiodScreenProperty();
+        initlive();
+        initrecommenddoctor();
+        registerMessageReceiver();
+
+        String mac = MacUtil.getMac(this);
+        Log.d("linshi", "mac:" + mac);
+        if(isLogin()){
+
+            initDocOrNurse();
+            initlivelist();
+        }
+    }
+
+    private void initlivelist() {
+
+        String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
+        ConnectHttp.connect(UnionAPIPackage.getlivelist(token, "1", "20"), new BaseObserver<NetCouldPullData>(context) {
+            @Override
+            public void onResponse(NetCouldPullData data) {
+                if (data.getData().getLives().size() > 0) {
+                    Glide.with(context)
+                            .load(data.getData().getLives().get(0).getBanner())
+                            .placeholder(R.drawable.pad_main2).dontAnimate()
+                            .error(R.drawable.pad_main2)
+                            .into(bt2);
+                }
+
+            }
+
+            @Override
+            public void onFail(Throwable e) {
+                showTost("暂无直播");
+            }
+        });
+
+    }
+
+    private void initDocOrNurse() {
+
+        String Token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
+        ConnectHttp.connect(UnionAPIPackage.getdocornurse(Token),
+                new BaseObserver<DocOrNurseData>(context) {
+                    @Override
+                    public void onResponse(DocOrNurseData data) {
+                        closeDialog();
+                        if (TextUtils.equals("4000", data.getCode())) {
+                            if (TextUtils.equals(data.getData().getHasDoctor(),"1")) {
+                                Glide.with(context)
+                                        .load(data.getData().getDoctorMap().getDoctImagePath())
+                                        .placeholder(R.drawable.default_avatar).dontAnimate()
+                                        .error(R.drawable.default_avatar)
+                                        .into(im_img);
+                                tv_name.setText(data.getData().getDoctorMap().getDoctName());
+                                tv_add.setText(data.getData().getDoctorMap().getClinicName());
+                                bt1_bt.setVisibility(View.VISIBLE);
+                            }else{
+                                bt1_bt.setVisibility(View.GONE);
+                            }
+                            if (TextUtils.equals(data.getData().getHasNurse(),"1")) {
+                                Glide.with(context)
+                                        .load(data.getData().getDoctorMap().getDoctImagePath())
+                                        .placeholder(R.drawable.default_avatar).dontAnimate()
+                                        .error(R.drawable.default_avatar)
+                                        .into(im_img3);
+                                tv_name3.setText(data.getData().getDoctorMap().getDoctName());
+                                tv_add3.setText(data.getData().getDoctorMap().getClinicName());
+                                bt3_bt.setVisibility(View.VISIBLE);
+                            }else{
+                                bt3_bt.setVisibility(View.GONE);
+                            }
+
+
+                        } else {
+                            showTost(data.getMessage() + "");
+                        }
+                    }
+
+                    @Override
+                    public void onFail(Throwable e) {
+                        closeDialog();
+                    }
+                });
+
     }
 
     private void initBaiDu() {
@@ -93,21 +243,32 @@ public class Main2 extends BaseActivity {
         setFaceConfig();
     }
 
-    @OnClick({R.id.bt1, R.id.bt2, R.id.bt3, R.id.bt4, R.id.bt5, R.id.tv_login, R.id.tv_bind})
+    @OnClick({R.id.re_bt1, R.id.bt2, R.id.re_bt3, R.id.bt4, R.id.bt5, R.id.tv_login, R.id.tv_bind})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.bt1:
-
+            case R.id.re_bt1:
+                if (isLogin()) {
+                    RongCallKit.startSingleCall(Main2.this, "bfc37490f5b94604a4a78cfc7a34446b", RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
+                } else {
+                    showTost("请先登陆");
+                    goNewActivity(FaceDetectExpActivity.class);
+                }
                 break;
             case R.id.bt2:
-//健康直播
-                goNewActivity(NEMainActivity.class);
+                //健康直播
+//                goNewActivity(NEMainActivity.class);
+                initrecommenddoctor2();
                 break;
-            case R.id.bt3:
+            case R.id.re_bt3:
+
+                //一户上门
+                Intent intent = new Intent(Main2.this, WebViewActivity.class);
+                intent.putExtra("type", 1);
+                startActivity(intent);
 
                 break;
             case R.id.bt4:
-
+                goNewActivity(SuperviseActivity.class);
                 break;
             case R.id.bt5:
 //                getRongInfo();
@@ -236,6 +397,7 @@ public class Main2 extends BaseActivity {
                 });
 
     }
+
     private void ishasguardian() {
         String Token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
         ConnectHttp.connect(UnionAPIPackage.ishasguardian(Token),
@@ -244,13 +406,15 @@ public class Main2 extends BaseActivity {
                     public void onResponse(IsBindJianhurenData data) {
                         closeDialog();
                         if (TextUtils.equals("4000", data.getCode())) {
-                            if(TextUtils.equals(data.getData().getHasGuardian(),"1")){
+                            Log.d("linshi", "111");
+                            if (TextUtils.equals(data.getData().getHasGuardian(), "1")) {
+                                Log.d("linshi", "222");
                                 goNewActivity(PrepareCallActivity.class);
-                            }else{
+                            } else {
+                                Log.d("linshi", "333");
                                 showTost("请先绑定监护人");
                                 goNewActivity(BindActivity.class);
                             }
-
 
 
                         } else {
@@ -265,6 +429,7 @@ public class Main2 extends BaseActivity {
                 });
 
     }
+
     private void twocode() {
         String Token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
         ConnectHttp.connect(UnionAPIPackage.ishasguardian(Token),
@@ -273,12 +438,11 @@ public class Main2 extends BaseActivity {
                     public void onResponse(IsBindJianhurenData data) {
                         closeDialog();
                         if (TextUtils.equals("4000", data.getCode())) {
-                            if(TextUtils.equals(data.getData().getHasGuardian(),"1")){
+                            if (TextUtils.equals(data.getData().getHasGuardian(), "1")) {
                                 showTost("您已绑定监护人");
-                            }else{
+                            } else {
                                 goNewActivity(BindActivity.class);
                             }
-
 
 
                         } else {
@@ -382,6 +546,19 @@ public class Main2 extends BaseActivity {
         if (!flag) {
             requestPermissions(99, Manifest.permission.CAMERA);
         }
+
+        switch (requestCode) {
+            case WRITE_PERMISSION_REQ_CODE:
+                for (int ret : grantResults) {
+                    if (ret != PackageManager.PERMISSION_GRANTED) {
+                        return;
+                    }
+                }
+                bPermission = true;
+                break;
+            default:
+                break;
+        }
     }
 
     @Subscribe
@@ -403,6 +580,7 @@ public class Main2 extends BaseActivity {
         if (!TextUtils.equals(data.getHasGuardian(), "1")) {
             goNewActivity(BindActivity.class);
         }
+        initDocOrNurse();
 
     }
 
@@ -415,4 +593,250 @@ public class Main2 extends BaseActivity {
 //        int soundId=soundPool.load(context,R.raw.loginfail,1);//加载资源，得到soundId
 //        int streamId= soundPool.play(soundId, 1,1,1,0,1);//播放，得到StreamId
     }
+
+
+    /**
+     * 直播相关*******************************************************************************************************************************************************
+     */
+    void initlive() {
+        config = new NESDKConfig();
+        //动态加载
+        config.dynamicLoadingConfig = new NEDynamicLoadingConfig();
+        //是否开启动态加载功能，默认关闭
+//		config.dynamicLoadingConfig.isDynamicLoading = true;
+        config.dynamicLoadingConfig.isArmeabi = true;
+        config.dynamicLoadingConfig.onDynamicLoadingListener = mOnDynamicLoadingListener;
+        config.supportDecodeListener = mOnSupportDecodeListener;
+        //SDK将内部的网络请求以回调的方式开给上层，如果需要上层自己进行网络请求请实现config.dataUploadListener，如果上层不需要自己进行网络请求而是让SDK进行网络请求，这里就不需要操作config.dataUploadListener
+        config.dataUploadListener = mOnDataUploadListener;
+        NELivePlayer.init(this, config);
+        NELivePlayerObserver.getInstance().observeNELivePlayerObserver(observer, true);
+    }
+
+    /**
+     * 6.0权限处理
+     **/
+    private boolean bPermission = false;
+    private final int WRITE_PERMISSION_REQ_CODE = 100;
+
+    private boolean checkPublishPermission() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            List<String> permissions = new ArrayList<>();
+            if (PackageManager.PERMISSION_GRANTED != ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            }
+            if (PackageManager.PERMISSION_GRANTED != ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA)) {
+                permissions.add(Manifest.permission.CAMERA);
+            }
+            if (PackageManager.PERMISSION_GRANTED != ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)) {
+                permissions.add(Manifest.permission.READ_PHONE_STATE);
+            }
+            if (permissions.size() != 0) {
+                ActivityCompat.requestPermissions(this,
+                        (String[]) permissions.toArray(new String[0]),
+                        WRITE_PERMISSION_REQ_CODE);
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    private Observer<Void> observer = new Observer<Void>() {
+        @Override
+        public void onEvent(Void aVoid) {
+            //接收到播放器资源释放结束通知
+            Log.i("linshi", "onEvent -> NELivePlayer RELEASE SUCCESS!");
+        }
+    };
+
+    private NELivePlayer.OnDynamicLoadingListener mOnDynamicLoadingListener = new NELivePlayer.OnDynamicLoadingListener() {
+        @Override
+        public void onDynamicLoading(NEDynamicLoadingConfig.ArchitectureType type, boolean isCompleted) {
+            Log.d("linshi", "type:" + type + "，isCompleted:" + isCompleted);
+        }
+    };
+
+    private NELivePlayer.OnSupportDecodeListener mOnSupportDecodeListener = new NELivePlayer.OnSupportDecodeListener() {
+        @Override
+        public void onSupportDecode(boolean isSupport) {
+            Log.d("linshi", "是否支持H265硬件解码 onSupportDecode isSupport:" + isSupport);
+            //如果支持H265硬件解码，那么可以使用H265的视频源进行播放
+        }
+    };
+
+
+    private NELivePlayer.OnDataUploadListener mOnDataUploadListener = new NELivePlayer.OnDataUploadListener() {
+        @Override
+        public boolean onDataUpload(String url, String data) {
+            Log.d("linshi", "onDataUpload url:" + url + ", data:" + data);
+            sendData(url, data);
+            return true;
+        }
+
+        @Override
+        public boolean onDocumentUpload(String url, Map<String, String> params, Map<String, String> filepaths) {
+            Log.d("linshi", "onDataUpload url:" + url + ", params:" + params + ",filepaths:" + filepaths);
+            return (new HttpPostUtils(url, params, filepaths).connPost());
+        }
+    };
+
+    private boolean sendData(final String urlStr, final String content) {
+        int response = 0;
+        try {
+            URL url = new URL(urlStr);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setConnectTimeout(5000);
+            conn.setDoOutput(true);
+            conn.setDoInput(true);
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
+            OutputStream outputStream = conn.getOutputStream();
+            outputStream.write(content.getBytes());
+
+            response = conn.getResponseCode();
+            if (response == HttpURLConnection.HTTP_OK) {
+                Log.i("linshi", " sendData finished,data:" + content);
+
+            } else {
+                Log.i("linshi", " sendData, response: " + response);
+
+            }
+        } catch (IOException e) {
+            Log.e("linshi", "sendData, recv code is error: " + e.getMessage());
+
+        } catch (Exception e) {
+            Log.e("linshi", "sendData, recv code is error2: " + e.getMessage());
+
+        }
+        return (response == HttpURLConnection.HTTP_OK);
+    }
+
+    private void initrecommenddoctor() {
+//        String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
+//        ConnectHttp.connect(UnionAPIPackage.getlivelist(token,"1","20"), new BaseObserver<NetCouldPullData>(context) {
+//            @Override
+//            public void onResponse(NetCouldPullData data) {
+//                if(data.getData().getLives().size()>0){
+//                    Log.d("linshi","doctorsdata:"+data.getData().getLives().get(0).toString());
+//                    findDutyDoctorListAdapter.setData(data.getData().getLives());
+//                }else{
+//                    mainRecycleview.setVisibility(View.GONE);
+//                }
+//
+//            }
+//            @Override
+//            public void onFail(Throwable e) {
+//                mainRecycleview.setVisibility(View.GONE);
+//            }
+//        });
+    }
+
+    private void initrecommenddoctor2() {
+        String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
+        ConnectHttp.connect(UnionAPIPackage.getlivelist(token, "1", "20"), new BaseObserver<NetCouldPullData>(context) {
+            @Override
+            public void onResponse(NetCouldPullData data) {
+                if (data.getData().getLives().size() > 0) {
+                    Log.d("linshi", "doctorsdata:" + data.getData().getLives().get(0).toString());
+                    Intent intent = new Intent(Main2.this, NEVideoPlayerActivity.class);
+
+
+                    Log.d("linshi0", "url:" + data.getData().getLives().get(0).getHttpPullUrl());
+
+                    if (!bPermission) {
+                        Toast.makeText(getApplication(), "请先允许app所需要的权限", Toast.LENGTH_LONG).show();
+                        bPermission = checkPublishPermission();
+                        return;
+                    }
+                    if (config != null && config.dynamicLoadingConfig != null && config.dynamicLoadingConfig.isDynamicLoading && !NELivePlayer.isDynamicLoadReady()) {
+                        Toast.makeText(getApplication(), "请等待加载so文件", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    //把多个参数传给NEVideoPlayerActivity
+                    intent.putExtra("media_type", mediaType);
+                    intent.putExtra("decode_type", decodeType);
+                    intent.putExtra("videoPath", data.getData().getLives().get(0).getHttpPullUrl());
+                    startActivity(intent);
+                } else {
+                    showTost("暂无直播");
+                }
+
+            }
+
+            @Override
+            public void onFail(Throwable e) {
+                showTost("暂无直播");
+            }
+        });
+    }
+
+    /**
+     * 推送****************************************************************************************************************************************
+     */
+    //for receive customer msg from jpush server
+    private MessageReceiver mMessageReceiver;
+
+    public void registerMessageReceiver() {
+        mMessageReceiver = new MessageReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
+        filter.addAction(Common.MESSAGE_JGPUSH_PAD_ACTION);
+        LocalBroadcastManager.getInstance(context).registerReceiver(mMessageReceiver, filter);
+    }
+
+
+    public class MessageReceiver extends BroadcastReceiver {
+        //推送分类：1-活动，2-直播，3-医生，4-护士
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d("linshi", "action():" + intent.getAction());
+            if (Common.MESSAGE_JGPUSH_PAD_ACTION.equals(intent.getAction())) {
+                if (!isLogin()) {
+                    return;
+                }
+                String extras = intent.getStringExtra(JPushInterface.EXTRA_EXTRA);
+                StringBuilder showMsg = new StringBuilder();
+                if (!ExampleUtil.isEmpty(extras)) {
+                    Log.d("linshi", "extras():" + extras);
+                    JiGuangData child2 = gson.fromJson(extras, JiGuangData.class);
+                    if (TextUtils.equals("2", child2.getPushCategory())) {
+                        Glide.with(context)
+                                .load(child2.getBanner())
+                                .placeholder(R.drawable.pad_main2).dontAnimate()
+                                .error(R.drawable.pad_main2)
+                                .into(bt2);
+
+
+                    }else if (TextUtils.equals("3", child2.getPushCategory())) {
+                        Glide.with(context)
+                                .load(child2.getDoctImagePath())
+                                .placeholder(R.drawable.default_avatar).dontAnimate()
+                                .error(R.drawable.default_avatar)
+                                .into(im_img);
+                        tv_name.setText(child2.getDoctName());
+                        tv_add.setText(child2.getClinicName());
+bt1_bt.setVisibility(View.VISIBLE);
+
+                    }else if (TextUtils.equals("4", child2.getPushCategory())) {
+                        Glide.with(context)
+                                .load(child2.getDoctImagePath())
+                                .placeholder(R.drawable.default_avatar).dontAnimate()
+                                .error(R.drawable.default_avatar)
+                                .into(im_img3);
+                        tv_name3.setText(child2.getDoctName());
+                        tv_add3.setText(child2.getClinicName());
+
+                        bt3_bt.setVisibility(View.VISIBLE);
+                    }
+
+
+                }
+            }
+
+        }
+    }
+
+
 }

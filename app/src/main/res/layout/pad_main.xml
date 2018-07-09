@@ -41,15 +41,9 @@
             android:layout_height="305px"
             android:layout_marginTop="10px"
             android:gravity="center_horizontal">
+<include layout="@layout/btn1"/>
 
-            <Button
-                android:id="@+id/bt1"
-                android:layout_width="595px"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5px"
-                android:background="@drawable/pad_main1" />
-
-            <Button
+            <ImageView
                 android:id="@+id/bt2"
                 android:layout_width="595px"
                 android:layout_height="match_parent"
@@ -64,12 +58,7 @@
             android:layout_marginTop="10px"
             android:gravity="center_horizontal">
 
-            <Button
-                android:id="@+id/bt3"
-                android:layout_width="595px"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5px"
-                android:background="@drawable/pad_main3" />
+            <include layout="@layout/btn3"/>
 
             <Button
                 android:id="@+id/bt4"
@@ -83,9 +72,10 @@
 
     <Button
         android:id="@+id/bt5"
-        android:layout_width="275px"
-        android:layout_height="275px"
+        android:layout_width="295px"
+        android:layout_height="295px"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="257px"
+        android:theme="@style/RippleWhite"
         android:background="@drawable/pad_main5" />
 </FrameLayout>

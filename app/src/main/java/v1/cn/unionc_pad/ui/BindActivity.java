@@ -98,7 +98,7 @@ init();
                         closeDialog();
                         if (TextUtils.equals("4000", data.getCode())) {
                             if(TextUtils.equals(data.getData().getHasGuardian(),"1")){
-                                showTost("您已绑定监护人:"+data.getData().getGuardian().getGuardianName());
+                                showTost("您已绑定监护人:"+data.getData().getGuardian().get(0).getGuardianName());
                                 finish();
                             }else{
                                 handler.sendEmptyMessageDelayed(4000, 1000);

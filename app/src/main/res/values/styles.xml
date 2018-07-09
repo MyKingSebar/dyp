@@ -132,5 +132,7 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-
+    <style name="RippleWhite">
+        <item name="android:radius">25dp</item>
+    </style>
 </resources>

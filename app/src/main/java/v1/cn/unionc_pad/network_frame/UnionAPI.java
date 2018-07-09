@@ -15,6 +15,7 @@ import retrofit2.http.Query;
 import v1.cn.unionc_pad.model.BaseData;
 import v1.cn.unionc_pad.model.ClinicActivityData;
 import v1.cn.unionc_pad.model.ClinicInfoData;
+import v1.cn.unionc_pad.model.DocOrNurseData;
 import v1.cn.unionc_pad.model.DoctorAnswerDetailData;
 import v1.cn.unionc_pad.model.DoctorEvaluateData;
 import v1.cn.unionc_pad.model.DoctorInfoData;
@@ -38,6 +39,7 @@ import v1.cn.unionc_pad.model.MeWatchingHospitalListData;
 import v1.cn.unionc_pad.model.MeguardianshipData;
 import v1.cn.unionc_pad.model.MyDutyDoctorsData;
 import v1.cn.unionc_pad.model.MyRecommenDoctorsData;
+import v1.cn.unionc_pad.model.NetCouldPullData;
 import v1.cn.unionc_pad.model.OMLHistoryData;
 import v1.cn.unionc_pad.model.RecommendDoctorsData;
 import v1.cn.unionc_pad.model.TIMSigData;
@@ -574,4 +576,21 @@ public interface UnionAPI {
     @FormUrlEncoded
     @POST("old-man/guardians")
     Observable<MeguardianshipData> GetGuardianshipListInfo(@FieldMap Map<String, Object> params);
+
+    /**
+     * 获取直播列表
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("live/lives")
+    Observable<NetCouldPullData> getlivelist(@FieldMap Map<String, Object> params);
+    /**
+     * 查询医生/护士
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("old-man/old-man-assigned-doctor-nurse")
+    Observable<DocOrNurseData> getdocornurse(@FieldMap Map<String, Object> params);
 }

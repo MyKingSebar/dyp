@@ -11,6 +11,7 @@ import com.baidu.idl.face.platform.LivenessTypeEnum;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.jpush.android.api.JPushInterface;
 import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.Message;
@@ -36,14 +37,9 @@ public class UnioncApp extends MultiDexApplication {
         app = this;
 
 
-//        RongIM.init(this);
-        RongIM.init(this,"tdrvipkstxpf5");
-        RongIM.setOnReceiveMessageListener(new RongIMClient.OnReceiveMessageListener() {
-            @Override
-            public boolean onReceived(Message message, int i) {
-                return false;
-            }
-        });
+
+        initRongYun();
+        initJiGuang();
     }
 
     public static String getCurProcessName(Context context) {
@@ -73,5 +69,20 @@ public class UnioncApp extends MultiDexApplication {
         DisplayMetrics outMetrics = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(outMetrics);
         return outMetrics .widthPixels ;
+    }
+
+    private void initJiGuang() {
+        JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
+        JPushInterface.init(this);     		// 初始化 JPush
+    }
+    private void initRongYun() {
+        //        RongIM.init(this);
+        RongIM.init(this,"tdrvipkstxpf5");
+        RongIM.setOnReceiveMessageListener(new RongIMClient.OnReceiveMessageListener() {
+            @Override
+            public boolean onReceived(Message message, int i) {
+                return false;
+            }
+        });
     }
 }

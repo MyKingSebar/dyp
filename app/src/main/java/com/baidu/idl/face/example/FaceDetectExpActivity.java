@@ -16,6 +16,7 @@ import com.baidu.idl.face.platform.ui.FaceDetectActivity;
 import java.io.File;
 import java.util.HashMap;
 
+import cn.jpush.android.api.JPushInterface;
 import v1.cn.unionc_pad.BusProvider;
 import v1.cn.unionc_pad.PadTest;
 import v1.cn.unionc_pad.data.Common;
@@ -31,6 +32,7 @@ import v1.cn.unionc_pad.network_frame.UnionAPIPackage;
 import v1.cn.unionc_pad.network_frame.core.BaseObserver;
 import v1.cn.unionc_pad.ui.Main2;
 import v1.cn.unionc_pad.ui.PrepareCallActivity;
+import v1.cn.unionc_pad.utils.MacUtil;
 
 public class FaceDetectExpActivity extends FaceDetectActivity {
 Context context;
@@ -82,7 +84,7 @@ Context context;
     @Override
     public void getBaidu(File f) {
 
-        ConnectHttp.connect(UnionAPIPackage.uploadbaiduImge(f),
+        ConnectHttp.connect(UnionAPIPackage.uploadbaiduImge(f, MacUtil.getMac(this)),
                 new BaseObserver<UpdateBaiduFileData>(this) {
                     @Override
                     public void onResponse(UpdateBaiduFileData data) {
@@ -94,6 +96,7 @@ Context context;
                             SPUtil.put(context, Common.USER_TOKEN, (String) data.getData().getToken());
                             SPUtil.put(context, Common.RONG_TOKEN, (String) data.getData().getIMToken());
                             SPUtil.put(context, Common.USER_ID, (String) data.getData().getUserId());
+                            JPushInterface.setAlias(context,1,identifier);
                             LogInEventData eventData = new LogInEventData();
                             eventData.setHasGuardian(data.getData().getHasGuardian());
                             BusProvider.getInstance().post(eventData);

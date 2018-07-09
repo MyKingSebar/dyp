@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.netease.neliveplayer.sdk.NELivePlayer;
 import com.netease.neliveplayer.sdk.constant.NEBufferStrategy;
 
 import java.util.List;
@@ -115,6 +116,12 @@ public class NEVideoPlayerActivity extends Activity {
 		mMediaController = new NEMediaController(this);
 
 		mVideoView = (NEVideoView) findViewById(R.id.video_view);
+		mVideoView.setOnCompletionListener(new NELivePlayer.OnCompletionListener() {
+			@Override
+			public void onCompletion(NELivePlayer neLivePlayer) {
+				finish();
+			}
+		});
 
 		if (mMediaType.equals("livestream")) {
 			mVideoView.setBufferStrategy(NEBufferStrategy.NELPLOWDELAY); //直播低延时

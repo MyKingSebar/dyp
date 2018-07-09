@@ -1,5 +1,7 @@
 package v1.cn.unionc_pad.model;
 
+import java.util.List;
+
 /**
  * Created by qy on 2018/3/8.
  */
@@ -21,13 +23,13 @@ private DataData data;
      */
     public class DataData{
 private String hasGuardian;
-private datadatadata guardian;
+private List<datadatadata> guardian;
 
-        public datadatadata getGuardian() {
+        public List<datadatadata> getGuardian() {
             return guardian;
         }
 
-        public void setGuardian(datadatadata guardian) {
+        public void setGuardian(List<datadatadata> guardian) {
             this.guardian = guardian;
         }
 

@@ -16,6 +16,7 @@ import okhttp3.RequestBody;
 import v1.cn.unionc_pad.model.BaseData;
 import v1.cn.unionc_pad.model.ClinicActivityData;
 import v1.cn.unionc_pad.model.ClinicInfoData;
+import v1.cn.unionc_pad.model.DocOrNurseData;
 import v1.cn.unionc_pad.model.DoctorAnswerDetailData;
 import v1.cn.unionc_pad.model.DoctorEvaluateData;
 import v1.cn.unionc_pad.model.DoctorInfoData;
@@ -39,6 +40,7 @@ import v1.cn.unionc_pad.model.MeWatchingHospitalListData;
 import v1.cn.unionc_pad.model.MeguardianshipData;
 import v1.cn.unionc_pad.model.MyDutyDoctorsData;
 import v1.cn.unionc_pad.model.MyRecommenDoctorsData;
+import v1.cn.unionc_pad.model.NetCouldPullData;
 import v1.cn.unionc_pad.model.OMLHistoryData;
 import v1.cn.unionc_pad.model.RecommendDoctorsData;
 import v1.cn.unionc_pad.model.TIMSigData;
@@ -836,8 +838,9 @@ public class UnionAPIPackage {
      *
      * @return
      */
-    public static Observable<UpdateBaiduFileData> uploadbaiduImge(File file) {
+    public static Observable<UpdateBaiduFileData> uploadbaiduImge(File file,String mac) {
         HashMap<String, String> params = new HashMap<>();
+        params.put("mac", mac);
         String data = gson.toJson(params).toString();
         RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
         // MultipartBody.Part 和后端约定好Key，这里的partName是用image
@@ -853,6 +856,27 @@ public class UnionAPIPackage {
         params.put("token", token);
 
         return ConnectHttp.getUnionAPI().GetGuardianshipListInfo(dataProcess(params));
+    }
+
+    /**
+     * 直播列表
+     */
+    public static Observable<NetCouldPullData> getlivelist(String token, String pageNo, String pageSize) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+        params.put("pageNo", pageNo);
+        params.put("pageSize", pageSize);
+
+        return ConnectHttp.getUnionAPI().getlivelist(dataProcess(params));
+    }
+    /**
+     * 查询医生/护士
+     */
+    public static Observable<DocOrNurseData> getdocornurse(String token) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+
+        return ConnectHttp.getUnionAPI().getdocornurse(dataProcess(params));
     }
 
 }

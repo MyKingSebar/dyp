@@ -1,11 +1,15 @@
 package v1.cn.unionc_pad.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.tencent.smtt.sdk.WebChromeClient;
+import com.tencent.smtt.sdk.WebView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,7 +47,7 @@ public class WebViewActivity extends BaseActivity {
         if (getIntent().hasExtra("type")) {
             type = getIntent().getIntExtra("type", 0);
         }
-//        Log.d("linshi", "todoor.type:" + type);
+        Log.d("linshi", "todoor.type:" + type);
 //        Log.d("linshi", "todoor.hasExtra:" + getIntent().hasExtra("activityid"));
 //        Log.d("linshi", "todoor.hasExtra2:" + getIntent().getStringExtra("activityid"));
         if (getIntent().hasExtra("activityid")) {
@@ -53,7 +57,45 @@ public class WebViewActivity extends BaseActivity {
 
     private void initView() {
 
+        webviewSearch.setWebChromeClient(new WebChromeClient(){
+            @Override
+            public void onProgressChanged(WebView webView, int i) {
+                if (i == 100) {
+                    bar.setVisibility(View.INVISIBLE);
+                } else {
+                    if (View.INVISIBLE == bar.getVisibility()) {
+                        bar.setVisibility(View.VISIBLE);
+                    }
+                    bar.setProgress(i);
+                }
+                super.onProgressChanged(webView, i);
+            }
+        });
+        webviewSearch.setWebViewClient(new com.tencent.smtt.sdk.WebViewClient() {
 
+            @Override
+            public void onPageFinished(com.tencent.smtt.sdk.WebView webView, String s) {
+                super.onPageFinished(webView, s);
+                closeDialog();
+            }
+        });
+        switch (type) {
+            case 1:
+                //送药上门
+                initonDoor();
+                break;
+            case 2:
+                break;
+            case 3:
+
+                break;
+            case 4:
+
+                break;
+            case 5:
+
+                break;
+        }
     }
 
     private void iniactivity() {
@@ -69,6 +111,11 @@ public class WebViewActivity extends BaseActivity {
 
 
 
-
+void initonDoor(){
+    tvTitle.setText("医护上门");
+    String url = "http://192.168.21.93:8081/ipadH5/index.html" ;
+    Log.d("linshi", "url" + url);
+    webviewSearch.loadUrl(url);
+}
 
 }
