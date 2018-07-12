@@ -75,7 +75,7 @@
         android:layout_width="295px"
         android:layout_height="295px"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="257px"
+        android:layout_marginTop="247px"
         android:theme="@style/RippleWhite"
         android:background="@drawable/pad_main5" />
 </FrameLayout>

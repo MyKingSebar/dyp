@@ -86,6 +86,7 @@ import v1.cn.unionc_pad.utils.jiguang.LocalBroadcastManager;
 //import com.baidu.idl.face.platform.LivenessTypeEnum;
 
 public class Main2 extends BaseActivity {
+    private String docId,nursrId;
     private String decodeType = "software";  //解码类型，默认软件解码
     private String mediaType = "livestream"; //媒体类型，默认网络直播
     Gson gson = new Gson();
@@ -139,6 +140,7 @@ public class Main2 extends BaseActivity {
             tvLogin.setText("退出登录");
             tv_bind.setVisibility(View.VISIBLE);
         }
+        initView();
         initBaiDu();
         getAndroiodScreenProperty();
         initlive();
@@ -147,11 +149,17 @@ public class Main2 extends BaseActivity {
 
         String mac = MacUtil.getMac(this);
         Log.d("linshi", "mac:" + mac);
-        if(isLogin()){
+        if (isLogin()) {
 
             initDocOrNurse();
             initlivelist();
         }
+    }
+
+    private void initView() {
+        bt1_bt.setVisibility(View.GONE);
+        bt3_bt.setVisibility(View.GONE);
+
     }
 
     private void initlivelist() {
@@ -160,12 +168,18 @@ public class Main2 extends BaseActivity {
         ConnectHttp.connect(UnionAPIPackage.getlivelist(token, "1", "20"), new BaseObserver<NetCouldPullData>(context) {
             @Override
             public void onResponse(NetCouldPullData data) {
-                if (data.getData().getLives().size() > 0) {
-                    Glide.with(context)
-                            .load(data.getData().getLives().get(0).getBanner())
-                            .placeholder(R.drawable.pad_main2).dontAnimate()
-                            .error(R.drawable.pad_main2)
-                            .into(bt2);
+                if (TextUtils.equals("4000", data.getCode())) {
+
+
+                    if (data.getData().getLives().size() > 0) {
+                        Glide.with(context)
+                                .load(data.getData().getLives().get(0).getBanner())
+                                .placeholder(R.drawable.pad_main2).dontAnimate()
+                                .error(R.drawable.pad_main2)
+                                .into(bt2);
+                    }
+                } else {
+                    showTost(data.getMessage() + "");
                 }
 
             }
@@ -187,7 +201,7 @@ public class Main2 extends BaseActivity {
                     public void onResponse(DocOrNurseData data) {
                         closeDialog();
                         if (TextUtils.equals("4000", data.getCode())) {
-                            if (TextUtils.equals(data.getData().getHasDoctor(),"1")) {
+                            if (TextUtils.equals(data.getData().getHasDoctor(), "1")) {
                                 Glide.with(context)
                                         .load(data.getData().getDoctorMap().getDoctImagePath())
                                         .placeholder(R.drawable.default_avatar).dontAnimate()
@@ -196,30 +210,79 @@ public class Main2 extends BaseActivity {
                                 tv_name.setText(data.getData().getDoctorMap().getDoctName());
                                 tv_add.setText(data.getData().getDoctorMap().getClinicName());
                                 bt1_bt.setVisibility(View.VISIBLE);
-                            }else{
+                                docId=data.getData().getDoctorMap().getDoctId();
+                            } else {
                                 bt1_bt.setVisibility(View.GONE);
                             }
-                            if (TextUtils.equals(data.getData().getHasNurse(),"1")) {
+                            if (TextUtils.equals(data.getData().getHasNurse(), "1")) {
                                 Glide.with(context)
-                                        .load(data.getData().getDoctorMap().getDoctImagePath())
+                                        .load(data.getData().getNurseMap().getDoctImagePath())
                                         .placeholder(R.drawable.default_avatar).dontAnimate()
                                         .error(R.drawable.default_avatar)
                                         .into(im_img3);
-                                tv_name3.setText(data.getData().getDoctorMap().getDoctName());
-                                tv_add3.setText(data.getData().getDoctorMap().getClinicName());
+                                tv_name3.setText(data.getData().getNurseMap().getDoctName());
+                                tv_add3.setText(data.getData().getNurseMap().getClinicName());
                                 bt3_bt.setVisibility(View.VISIBLE);
-                            }else{
+                                nursrId=data.getData().getDoctorMap().getDoctId();
+                            } else {
                                 bt3_bt.setVisibility(View.GONE);
                             }
 
 
                         } else {
+                            bt1_bt.setVisibility(View.GONE);
+                            bt3_bt.setVisibility(View.GONE);
                             showTost(data.getMessage() + "");
                         }
                     }
 
                     @Override
                     public void onFail(Throwable e) {
+                        bt1_bt.setVisibility(View.GONE);
+                        bt3_bt.setVisibility(View.GONE);
+                        closeDialog();
+                    }
+                });
+
+    }
+
+    private void getDoc() {
+
+        String Token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
+        ConnectHttp.connect(UnionAPIPackage.getdocornurse(Token),
+                new BaseObserver<DocOrNurseData>(context) {
+                    @Override
+                    public void onResponse(DocOrNurseData data) {
+                        closeDialog();
+                        if (TextUtils.equals("4000", data.getCode())) {
+                            if (TextUtils.equals(data.getData().getHasDoctor(), "1")) {
+                                Glide.with(context)
+                                        .load(data.getData().getDoctorMap().getDoctImagePath())
+                                        .placeholder(R.drawable.default_avatar).dontAnimate()
+                                        .error(R.drawable.default_avatar)
+                                        .into(im_img);
+                                tv_name.setText(data.getData().getDoctorMap().getDoctName());
+                                tv_add.setText(data.getData().getDoctorMap().getClinicName());
+                                bt1_bt.setVisibility(View.VISIBLE);
+                                docId=data.getData().getDoctorMap().getDoctId();
+                                if (!TextUtils.isEmpty(data.getData().getDoctorMap().getIdentifier())) {
+                                    RongCallKit.startSingleCall(Main2.this, data.getData().getDoctorMap().getIdentifier(), RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
+                                }
+                            } else {
+                                bt1_bt.setVisibility(View.GONE);
+                            }
+
+                        } else {
+                            bt1_bt.setVisibility(View.GONE);
+                            bt3_bt.setVisibility(View.GONE);
+                            showTost(data.getMessage() + "");
+                        }
+                    }
+
+                    @Override
+                    public void onFail(Throwable e) {
+                        bt1_bt.setVisibility(View.GONE);
+                        bt3_bt.setVisibility(View.GONE);
                         closeDialog();
                     }
                 });
@@ -245,10 +308,12 @@ public class Main2 extends BaseActivity {
 
     @OnClick({R.id.re_bt1, R.id.bt2, R.id.re_bt3, R.id.bt4, R.id.bt5, R.id.tv_login, R.id.tv_bind})
     public void onClick(View view) {
+
         switch (view.getId()) {
             case R.id.re_bt1:
                 if (isLogin()) {
-                    RongCallKit.startSingleCall(Main2.this, "bfc37490f5b94604a4a78cfc7a34446b", RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
+//                    RongCallKit.startSingleCall(Main2.this, "bfc37490f5b94604a4a78cfc7a34446b", RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
+                    getDoc();
                 } else {
                     showTost("请先登陆");
                     goNewActivity(FaceDetectExpActivity.class);
@@ -257,18 +322,36 @@ public class Main2 extends BaseActivity {
             case R.id.bt2:
                 //健康直播
 //                goNewActivity(NEMainActivity.class);
-                initrecommenddoctor2();
+                if (isLogin()) {
+                 initrecommenddoctor2();
+                } else {
+                    showTost("请先登陆");
+                    goNewActivity(FaceDetectExpActivity.class);
+                }
                 break;
             case R.id.re_bt3:
+                if (isLogin()) {
+                    //一户上门
+                    Intent intent = new Intent(Main2.this, WebViewActivity.class);
+                    intent.putExtra("type", 1);
+                    intent.putExtra("nurseId", nursrId);
+                    Log.d("linshi", "main.nurseId:" + nursrId);
+                    startActivity(intent);
+                } else {
+                    showTost("请先登陆");
+                    goNewActivity(FaceDetectExpActivity.class);
+                }
 
-                //一户上门
-                Intent intent = new Intent(Main2.this, WebViewActivity.class);
-                intent.putExtra("type", 1);
-                startActivity(intent);
 
                 break;
             case R.id.bt4:
-                goNewActivity(SuperviseActivity.class);
+                if (isLogin()) {
+                    goNewActivity(SuperviseActivity.class);
+                } else {
+                    showTost("请先登陆");
+                    goNewActivity(FaceDetectExpActivity.class);
+                }
+
                 break;
             case R.id.bt5:
 //                getRongInfo();
@@ -581,6 +664,7 @@ public class Main2 extends BaseActivity {
             goNewActivity(BindActivity.class);
         }
         initDocOrNurse();
+        initlivelist();
 
     }
 
@@ -734,6 +818,9 @@ public class Main2 extends BaseActivity {
 
     private void initrecommenddoctor2() {
         String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
+        if(TextUtils.isEmpty(token)){
+            return;
+        }
         ConnectHttp.connect(UnionAPIPackage.getlivelist(token, "1", "20"), new BaseObserver<NetCouldPullData>(context) {
             @Override
             public void onResponse(NetCouldPullData data) {
@@ -809,7 +896,7 @@ public class Main2 extends BaseActivity {
                                 .into(bt2);
 
 
-                    }else if (TextUtils.equals("3", child2.getPushCategory())) {
+                    } else if (TextUtils.equals("3", child2.getPushCategory())) {
                         Glide.with(context)
                                 .load(child2.getDoctImagePath())
                                 .placeholder(R.drawable.default_avatar).dontAnimate()
@@ -817,9 +904,9 @@ public class Main2 extends BaseActivity {
                                 .into(im_img);
                         tv_name.setText(child2.getDoctName());
                         tv_add.setText(child2.getClinicName());
-bt1_bt.setVisibility(View.VISIBLE);
-
-                    }else if (TextUtils.equals("4", child2.getPushCategory())) {
+                        bt1_bt.setVisibility(View.VISIBLE);
+                        docId=child2.getDoctId();
+                    } else if (TextUtils.equals("4", child2.getPushCategory())) {
                         Glide.with(context)
                                 .load(child2.getDoctImagePath())
                                 .placeholder(R.drawable.default_avatar).dontAnimate()
@@ -829,6 +916,7 @@ bt1_bt.setVisibility(View.VISIBLE);
                         tv_add3.setText(child2.getClinicName());
 
                         bt3_bt.setVisibility(View.VISIBLE);
+                        nursrId=child2.getDoctId();
                     }
 
 

@@ -24,6 +24,16 @@ public class JiGuangData {
     private String doctName;
     private String doctImagePath;
     private String imIdentifier;
+    private String doctId;
+
+
+    public String getDoctId() {
+        return doctId;
+    }
+
+    public void setDoctId(String doctId) {
+        this.doctId = doctId;
+    }
 
 
     public String getClinicName() {

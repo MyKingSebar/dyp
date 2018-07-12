@@ -593,4 +593,12 @@ public interface UnionAPI {
     @FormUrlEncoded
     @POST("old-man/old-man-assigned-doctor-nurse")
     Observable<DocOrNurseData> getdocornurse(@FieldMap Map<String, Object> params);
+    /**
+     * 预约护士：
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("old-man/old-man-appoint-nurse")
+    Observable<BaseData> appointnurse(@FieldMap Map<String, Object> params);
 }

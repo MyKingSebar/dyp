@@ -73,6 +73,27 @@ public class DocOrNurseData extends BaseData {
             private String ClinicName;
             private String DoctImagePath;
             private String DoctName;
+            private String DoctId;
+            private String Identifier;
+
+
+            public String getDoctId() {
+                return DoctId;
+            }
+
+            public void setDoctId(String doctId) {
+                DoctId = doctId;
+            }
+
+
+
+            public String getIdentifier() {
+                return Identifier;
+            }
+
+            public void setIdentifier(String identifier) {
+                Identifier = identifier;
+            }
 
             public String getClinicName() {
                 return ClinicName;

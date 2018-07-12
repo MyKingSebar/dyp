@@ -1,5 +1,6 @@
 package v1.cn.unionc_pad.ui.base;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +10,20 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.FrameLayout;
 import android.widget.Toast;
+
+import com.bigkoo.pickerview.builder.TimePickerBuilder;
+import com.bigkoo.pickerview.listener.OnTimeSelectChangeListener;
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
+import com.bigkoo.pickerview.view.TimePickerView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
@@ -27,6 +41,7 @@ import v1.cn.unionc_pad.view.dialog_interface.OnButtonClickListener;
  */
 
 public class BaseActivity extends FragmentActivity {
+
     protected Context context;
     private ProgressDialog progressDialog;
 
@@ -38,6 +53,7 @@ public class BaseActivity extends FragmentActivity {
         //强制竖屏
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         context = this;
+
     }
 
 
@@ -258,4 +274,7 @@ public class BaseActivity extends FragmentActivity {
             RongIM.setConnectionStatusListener(new MyConnectionStatusListener());
         }
     }
+
+
+
 }

@@ -878,5 +878,17 @@ public class UnionAPIPackage {
 
         return ConnectHttp.getUnionAPI().getdocornurse(dataProcess(params));
     }
+    /**
+     * 预约护士：
+     */
+    public static Observable<BaseData> appointnurse(String token,String nurseId,String serviceId,String appointTime) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+        params.put("nurseId", nurseId);
+        params.put("serviceId", serviceId);
+        params.put("appointTime", appointTime);
+
+        return ConnectHttp.getUnionAPI().appointnurse(dataProcess(params));
+    }
 
 }
