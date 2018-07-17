@@ -130,6 +130,7 @@ public class Main2 extends BaseActivity {
         super.onCreate(savedInstanceState);
         BusProvider.getInstance().register(this);
         setContentView(R.layout.pad_main);
+        context=this;
         /**   6.0权限申请     **/
         bPermission = checkPublishPermission();
 
@@ -202,11 +203,19 @@ public class Main2 extends BaseActivity {
                         closeDialog();
                         if (TextUtils.equals("4000", data.getCode())) {
                             if (TextUtils.equals(data.getData().getHasDoctor(), "1")) {
-                                Glide.with(context)
-                                        .load(data.getData().getDoctorMap().getDoctImagePath())
-                                        .placeholder(R.drawable.default_avatar).dontAnimate()
-                                        .error(R.drawable.default_avatar)
-                                        .into(im_img);
+                                if(null!=context){
+                                    try {
+                                        Glide.with(context)
+                                                .load(data.getData().getDoctorMap().getDoctImagePath())
+                                                .placeholder(R.drawable.default_avatar).dontAnimate()
+                                                .error(R.drawable.default_avatar)
+                                                .into(im_img);
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                        return;
+                                    }
+
+                                }
                                 tv_name.setText(data.getData().getDoctorMap().getDoctName());
                                 tv_add.setText(data.getData().getDoctorMap().getClinicName());
                                 bt1_bt.setVisibility(View.VISIBLE);
@@ -215,15 +224,23 @@ public class Main2 extends BaseActivity {
                                 bt1_bt.setVisibility(View.GONE);
                             }
                             if (TextUtils.equals(data.getData().getHasNurse(), "1")) {
-                                Glide.with(context)
-                                        .load(data.getData().getNurseMap().getDoctImagePath())
-                                        .placeholder(R.drawable.default_avatar).dontAnimate()
-                                        .error(R.drawable.default_avatar)
-                                        .into(im_img3);
+                                if(null!=context){
+                                    try {
+                                        Glide.with(context)
+                                                .load(data.getData().getNurseMap().getDoctImagePath())
+                                                .placeholder(R.drawable.default_avatar).dontAnimate()
+                                                .error(R.drawable.default_avatar)
+                                                .into(im_img3);
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                        return;
+                                    }
+
+                                }
                                 tv_name3.setText(data.getData().getNurseMap().getDoctName());
                                 tv_add3.setText(data.getData().getNurseMap().getClinicName());
                                 bt3_bt.setVisibility(View.VISIBLE);
-                                nursrId=data.getData().getDoctorMap().getDoctId();
+                                nursrId=data.getData().getNurseMap().getDoctId();
                             } else {
                                 bt3_bt.setVisibility(View.GONE);
                             }
@@ -266,7 +283,8 @@ public class Main2 extends BaseActivity {
                                 bt1_bt.setVisibility(View.VISIBLE);
                                 docId=data.getData().getDoctorMap().getDoctId();
                                 if (!TextUtils.isEmpty(data.getData().getDoctorMap().getIdentifier())) {
-                                    RongCallKit.startSingleCall(Main2.this, data.getData().getDoctorMap().getIdentifier(), RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
+//                                    RongCallKit.startSingleCall(Main2.this,"0392cd92ee004f73aaa091df8fe742a3", RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
+                                    RongCallKit.startSingleCall(Main2.this, data.getData().getDoctorMap().getIdentifier(), RongCallKit.CallMediaType.CALL_MEDIA_TYPE_AUDIO);
                                 }
                             } else {
                                 bt1_bt.setVisibility(View.GONE);
@@ -660,11 +678,11 @@ public class Main2 extends BaseActivity {
 //        SoundPool soundPool=new  SoundPool(100, AudioManager.STREAM_MUSIC,0);//构建对象
 //        int soundId=soundPool.load(context,R.raw.login,1);//加载资源，得到soundId
 //        int streamId= soundPool.play(soundId, 1,1,1,0,1);//播放，得到StreamId
+        initDocOrNurse();
+        initlivelist();
         if (!TextUtils.equals(data.getHasGuardian(), "1")) {
             goNewActivity(BindActivity.class);
         }
-        initDocOrNurse();
-        initlivelist();
 
     }
 
