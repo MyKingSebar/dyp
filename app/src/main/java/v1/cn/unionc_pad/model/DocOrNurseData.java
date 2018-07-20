@@ -36,6 +36,24 @@ public class DocOrNurseData extends BaseData {
         private datadatadata nurseMap;
         private String hasNurse;
         private String hasDoctor;
+        private String isOnline;//"0：医生离线 1：医生在线
+        private String isOpen;//""0：未开通视频问诊1：已开通视频问诊
+
+        public String getIsOnline() {
+            return isOnline;
+        }
+
+        public void setIsOnline(String isOnline) {
+            this.isOnline = isOnline;
+        }
+
+        public String getIsOpen() {
+            return isOpen;
+        }
+
+        public void setIsOpen(String isOpen) {
+            this.isOpen = isOpen;
+        }
 
         public datadatadata getDoctorMap() {
             return doctorMap;

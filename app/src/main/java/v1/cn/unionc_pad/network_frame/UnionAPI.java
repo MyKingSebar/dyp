@@ -24,6 +24,7 @@ import v1.cn.unionc_pad.model.DoctorOrClinicData;
 import v1.cn.unionc_pad.model.DoctorScheduleData;
 import v1.cn.unionc_pad.model.GetGuardianshipInfoData;
 import v1.cn.unionc_pad.model.GetRongTokenData;
+import v1.cn.unionc_pad.model.HasUnfinishedAppointData;
 import v1.cn.unionc_pad.model.HeartHistoryData;
 import v1.cn.unionc_pad.model.HeartHistoryListData;
 import v1.cn.unionc_pad.model.HeartIndicationData;
@@ -601,4 +602,20 @@ public interface UnionAPI {
     @FormUrlEncoded
     @POST("old-man/old-man-appoint-nurse")
     Observable<BaseData> appointnurse(@FieldMap Map<String, Object> params);
+    /**
+     * 保存问诊记录
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("old-man/save-interrogation-records")
+    Observable<BaseData> saveinterrogation(@FieldMap Map<String, Object> params);
+    /**
+     * pad老人查询是否有未完成的预约护士订单
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("old-man/old-man-has-unfinished-appoint")
+    Observable<HasUnfinishedAppointData> unfinishedappoint(@FieldMap Map<String, Object> params);
 }

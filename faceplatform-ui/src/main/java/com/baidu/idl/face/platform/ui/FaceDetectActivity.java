@@ -281,6 +281,8 @@ public class FaceDetectActivity extends Activity implements
         mCamera.setDisplayOrientation(degree);
         // 设置后无效，camera.setDisplayOrientation方法有效
         mCameraParam.set("rotation", degree);
+
+
         mPreviewDegree = degree;
         if (mIDetectStrategy != null) {
             mIDetectStrategy.setPreviewDegree(degree);

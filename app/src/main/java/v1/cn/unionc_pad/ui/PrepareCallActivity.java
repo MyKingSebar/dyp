@@ -156,7 +156,7 @@ public class PrepareCallActivity extends BaseActivity {
                         closeDialog();
                         if (TextUtils.equals("4000", data.getCode())) {
                             if (!TextUtils.isEmpty(data.getData().getIMUserId())) {
-                                RongCallKit.startSingleCall(PrepareCallActivity.this,data.getData().getIMUserId(), RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
+                                RongCallKit.startSingleCall(PrepareCallActivity.this,data.getData().getIMUserId(), RongCallKit.CallMediaType.CALL_MEDIA_TYPE_AUDIO);
                                 finish();
                             }
 

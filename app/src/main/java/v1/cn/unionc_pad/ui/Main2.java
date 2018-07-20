@@ -60,9 +60,11 @@ import v1.cn.unionc_pad.PadTest;
 import v1.cn.unionc_pad.R;
 import v1.cn.unionc_pad.data.Common;
 import v1.cn.unionc_pad.data.SPUtil;
+import v1.cn.unionc_pad.model.BaseData;
 import v1.cn.unionc_pad.model.DocOrNurseData;
 import v1.cn.unionc_pad.model.GetGuardianshipInfoData;
 import v1.cn.unionc_pad.model.GetRongTokenData;
+import v1.cn.unionc_pad.model.HasUnfinishedAppointData;
 import v1.cn.unionc_pad.model.IsBindJianhurenData;
 import v1.cn.unionc_pad.model.JiGuangData;
 import v1.cn.unionc_pad.model.LogInEventData;
@@ -86,7 +88,7 @@ import v1.cn.unionc_pad.utils.jiguang.LocalBroadcastManager;
 //import com.baidu.idl.face.platform.LivenessTypeEnum;
 
 public class Main2 extends BaseActivity {
-    private String docId,nursrId;
+    private String docId, nursrId;
     private String decodeType = "software";  //解码类型，默认软件解码
     private String mediaType = "livestream"; //媒体类型，默认网络直播
     Gson gson = new Gson();
@@ -123,6 +125,12 @@ public class Main2 extends BaseActivity {
     TextView tv_add;
     @BindView(R.id.tv_add3)
     TextView tv_add3;
+    @BindView(R.id.tv_live_name)
+    TextView tv_live_name;
+    @BindView(R.id.tv_live_time)
+    TextView tv_live_time;
+    @BindView(R.id.re_live_describe)
+    RelativeLayout re_live_describe;
 
 
     @Override
@@ -130,7 +138,7 @@ public class Main2 extends BaseActivity {
         super.onCreate(savedInstanceState);
         BusProvider.getInstance().register(this);
         setContentView(R.layout.pad_main);
-        context=this;
+        context = this;
         /**   6.0权限申请     **/
         bPermission = checkPublishPermission();
 
@@ -178,9 +186,15 @@ public class Main2 extends BaseActivity {
                                 .placeholder(R.drawable.pad_main2).dontAnimate()
                                 .error(R.drawable.pad_main2)
                                 .into(bt2);
+                        tv_live_name.setText("" + data.getData().getLives().get(0).getLiveTitle());
+                        tv_live_time.setText("" + data.getData().getLives().get(0).getStartTime());
+                        re_live_describe.setVisibility(View.VISIBLE);
+                    } else {
+                        re_live_describe.setVisibility(View.INVISIBLE);
                     }
                 } else {
                     showTost(data.getMessage() + "");
+                    re_live_describe.setVisibility(View.INVISIBLE);
                 }
 
             }
@@ -188,6 +202,7 @@ public class Main2 extends BaseActivity {
             @Override
             public void onFail(Throwable e) {
                 showTost("暂无直播");
+                re_live_describe.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -203,7 +218,7 @@ public class Main2 extends BaseActivity {
                         closeDialog();
                         if (TextUtils.equals("4000", data.getCode())) {
                             if (TextUtils.equals(data.getData().getHasDoctor(), "1")) {
-                                if(null!=context){
+                                if (null != context) {
                                     try {
                                         Glide.with(context)
                                                 .load(data.getData().getDoctorMap().getDoctImagePath())
@@ -219,12 +234,12 @@ public class Main2 extends BaseActivity {
                                 tv_name.setText(data.getData().getDoctorMap().getDoctName());
                                 tv_add.setText(data.getData().getDoctorMap().getClinicName());
                                 bt1_bt.setVisibility(View.VISIBLE);
-                                docId=data.getData().getDoctorMap().getDoctId();
+                                docId = data.getData().getDoctorMap().getDoctId();
                             } else {
                                 bt1_bt.setVisibility(View.GONE);
                             }
                             if (TextUtils.equals(data.getData().getHasNurse(), "1")) {
-                                if(null!=context){
+                                if (null != context) {
                                     try {
                                         Glide.with(context)
                                                 .load(data.getData().getNurseMap().getDoctImagePath())
@@ -240,7 +255,7 @@ public class Main2 extends BaseActivity {
                                 tv_name3.setText(data.getData().getNurseMap().getDoctName());
                                 tv_add3.setText(data.getData().getNurseMap().getClinicName());
                                 bt3_bt.setVisibility(View.VISIBLE);
-                                nursrId=data.getData().getNurseMap().getDoctId();
+                                nursrId = data.getData().getNurseMap().getDoctId();
                             } else {
                                 bt3_bt.setVisibility(View.GONE);
                             }
@@ -264,7 +279,6 @@ public class Main2 extends BaseActivity {
     }
 
     private void getDoc() {
-
         String Token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
         ConnectHttp.connect(UnionAPIPackage.getdocornurse(Token),
                 new BaseObserver<DocOrNurseData>(context) {
@@ -272,7 +286,13 @@ public class Main2 extends BaseActivity {
                     public void onResponse(DocOrNurseData data) {
                         closeDialog();
                         if (TextUtils.equals("4000", data.getCode())) {
+                            //"isOpen":"0：未开通视频问诊1：已开通视频问诊"
+                            if (TextUtils.equals(data.getData().getIsOpen(), "0")) {
+                                showTost("医院暂未开通此服务！");
+                                return;
+                            }
                             if (TextUtils.equals(data.getData().getHasDoctor(), "1")) {
+
                                 Glide.with(context)
                                         .load(data.getData().getDoctorMap().getDoctImagePath())
                                         .placeholder(R.drawable.default_avatar).dontAnimate()
@@ -281,10 +301,15 @@ public class Main2 extends BaseActivity {
                                 tv_name.setText(data.getData().getDoctorMap().getDoctName());
                                 tv_add.setText(data.getData().getDoctorMap().getClinicName());
                                 bt1_bt.setVisibility(View.VISIBLE);
-                                docId=data.getData().getDoctorMap().getDoctId();
+                                docId = data.getData().getDoctorMap().getDoctId();
+                                if (TextUtils.equals(data.getData().getIsOnline(), "0")) {
+                                    showTost("医生不在线！");
+                                    return;
+                                }
                                 if (!TextUtils.isEmpty(data.getData().getDoctorMap().getIdentifier())) {
 //                                    RongCallKit.startSingleCall(Main2.this,"0392cd92ee004f73aaa091df8fe742a3", RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
-                                    RongCallKit.startSingleCall(Main2.this, data.getData().getDoctorMap().getIdentifier(), RongCallKit.CallMediaType.CALL_MEDIA_TYPE_AUDIO);
+                                    RongCallKit.startSingleCall(Main2.this, data.getData().getDoctorMap().getIdentifier(), RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
+                                    saverecord(docId);
                                 }
                             } else {
                                 bt1_bt.setVisibility(View.GONE);
@@ -302,6 +327,28 @@ public class Main2 extends BaseActivity {
                         bt1_bt.setVisibility(View.GONE);
                         bt3_bt.setVisibility(View.GONE);
                         closeDialog();
+                    }
+                });
+
+    }
+
+    private void saverecord(String id) {
+
+        String Token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
+        ConnectHttp.connect(UnionAPIPackage.saveinterrogation(Token, id),
+                new BaseObserver<BaseData>(context) {
+                    @Override
+                    public void onResponse(BaseData data) {
+                        closeDialog();
+                        if (TextUtils.equals("4000", data.getCode())) {
+
+                        } else {
+                            showTost(data.getMessage() + "");
+                        }
+                    }
+
+                    @Override
+                    public void onFail(Throwable e) {
                     }
                 });
 
@@ -341,7 +388,7 @@ public class Main2 extends BaseActivity {
                 //健康直播
 //                goNewActivity(NEMainActivity.class);
                 if (isLogin()) {
-                 initrecommenddoctor2();
+                    initrecommenddoctor2();
                 } else {
                     showTost("请先登陆");
                     goNewActivity(FaceDetectExpActivity.class);
@@ -349,12 +396,9 @@ public class Main2 extends BaseActivity {
                 break;
             case R.id.re_bt3:
                 if (isLogin()) {
+                    unfinishedappoint();
                     //一户上门
-                    Intent intent = new Intent(Main2.this, WebViewActivity.class);
-                    intent.putExtra("type", 1);
-                    intent.putExtra("nurseId", nursrId);
-                    Log.d("linshi", "main.nurseId:" + nursrId);
-                    startActivity(intent);
+
                 } else {
                     showTost("请先登陆");
                     goNewActivity(FaceDetectExpActivity.class);
@@ -543,6 +587,39 @@ public class Main2 extends BaseActivity {
                                 showTost("您已绑定监护人");
                             } else {
                                 goNewActivity(BindActivity.class);
+                            }
+
+
+                        } else {
+                            showTost(data.getMessage() + "");
+                        }
+                    }
+
+                    @Override
+                    public void onFail(Throwable e) {
+                        closeDialog();
+                    }
+                });
+
+    }
+
+    private void unfinishedappoint() {
+        String Token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
+        ConnectHttp.connect(UnionAPIPackage.unfinishedappoint(Token),
+                new BaseObserver<HasUnfinishedAppointData>(context) {
+                    @Override
+                    public void onResponse(HasUnfinishedAppointData data) {
+                        Log.e("linshi", "HasUnfinishedAppointData" + gson.toJson(data));
+                        closeDialog();
+                        if (TextUtils.equals("4000", data.getCode())) {
+                            if (TextUtils.equals(data.getData().getHasUnfinishedAppoint(), "1")) {
+                                showTost("您已有订单");
+                            } else {
+                                Intent intent = new Intent(Main2.this, WebViewActivity.class);
+                                intent.putExtra("type", 1);
+                                intent.putExtra("nurseId", nursrId);
+                                Log.d("linshi", "main.nurseId:" + nursrId);
+                                startActivity(intent);
                             }
 
 
@@ -836,7 +913,7 @@ public class Main2 extends BaseActivity {
 
     private void initrecommenddoctor2() {
         String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
-        if(TextUtils.isEmpty(token)){
+        if (TextUtils.isEmpty(token)) {
             return;
         }
         ConnectHttp.connect(UnionAPIPackage.getlivelist(token, "1", "20"), new BaseObserver<NetCouldPullData>(context) {
@@ -912,7 +989,9 @@ public class Main2 extends BaseActivity {
                                 .placeholder(R.drawable.pad_main2).dontAnimate()
                                 .error(R.drawable.pad_main2)
                                 .into(bt2);
-
+                        tv_live_name.setText("" + child2.getLiveTitle());
+                        tv_live_time.setText("" + child2.getStartTime());
+                        re_live_describe.setVisibility(View.VISIBLE);
 
                     } else if (TextUtils.equals("3", child2.getPushCategory())) {
                         Glide.with(context)
@@ -923,7 +1002,7 @@ public class Main2 extends BaseActivity {
                         tv_name.setText(child2.getDoctName());
                         tv_add.setText(child2.getClinicName());
                         bt1_bt.setVisibility(View.VISIBLE);
-                        docId=child2.getDoctId();
+                        docId = child2.getDoctId();
                     } else if (TextUtils.equals("4", child2.getPushCategory())) {
                         Glide.with(context)
                                 .load(child2.getDoctImagePath())
@@ -934,7 +1013,7 @@ public class Main2 extends BaseActivity {
                         tv_add3.setText(child2.getClinicName());
 
                         bt3_bt.setVisibility(View.VISIBLE);
-                        nursrId=child2.getDoctId();
+                        nursrId = child2.getDoctId();
                     }
 
 

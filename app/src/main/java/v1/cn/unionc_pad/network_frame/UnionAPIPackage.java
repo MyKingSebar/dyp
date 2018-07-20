@@ -25,6 +25,7 @@ import v1.cn.unionc_pad.model.DoctorOrClinicData;
 import v1.cn.unionc_pad.model.DoctorScheduleData;
 import v1.cn.unionc_pad.model.GetGuardianshipInfoData;
 import v1.cn.unionc_pad.model.GetRongTokenData;
+import v1.cn.unionc_pad.model.HasUnfinishedAppointData;
 import v1.cn.unionc_pad.model.HeartHistoryData;
 import v1.cn.unionc_pad.model.HeartHistoryListData;
 import v1.cn.unionc_pad.model.HeartIndicationData;
@@ -889,6 +890,23 @@ public class UnionAPIPackage {
         params.put("appointTime", appointTime);
 
         return ConnectHttp.getUnionAPI().appointnurse(dataProcess(params));
+    }
+    /**
+     * 保存问诊记录：
+     */
+    public static Observable<BaseData> saveinterrogation(String token,String doctId) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+        params.put("doctId", doctId);
+        return ConnectHttp.getUnionAPI().saveinterrogation(dataProcess(params));
+    }
+    /**
+     * pad老人查询是否有未完成的预约护士订单
+     */
+    public static Observable<HasUnfinishedAppointData> unfinishedappoint(String token) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+        return ConnectHttp.getUnionAPI().unfinishedappoint(dataProcess(params));
     }
 
 }
