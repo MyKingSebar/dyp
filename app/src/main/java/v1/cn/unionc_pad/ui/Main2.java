@@ -16,6 +16,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,13 +24,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.baidu.idl.face.example.Config;
-import com.baidu.idl.face.example.ExampleApplication;
-import com.baidu.idl.face.example.FaceDetectExpActivity;
-import com.baidu.idl.face.platform.FaceConfig;
-import com.baidu.idl.face.platform.FaceEnvironment;
-import com.baidu.idl.face.platform.FaceSDKManager;
-import com.baidu.idl.face.platform.LivenessTypeEnum;
+import com.baidu.aip.FaceEnvironment;
+import com.baidu.aip.FaceSDKManager;
+import com.baidu.aip.fl.Config;
+import com.baidu.aip.fl.DetectActivity;
+import com.baidu.idl.facesdk.FaceTracker;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.netease.neliveplayer.sdk.NEDynamicLoadingConfig;
@@ -137,7 +136,7 @@ public class Main2 extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         BusProvider.getInstance().register(this);
-        setContentView(R.layout.pad_main);
+        setContentView(R.layout.pad_main4);
         context = this;
         /**   6.0权限申请     **/
         bPermission = checkPublishPermission();
@@ -163,6 +162,19 @@ public class Main2 extends BaseActivity {
             initDocOrNurse();
             initlivelist();
         }
+
+        ViewTreeObserver viewTreeObserver = bt2.getViewTreeObserver();
+        viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @SuppressWarnings("deprecation")
+            @Override
+            public void onGlobalLayout() {
+                bt2.getViewTreeObserver().removeGlobalOnLayoutListener(
+                        this);
+                Log.d("linshi",
+                        "---->" + bt2.getHeight() + "  " + bt2.getWidth());
+
+            }
+        });
     }
 
     private void initView() {
@@ -307,9 +319,10 @@ public class Main2 extends BaseActivity {
                                     return;
                                 }
                                 if (!TextUtils.isEmpty(data.getData().getDoctorMap().getIdentifier())) {
+                                    Log.d("linshi", "RongCallKit");
 //                                    RongCallKit.startSingleCall(Main2.this,"0392cd92ee004f73aaa091df8fe742a3", RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
                                     RongCallKit.startSingleCall(Main2.this, data.getData().getDoctorMap().getIdentifier(), RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
-                                    saverecord(docId);
+//                                    saverecord(docId);
                                 }
                             } else {
                                 bt1_bt.setVisibility(View.GONE);
@@ -356,19 +369,17 @@ public class Main2 extends BaseActivity {
 
     private void initBaiDu() {
         // 根据需求添加活体动作
-        ExampleApplication.livenessList.clear();
-        ExampleApplication.livenessList.add(LivenessTypeEnum.Eye);
-        ExampleApplication.livenessList.add(LivenessTypeEnum.Mouth);
-        ExampleApplication.livenessList.add(LivenessTypeEnum.HeadUp);
-        ExampleApplication.livenessList.add(LivenessTypeEnum.HeadDown);
-        ExampleApplication.livenessList.add(LivenessTypeEnum.HeadLeft);
-        ExampleApplication.livenessList.add(LivenessTypeEnum.HeadRight);
-        ExampleApplication.livenessList.add(LivenessTypeEnum.HeadLeftOrRight);
-
+//        ExampleApplication.livenessList.clear();
+//        ExampleApplication.livenessList.add(LivenessTypeEnum.Eye);
+//        ExampleApplication.livenessList.add(LivenessTypeEnum.Mouth);
+//        ExampleApplication.livenessList.add(LivenessTypeEnum.HeadUp);
+//        ExampleApplication.livenessList.add(LivenessTypeEnum.HeadDown);
+//        ExampleApplication.livenessList.add(LivenessTypeEnum.HeadLeft);
+//        ExampleApplication.livenessList.add(LivenessTypeEnum.HeadRight);
+//        ExampleApplication.livenessList.add(LivenessTypeEnum.HeadLeftOrRight);
         requestPermissions(99, Manifest.permission.CAMERA);
-
         initLib();
-        setFaceConfig();
+//        setFaceConfig();
     }
 
     @OnClick({R.id.re_bt1, R.id.bt2, R.id.re_bt3, R.id.bt4, R.id.bt5, R.id.tv_login, R.id.tv_bind})
@@ -381,8 +392,10 @@ public class Main2 extends BaseActivity {
                     getDoc();
                 } else {
                     showTost("请先登陆");
-                    goNewActivity(FaceDetectExpActivity.class);
+//                    goNewActivity(FaceDetectExpActivity.class);
+                    goNewActivity(DetectActivity.class);
                 }
+
                 break;
             case R.id.bt2:
                 //健康直播
@@ -391,7 +404,8 @@ public class Main2 extends BaseActivity {
                     initrecommenddoctor2();
                 } else {
                     showTost("请先登陆");
-                    goNewActivity(FaceDetectExpActivity.class);
+//                    goNewActivity(FaceDetectExpActivity.class);
+                    goNewActivity(DetectActivity.class);
                 }
                 break;
             case R.id.re_bt3:
@@ -401,7 +415,8 @@ public class Main2 extends BaseActivity {
 
                 } else {
                     showTost("请先登陆");
-                    goNewActivity(FaceDetectExpActivity.class);
+                    goNewActivity(DetectActivity.class);
+//                    goNewActivity(FaceDetectExpActivity.class);
                 }
 
 
@@ -411,7 +426,8 @@ public class Main2 extends BaseActivity {
                     goNewActivity(SuperviseActivity.class);
                 } else {
                     showTost("请先登陆");
-                    goNewActivity(FaceDetectExpActivity.class);
+                    goNewActivity(DetectActivity.class);
+//                    goNewActivity(FaceDetectExpActivity.class);
                 }
 
                 break;
@@ -422,7 +438,8 @@ public class Main2 extends BaseActivity {
 //                    goNewActivity(PrepareCallActivity.class);
                 } else {
                     showTost("请先登陆");
-                    goNewActivity(FaceDetectExpActivity.class);
+                    goNewActivity(DetectActivity.class);
+//                    goNewActivity(FaceDetectExpActivity.class);
 //                    goNewActivity(DetectActivity.class);
                 }
                 break;
@@ -452,7 +469,8 @@ public class Main2 extends BaseActivity {
 //                    Intent intent=new Intent(Main2.this,ChrisActivity.class);
 //                    startActivityForResult(intent,1);
 
-                    goNewActivity(FaceDetectExpActivity.class);
+//                    goNewActivity(FaceDetectExpActivity.class);
+                    goNewActivity(DetectActivity.class);
                 }
 
                 break;
@@ -661,36 +679,35 @@ public class Main2 extends BaseActivity {
     /**
      * 初始化SDK
      */
-    private void initLib() {
-        // 为了android和ios 区分授权，appId=appname_face_android ,其中appname为申请sdk时的应用名
-        // 应用上下文
-        // 申请License取得的APPID
-        // assets目录下License文件名
-        FaceSDKManager.getInstance().initialize(this, Config.licenseID, Config.licenseFileName);
-//        setFaceConfig();
-    }
+//    private void initLib() {
+//        // 为了android和ios 区分授权，appId=appname_face_android ,其中appname为申请sdk时的应用名
+//        // 应用上下文
+//        // 申请License取得的APPID
+//        // assets目录下License文件名
+////        FaceSDKManager.getInstance().initialize(this, Config.licenseID, Config.licenseFileName);
+////        setFaceConfig();
+//    }
 
-    private void setFaceConfig() {
-        FaceConfig config = FaceSDKManager.getInstance().getFaceConfig();
-        // SDK初始化已经设置完默认参数（推荐参数），您也根据实际需求进行数值调整
-        config.setLivenessTypeList(ExampleApplication.livenessList);
-        config.setLivenessRandom(ExampleApplication.isLivenessRandom);
-        config.setBlurnessValue(FaceEnvironment.VALUE_BLURNESS);
-        config.setBrightnessValue(FaceEnvironment.VALUE_BRIGHTNESS);
-        config.setCropFaceValue(FaceEnvironment.VALUE_CROP_FACE_SIZE);
-        config.setHeadPitchValue(FaceEnvironment.VALUE_HEAD_PITCH);
-        config.setHeadRollValue(FaceEnvironment.VALUE_HEAD_ROLL);
-        config.setHeadYawValue(FaceEnvironment.VALUE_HEAD_YAW);
-        config.setMinFaceSize(FaceEnvironment.VALUE_MIN_FACE_SIZE);
-        config.setNotFaceValue(FaceEnvironment.VALUE_NOT_FACE_THRESHOLD);
-        config.setOcclusionValue(FaceEnvironment.VALUE_OCCLUSION);
-        config.setCheckFaceQuality(true);
-        config.setLivenessRandomCount(2);
-        config.setFaceDecodeNumberOfThreads(2);
-
-        FaceSDKManager.getInstance().setFaceConfig(config);
-    }
-
+//    private void setFaceConfig() {
+////        FaceConfig config = FaceSDKManager.getInstance().getFaceConfig();
+////        // SDK初始化已经设置完默认参数（推荐参数），您也根据实际需求进行数值调整
+////        config.setLivenessTypeList(ExampleApplication.livenessList);
+////        config.setLivenessRandom(ExampleApplication.isLivenessRandom);
+////        config.setBlurnessValue(FaceEnvironment.VALUE_BLURNESS);
+////        config.setBrightnessValue(FaceEnvironment.VALUE_BRIGHTNESS);
+////        config.setCropFaceValue(FaceEnvironment.VALUE_CROP_FACE_SIZE);
+////        config.setHeadPitchValue(FaceEnvironment.VALUE_HEAD_PITCH);
+////        config.setHeadRollValue(FaceEnvironment.VALUE_HEAD_ROLL);
+////        config.setHeadYawValue(FaceEnvironment.VALUE_HEAD_YAW);
+////        config.setMinFaceSize(FaceEnvironment.VALUE_MIN_FACE_SIZE);
+////        config.setNotFaceValue(FaceEnvironment.VALUE_NOT_FACE_THRESHOLD);
+////        config.setOcclusionValue(FaceEnvironment.VALUE_OCCLUSION);
+////        config.setCheckFaceQuality(true);
+////        config.setLivenessRandomCount(2);
+////        config.setFaceDecodeNumberOfThreads(2);
+////
+////        FaceSDKManager.getInstance().setFaceConfig(config);
+//    }
     public void requestPermissions(int requestCode, String permission) {
         if (permission != null && permission.length() > 0) {
             try {
@@ -935,12 +952,24 @@ public class Main2 extends BaseActivity {
                         Toast.makeText(getApplication(), "请等待加载so文件", Toast.LENGTH_LONG).show();
                         return;
                     }
+                    // //直播状态：1-未开始，2-直播中，3-已结束,4-已删除
+                    if (TextUtils.equals(data.getData().getLives().get(0).getLiveStatus(), "1")) {
+                        showTost("直播未开始");
+                        return;
+                    } else if (TextUtils.equals(data.getData().getLives().get(0).getLiveStatus(), "2")) {
+                        //把多个参数传给NEVideoPlayerActivity
+                        intent.putExtra("media_type", mediaType);
+                        intent.putExtra("decode_type", decodeType);
+                        intent.putExtra("videoPath", data.getData().getLives().get(0).getHttpPullUrl());
+                        startActivity(intent);
+                    } else if (TextUtils.equals(data.getData().getLives().get(0).getLiveStatus(), "3")) {
+                        showTost("直播已结束");
+                        return;
+                    } else if (TextUtils.equals(data.getData().getLives().get(0).getLiveStatus(), "4")) {
+                        showTost("直播已删除");
+                        return;
+                    }
 
-                    //把多个参数传给NEVideoPlayerActivity
-                    intent.putExtra("media_type", mediaType);
-                    intent.putExtra("decode_type", decodeType);
-                    intent.putExtra("videoPath", data.getData().getLives().get(0).getHttpPullUrl());
-                    startActivity(intent);
                 } else {
                     showTost("暂无直播");
                 }
@@ -1023,5 +1052,42 @@ public class Main2 extends BaseActivity {
         }
     }
 
+    /**
+     * 初始化SDK
+     */
+    private void initLib() {
+        // 为了android和ios 区分授权，appId=appname_face_android ,其中appname为申请sdk时的应用名
+        // 应用上下文
+        // 申请License取得的APPID
+        // assets目录下License文件名
+        FaceSDKManager.getInstance().init(this, Config.licenseID, Config.licenseFileName);
+        setFaceConfig();
+    }
+
+    private void setFaceConfig() {
+        FaceTracker tracker = FaceSDKManager.getInstance().getFaceTracker(this);
+        // SDK初始化已经设置完默认参数（推荐参数），您也根据实际需求进行数值调整
+
+        // 模糊度范围 (0-1) 推荐小于0.7
+        tracker.set_blur_thr(FaceEnvironment.VALUE_BLURNESS);
+        // 光照范围 (0-1) 推荐大于40
+        tracker.set_illum_thr(FaceEnvironment.VALUE_BRIGHTNESS);
+        // 裁剪人脸大小
+        tracker.set_cropFaceSize(FaceEnvironment.VALUE_CROP_FACE_SIZE);
+        // 人脸yaw,pitch,row 角度，范围（-45，45），推荐-15-15
+        tracker.set_eulur_angle_thr(FaceEnvironment.VALUE_HEAD_PITCH, FaceEnvironment.VALUE_HEAD_ROLL,
+                FaceEnvironment.VALUE_HEAD_YAW);
+
+        // 最小检测人脸（在图片人脸能够被检测到最小值）80-200， 越小越耗性能，推荐120-200
+        tracker.set_min_face_size(FaceEnvironment.VALUE_MIN_FACE_SIZE);
+        //
+        tracker.set_notFace_thr(FaceEnvironment.VALUE_NOT_FACE_THRESHOLD);
+        // 人脸遮挡范围 （0-1） 推荐小于0.5
+        tracker.set_occlu_thr(FaceEnvironment.VALUE_OCCLUSION);
+        // 是否进行质量检测
+        tracker.set_isCheckQuality(true);
+        // 是否进行活体校验
+        tracker.set_isVerifyLive(false);
+    }
 
 }

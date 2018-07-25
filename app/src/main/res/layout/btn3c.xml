@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/re_bt3"
+    android:layout_width="595px"
+    android:layout_height="match_parent"
+    android:layout_marginRight="5px"
+    android:background="@drawable/pad_main3">
+    <RelativeLayout
+        android:id="@+id/bt3_bt"
+        android:background="@drawable/pad_main3_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/im_img3"
+            android:layout_width="140px"
+            android:layout_height="160px"
+            android:layout_marginTop="50px"
+            android:layout_marginLeft="80px"
+            />
+        <TextView
+            android:id="@+id/tv_name3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24px"
+            android:textColor="@color/white"
+            tool:text="李医生"
+            android:layout_marginTop="130px"
+            android:layout_marginLeft="240px"
+            />
+        <TextView
+            android:id="@+id/tv_add3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20px"
+            android:textColor="@color/white"
+            tool:text="李医生"
+            android:layout_marginTop="175px"
+            android:layout_marginLeft="242px"
+            />
+    </RelativeLayout>
+</RelativeLayout>

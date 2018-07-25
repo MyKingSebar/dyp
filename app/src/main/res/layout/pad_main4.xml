@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#26282E"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_32">
+
+            <TextView
+                android:id="@+id/tv_login"
+                android:layout_width="@dimen/di_153dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dp_20"
+                android:text="登录"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/di_15sp" />
+
+            <TextView
+                android:id="@+id/tv_bind"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/icon_main_two"
+                android:drawablePadding="@dimen/dp_4"
+                android:gravity="center_vertical"
+                android:text="亲情监护绑定"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/di_15sp"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingLeft="@dimen/dp_40"
+            android:paddingRight="@dimen/dp_40"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="@dimen/dp_153"
+            android:layout_marginTop="@dimen/di_8dp"
+            android:gravity="center_horizontal">
+
+            <RelativeLayout
+                android:id="@+id/re_bt1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/di_4dp"
+                android:background="@drawable/pad_main1">
+
+                <RelativeLayout
+                    android:id="@+id/bt1_bt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pad_main1_2">
+
+                    <ImageView
+                        android:id="@+id/im_img"
+                        android:layout_width="@dimen/dp_70"
+                        android:layout_height="@dimen/dp_80"
+                        android:layout_marginLeft="@dimen/dp_40"
+                        android:layout_marginTop="@dimen/dp_25" />
+
+                    <TextView
+                        android:id="@+id/tv_call"
+                        android:layout_width="@dimen/dp_72"
+                        android:layout_height="@dimen/dp_34"
+                        android:layout_marginLeft="@dimen/dp_114"
+                        android:layout_marginTop="@dimen/dp_26"
+                        android:background="@drawable/tv_call" />
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_120"
+                        android:layout_marginTop="@dimen/dp_65"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_12"
+                        tool:text="李医生" />
+
+                    <TextView
+                        android:id="@+id/tv_add"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_121"
+                        android:layout_marginTop="@dimen/dp_88"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_10"
+                        tool:text="李医生" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/bt2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/di_4dp"
+                    android:background="@drawable/pad_main2"
+                    android:scaleType="fitXY" />
+
+                <RelativeLayout
+                    android:id="@+id/re_live_describe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="#FFC41D" >
+
+
+
+                    <TextView
+                        android:paddingLeft="@dimen/di_80dp"
+                        android:id="@+id/tv_live_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tool:text="提升老年人抵抗力和生命力的秘诀"
+                        android:textStyle="bold"
+                        android:layout_marginTop="@dimen/di_8dp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_12" />
+                    <TextView
+                        android:paddingLeft="@dimen/di_80dp"
+                        android:id="@+id/tv_live_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tool:text="2018年5月8日 12:00"
+                        android:layout_marginTop="@dimen/dp_25"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_10" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/dp_40"
+            android:paddingRight="@dimen/dp_40"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_153"
+            android:layout_marginTop="@dimen/di_8dp"
+            android:gravity="center_horizontal">
+
+            <RelativeLayout
+                android:id="@+id/re_bt3"
+                android:layout_width="@dimen/di_453dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/di_4dp"
+                android:background="@drawable/pad_main3">
+                <RelativeLayout
+                    android:id="@+id/bt3_bt"
+                    android:background="@drawable/pad_main3_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <ImageView
+                        android:id="@+id/im_img3"
+                        android:layout_width="@dimen/dp_70"
+                        android:layout_height="@dimen/dp_80"
+                        android:layout_marginTop="@dimen/dp_25"
+                        android:layout_marginLeft="@dimen/dp_40"
+                        />
+                    <TextView
+                        android:id="@+id/tv_name3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/sp_12"
+                        android:textColor="@color/white"
+                        tool:text="李医生"
+                        android:layout_marginTop="@dimen/dp_65"
+                        android:layout_marginLeft="@dimen/dp_120"
+                        />
+                    <TextView
+                        android:id="@+id/tv_add3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/sp_10"
+                        android:textColor="@color/white"
+                        tool:text="李医生"
+                        android:layout_marginTop="@dimen/dp_88"
+                        android:layout_marginLeft="@dimen/dp_121"
+                        />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/bt4"
+                android:layout_weight="1"
+                android:layout_width="@dimen/di_453dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/di_4dp"
+                android:background="@drawable/pad_main4" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt5"
+        android:layout_marginTop="@dimen/dp_126"
+        android:layout_width="@dimen/dp_148"
+        android:layout_height="@dimen/dp_148"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/pad_main5"
+        android:theme="@style/RippleWhite" />
+</FrameLayout>

@@ -15,6 +15,7 @@ import com.baidu.idl.facesdk.FaceTracker;
 import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.util.Log;
 
 /**
  * 封装了人脸检测的整体逻辑。
@@ -23,12 +24,25 @@ public class FaceDetectManager {
     /**
      * 该回调用于回调，人脸检测结果。当没有人脸时，infos 为null,status为 FaceDetector.DETECT_CODE_NO_FACE_DETECTED
      */
+    private Context mContext;
+    private int mDetectMax = 3; // 默认检测最大3个人脸
+
     public interface OnFaceDetectListener {
         void onDetectFace(int status, FaceInfo[] infos, ImageFrame imageFrame);
     }
 
     public FaceDetectManager(Context context) {
-        Ast.getInstance().init(context.getApplicationContext(), "3.1.0.0", "facedetect");
+        mContext = context;
+        Ast.getInstance().init(context.getApplicationContext(), "3.3.0.0", "facedetect");
+    }
+
+    /**
+     * 设置检测人脸最大数
+     *
+     * @param max
+     */
+    public void setDetectMax(int max) {
+        this.mDetectMax = max;
     }
 
     /**
@@ -44,6 +58,7 @@ public class FaceDetectManager {
     private Handler processHandler;
     private Handler uiHandler;
     private ImageFrame lastFrame;
+    private byte[] data;
     private int mPreviewDegree = 90;
 
     private ArrayList<FaceProcessor> preProcessors = new ArrayList<>();
@@ -131,8 +146,11 @@ public class FaceDetectManager {
     };
 
     public void stop() {
-        this.imageSource.stop();
-        this.imageSource.removeOnFrameAvailableListener(onFrameAvailableListener);
+        if (imageSource != null) {
+            this.imageSource.stop();
+            this.imageSource.removeOnFrameAvailableListener(onFrameAvailableListener);
+        }
+
         if (processThread != null) {
             processThread.quit();
             processThread = null;
@@ -173,11 +191,28 @@ public class FaceDetectManager {
         // FaceInfo[] faces = FaceSDKManager.getInstance().getFaceTracker().get_TrackedFaceInfo();
 
 
-        value = FaceSDKManager.getInstance().getFaceTracker()
+        value = FaceSDKManager.getInstance().getFaceTracker(mContext)
                 .prepare_max_face_data_for_verify(frame.getArgb(), frame.getHeight(), frame.getWidth(),
                         FaceSDK.ImgType.ARGB.ordinal(), FaceTracker.ActionType.RECOGNIZE.ordinal());
-//         value = FaceSDKManager.getInstance().detect(frame.getArgb(), frame.getWidth(), frame.getHeight());
-        FaceInfo[] faces = FaceSDKManager.getInstance().getFaceTracker().get_TrackedFaceInfo();
+
+        // trackType为1表示多人脸检测，为0表示单人脸检测
+        int trackType = 1;
+        // 单人脸
+        if (trackType == 0) {
+            FaceTracker.ErrCode errorCode = FaceSDKManager.getInstance().getFaceTracker(mContext).faceVerification(
+                    frame.getArgb(),
+                    frame.getHeight(), frame.getWidth(),
+                    FaceSDK.ImgType.ARGB,
+                    FaceTracker.ActionType.RECOGNIZE);
+
+            Log.d("IdentifyActivity", "errorCode2 is:" + errorCode.toString());
+        } else if (trackType == 1) { // 多人脸
+            FaceSDKManager.getInstance().getFaceTracker(mContext).track(frame.getArgb(),
+                    frame.getHeight(), frame.getWidth(),
+                    FaceSDK.ImgType.ARGB.ordinal(), mDetectMax);
+        }
+
+        FaceInfo[] faces = FaceSDKManager.getInstance().getFaceTracker(mContext).get_TrackedFaceInfo();
 
         if (value == 0) {
             faceFilter.filter(faces, frame);

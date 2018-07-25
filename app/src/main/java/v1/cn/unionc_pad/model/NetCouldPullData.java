@@ -80,7 +80,7 @@ private List<datadatadata> lives;
 
         public class datadatadata{
             private String HttpPullUrl;
-            private String LiveStatus;
+            private String LiveStatus; //直播状态：1-未开始，2-直播中，3-已结束,4-已删除
             private String LiveIntro;
             private String LiveId;
             private String Cid;

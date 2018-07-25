@@ -72,19 +72,13 @@ public class FaceDetector {
     }
 
     private FaceDetector(Context context, String appId, String licenseFileName) {
-        mFaceTracker = new FaceTracker(
-                context.getApplicationContext(),
-                context.getAssets(),
-                appId,
-                licenseFileName,
-                FaceSDK.AlignMethodType.CDNN,
-                FaceSDK.ParsMethodType.NOT_USE);
+        mFaceTracker = FaceSDKManager.getInstance().getFaceTracker(context);
         mFaceTracker.set_isFineAlign(false);
         mFaceTracker.set_isVerifyLive(false);
         mFaceTracker.set_isCheckQuality(false);
         mFaceTracker.set_notFace_thr(DEFAULT_NOT_FACE_THRESHOLD);
         mFaceTracker.set_min_face_size(DEFAULT_MIN_FACE_SIZE);
-        mFaceTracker.set_cropFaceSize(DEFAULT_MIN_FACE_SIZE );
+        mFaceTracker.set_cropFaceSize(DEFAULT_MIN_FACE_SIZE);
         mFaceTracker.set_illum_thr(DEFAULT_ILLUMINATION_THRESHOLD);
         mFaceTracker.set_blur_thr(DEFAULT_BLURRINESS_THRESHOLD);
         mFaceTracker.set_occlu_thr(DEFAULT_OCCULTATION_THRESHOLD);
@@ -95,15 +89,16 @@ public class FaceDetector {
                 DEFAULT_HEAD_ANGLE
         );
         // 检测人脸间隔时间，时间越短，人脸进入画面越快被检测到
-     //   mFaceTracker.set_detection_frame_interval(10);
+        //   mFaceTracker.set_detection_frame_interval(10);
         // 人脸检测到后追踪的时间间隔
-     //   mFaceTracker.set_intervalTime(300);
+        //   mFaceTracker.set_intervalTime(300);
         // 根据设备的cpu核心数设定人脸sdk使用的线程数，如双核设置为2，四核设置为4
         FaceSDK.setNumberOfThreads(4);
     }
 
     /**
      * 根据设备的cpu核心数设定人脸sdk使用的线程数，如双核设置为2，四核设置为4
+     *
      * @param numberOfThreads
      */
     public void setNumberOfThreads(int numberOfThreads) {
@@ -129,7 +124,9 @@ public class FaceDetector {
         mFaceTracker.set_min_face_size(faceSize);
     }
 
-    /** 设置最低光照强度（YUV中的Y分量）取值范围0-255，建议值大于40.
+    /**
+     * 设置最低光照强度（YUV中的Y分量）取值范围0-255，建议值大于40.
+     *
      * @param threshold 最低光照强度。
      */
     public void setIlluminationThreshold(float threshold) {
@@ -175,6 +172,7 @@ public class FaceDetector {
 
     /**
      * 检测间隔设置，单位ms.该值控制检测间隔。值越大，检测时间越长，性能消耗越低。值越小，能更快的检测到人脸。
+     *
      * @param interval 间隔时间，单位ms;
      */
     public void setDetectInterval(int interval) {
@@ -191,7 +189,6 @@ public class FaceDetector {
      * @param argb   人脸argb_8888图片。
      * @param width  图片宽度
      * @param height 图片高度
-     *
      * @return 检测结果代码。
      */
     public int detect(int[] argb, int width, int height) {
@@ -206,7 +203,6 @@ public class FaceDetector {
      * 进行人脸检测。返回检测结果代码。如果返回值为DETECT_CODE_OK 可调用 getTrackedFaces 获取人脸相关信息。
      *
      * @param imageFrame 人脸图片帧
-     *
      * @return 检测结果代码。
      */
     public int detect(ImageFrame imageFrame) {

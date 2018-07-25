@@ -4,6 +4,7 @@
 
 package com.baidu.aip.face.camera;
 
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -285,7 +286,7 @@ public class Camera2Control implements ICameraControl {
             if (!cameraLock.tryAcquire(2500, TimeUnit.MILLISECONDS)) {
                 throw new RuntimeException("Time out waiting to lock camera opening.");
             }
-            manager.openCamera(cameraId, deviceStateCallback, backgroundHandler);
+            manager.openCamera("0", deviceStateCallback, backgroundHandler);
         } catch (CameraAccessException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -353,13 +354,13 @@ public class Camera2Control implements ICameraControl {
                 @Override
                 public void onImageAvailable(ImageReader reader) {
                     Image image = reader.acquireNextImage();
-//                    ByteBuffer buffer = image.getPlanes()[0].getBuffer();
-//                    byte[] data = new byte[buffer.remaining()];
-//                    buffer.get(data);
-                    byte[] data = yuvImageToByteArray(image);
+                    ByteBuffer buffer = image.getPlanes()[0].getBuffer();
+                    byte[] data = new byte[buffer.remaining()];
+                    buffer.get(data);
+//                    byte[] data = YUV_420_888_toRGBIntrinsics(image);
 
-//                    int rotation = ORIENTATIONS.get(orientation);
-                    int rotation = 90;
+                    int rotation = ORIENTATIONS.get(orientation);
+//                    int rotation = 90;
                     if (camFacing == ICameraControl.CAMERA_FACING_FRONT) {
                         if (rotation == 90 || rotation == 270) {
                             rotation = (rotation + 180) % 360;

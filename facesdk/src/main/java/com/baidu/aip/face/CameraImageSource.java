@@ -13,6 +13,9 @@ import com.baidu.aip.face.camera.Camera1Control;
 import com.baidu.aip.face.camera.ICameraControl;
 
 import android.content.Context;
+import android.media.Image;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 
 /**
  * 封装了系统做机做为输入源。
@@ -35,6 +38,25 @@ public class CameraImageSource extends ImageSource {
 
     public void setCameraFacing(int type) {
         this.cameraFaceType = type;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private byte[] imageToByteArray(Image image) {
+        ByteBuffer yBuffer = image.getPlanes()[0].getBuffer();
+        ByteBuffer uBuffer = image.getPlanes()[2].getBuffer();
+        ByteBuffer vBuffer = image.getPlanes()[1].getBuffer();
+
+        int ySize = yBuffer.remaining();
+        int uSize = uBuffer.remaining();
+        int vSize = vBuffer.remaining();
+
+        byte[] nv21 = new byte[ySize + uSize + vSize];
+        // U and V are swapped
+        yBuffer.get(nv21, 0, ySize);
+        uBuffer.get(nv21, ySize, vSize);
+        vBuffer.get(nv21, ySize + vSize, uSize);
+
+        return nv21;
     }
 
     public CameraImageSource(Context context) {

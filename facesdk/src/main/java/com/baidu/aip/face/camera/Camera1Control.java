@@ -147,40 +147,24 @@ public class Camera1Control implements ICameraControl {
             }
             return;
         }
-//        if (camera == null) {
-//            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-//            for (int i = 0; i < Camera.getNumberOfCameras(); i++) {
-//                Camera.getCameraInfo(i, cameraInfo);
-//                if (cameraInfo.facing == cameraFacing) {
-//                    cameraId = i;
-//                }
-//            }
-//            camera = Camera.open(cameraId);
-//        }
-
-
-        Camera c = null;
-        if(camera!=null){
-
-            camera.stopPreview();
-            camera.release();
-        }
-        camera = null;
-        try {
+        if (camera == null) {
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
             for (int i = 0; i < Camera.getNumberOfCameras(); i++) {
-                Camera.CameraInfo info = new Camera.CameraInfo();
-                Camera.getCameraInfo(i, info);
-                if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {//这就是前置摄像头，亲。
-                    camera = Camera.open(i);
+                Camera.getCameraInfo(i, cameraInfo);
+                if (cameraInfo.facing == cameraFacing) {
+                    cameraId = i;
                 }
             }
-        } catch(Exception e){
-            Log.d("TAG", "camera is not available");
+            // 部分相机会出错
+            try {
+                camera = Camera.open(cameraId);
+            } catch (RuntimeException e) {
+                e.printStackTrace();
+            }
+            if (camera == null) {
+                return;
+            }
         }
-        if (camera == null) {
-            camera = Camera.open();}
-
-
 //        if (parameters == null) {
 //            parameters = camera.getParameters();
 //            parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
@@ -218,6 +202,37 @@ public class Camera1Control implements ICameraControl {
         }
         final int temp = detectRotation;
         try {
+            if (cameraFacing == ICameraControl.CAMERA_USB) {
+                camera.setPreviewTexture(textureView.getSurfaceTexture());
+            } else {
+                // 适配安卓8.0系统
+                if (Build.VERSION.SDK_INT >= 26) {
+                    camera.setPreviewTexture(textureView.getSurfaceTexture());
+                } else {
+                    surfaceTexture = new SurfaceTexture(11);
+                    camera.setPreviewTexture(surfaceTexture);
+                    uiHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            if (textureView != null) {
+                                surfaceTexture.detachFromGLContext();
+                                textureView.setSurfaceTexture(surfaceTexture);
+                            }
+                        }
+                    });
+                }
+            }
+//            camera.addCallbackBuffer(new byte[size.width * size.height * 3 / 2]);
+//            camera.setPreviewCallbackWithBuffer(new Camera.PreviewCallback() {
+//
+//                @Override
+//                public void onPreviewFrame(byte[] data, Camera camera) {
+//                    Log.i("wtf", "onPreviewFrame-->");
+//                    onFrameListener.onPreviewFrame(data, temp, size.width, size.height);
+//                    camera.addCallbackBuffer(data);
+//           ad     }
+//            });
             camera.setPreviewCallback(new Camera.PreviewCallback() {
                 @Override
                 public void onPreviewFrame(byte[] data, Camera camera) {
@@ -225,22 +240,6 @@ public class Camera1Control implements ICameraControl {
                 }
             });
 
-            if (cameraFacing == ICameraControl.CAMERA_USB) {
-                camera.setPreviewTexture(textureView.getSurfaceTexture());
-            } else {
-                surfaceTexture = new SurfaceTexture(11);
-                camera.setPreviewTexture(surfaceTexture);
-                uiHandler .post(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        if (textureView != null) {
-                            surfaceTexture.detachFromGLContext();
-                            textureView.setSurfaceTexture(surfaceTexture);
-                        }
-                    }
-                });
-            }
         } catch (IOException e) {
             e.printStackTrace();
         } catch (RuntimeException e) {
