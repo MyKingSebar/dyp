@@ -1,5 +1,6 @@
 package v1.cn.unionc_pad.ui;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import v1.cn.unionc_pad.network_frame.ConnectHttp;
 import v1.cn.unionc_pad.network_frame.UnionAPIPackage;
 import v1.cn.unionc_pad.network_frame.core.BaseObserver;
 import v1.cn.unionc_pad.ui.base.BaseActivity;
+import v1.cn.unionc_pad.ui.health.DossierHeartRateAutoActivity;
 import v1.cn.unionc_pad.utils.ZXingUtils;
 
 public class SuperviseActivity extends BaseActivity {
@@ -38,7 +40,11 @@ public class SuperviseActivity extends BaseActivity {
     }
     @OnClick(R.id.tv_heart)
     void heart(){
-        goNewActivity(SuperviseHeartActivity.class);
+        Intent intent = new Intent(context, DossierHeartRateAutoActivity.class);
+        String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
+        intent.putExtra("userId", token);
+        intent.putExtra("monitorId", "1");
+        context.startActivity(intent);
     }
     @OnClick(R.id.img_back)
     void back(){

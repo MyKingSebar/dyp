@@ -10,20 +10,23 @@
         android:layout_height="match_parent">
 
         <include layout="@layout/include_toolbar"/>
-        <TextView
-            android:layout_width="220px"
-            android:layout_height="220px"
-            android:layout_marginLeft="220px"
-            android:layout_marginTop="354px"
+
+      <TextView
+            android:layout_width="@dimen/dp_110"
+            android:layout_height="@dimen/dp_110"
+            android:layout_marginLeft="@dimen/dp_110"
+            android:layout_marginBottom="@dimen/dp_85"
             android:background="@drawable/ewm"
+          android:layout_alignParentBottom="true"
             />
         <TextView
             android:id="@+id/tv_two"
-            android:layout_width="220px"
-            android:layout_height="220px"
-            android:layout_marginRight="220px"
+            android:layout_width="@dimen/dp_110"
+            android:layout_height="@dimen/dp_110"
+            android:layout_marginRight="@dimen/dp_110"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="354px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dp_85"
             />
     </RelativeLayout>
 

@@ -24,6 +24,7 @@ import v1.cn.unionc_pad.model.DoctorInfoIdentifierData;
 import v1.cn.unionc_pad.model.DoctorOrClinicData;
 import v1.cn.unionc_pad.model.DoctorScheduleData;
 import v1.cn.unionc_pad.model.GetGuardianshipInfoData;
+import v1.cn.unionc_pad.model.GetLiveDoctorListData;
 import v1.cn.unionc_pad.model.GetRongTokenData;
 import v1.cn.unionc_pad.model.HasUnfinishedAppointData;
 import v1.cn.unionc_pad.model.HeartHistoryData;
@@ -907,6 +908,16 @@ public class UnionAPIPackage {
         HashMap<String, String> params = new HashMap<>();
         params.put("token", token);
         return ConnectHttp.getUnionAPI().unfinishedappoint(dataProcess(params));
+    }
+    /**
+     * 视频问诊医生列表
+     */
+    public static Observable<GetLiveDoctorListData> getvideodoctors(String token,String pageNo,String pageSize) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+        params.put("pageNo", pageNo);
+        params.put("pageSize", pageSize);
+        return ConnectHttp.getUnionAPI().getvideodoctors(dataProcess(params));
     }
 
 }

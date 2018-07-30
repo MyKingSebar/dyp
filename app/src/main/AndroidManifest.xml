@@ -6,6 +6,10 @@
         android:name="v1.cn.unionc_pad.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
 
+    <!-- 用于申请获取蓝牙信息进行室内定位 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
     <!-- Required -->
     <uses-permission android:name="v1.cn.unionc_pad.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
@@ -171,7 +175,19 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/rc_file_path" />
         </provider>
-
+        <activity android:name=".ui.health.DossierHeartRateAutoActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            ></activity>
+        <activity android:name=".ui.health.DossierHeartRateAutoMeasureActivity"></activity>
+        <activity android:name=".ui.health.DossierHeartRateECGPhotoActivity"></activity>
+        <activity android:name=".ui.health.DossierHeartRateSelectBlueToothActivity"></activity>
+        <activity android:name=".ui.health.DossierHertrateNotIndicationsActivity"></activity>
+        <activity android:name=".ui.health.EcgDataSourceReviewActivity"></activity>
+        <activity android:name=".ui.health.DossierDiabetesCureMedActivity"></activity>
+        <activity android:name=".ui.health.DossierWheelViewActivity"></activity>
+        <activity android:name=".ui.health.DossierHertrateNotIndicationsActivitys"></activity>
+        <activity android:name=".ui.health.DossierHertRateHistoryActivity"></activity>
+        
       <!--  <activity
             android:name="io.rong.callkit.MultiVideoCallActivity"
             android:launchMode="singleTop"

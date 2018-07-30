@@ -413,7 +413,7 @@ public class DetectActivity extends BaseActivity {
                             String identifier = data.getData().getIdentifier() + "";
                             SPUtil.put(context, Common.IDENTIFIER, identifier);
                             SPUtil.put(context, Common.USER_PHONE, data.getData());
-
+                            login((String) data.getData().getToken());
                             SPUtil.put(context, Common.USER_TOKEN, (String) data.getData().getToken());
                             SPUtil.put(context, Common.RONG_TOKEN, (String) data.getData().getIMToken());
                             SPUtil.put(context, Common.USER_ID, (String) data.getData().getUserId());

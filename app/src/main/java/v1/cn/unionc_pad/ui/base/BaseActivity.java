@@ -248,6 +248,8 @@ public class BaseActivity extends FragmentActivity {
                 @Override
                 public void onTokenIncorrect() {
                     Log.e("linshi", "onTokenIncorrect");
+
+
                 }
 
                 /**

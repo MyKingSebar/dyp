@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="E:\work\gitlab\pad\v1.cn.unionc_pad\labels\src\main\assets"/><source path="E:\work\gitlab\pad\v1.cn.unionc_pad\labels\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="E:\work\gitlab\pad\v1.cn.unionc_pad\labels\src\debug\assets"/></dataSet></merger>

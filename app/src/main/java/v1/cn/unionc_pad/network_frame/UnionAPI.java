@@ -23,6 +23,7 @@ import v1.cn.unionc_pad.model.DoctorInfoIdentifierData;
 import v1.cn.unionc_pad.model.DoctorOrClinicData;
 import v1.cn.unionc_pad.model.DoctorScheduleData;
 import v1.cn.unionc_pad.model.GetGuardianshipInfoData;
+import v1.cn.unionc_pad.model.GetLiveDoctorListData;
 import v1.cn.unionc_pad.model.GetRongTokenData;
 import v1.cn.unionc_pad.model.HasUnfinishedAppointData;
 import v1.cn.unionc_pad.model.HeartHistoryData;
@@ -618,4 +619,12 @@ public interface UnionAPI {
     @FormUrlEncoded
     @POST("old-man/old-man-has-unfinished-appoint")
     Observable<HasUnfinishedAppointData> unfinishedappoint(@FieldMap Map<String, Object> params);
+    /**
+     * 视频问诊医生列表
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("doctor/video-doctors")
+    Observable<GetLiveDoctorListData> getvideodoctors(@FieldMap Map<String, Object> params);
 }

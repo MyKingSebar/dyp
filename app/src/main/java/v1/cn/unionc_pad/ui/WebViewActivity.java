@@ -39,6 +39,7 @@ import v1.cn.unionc_pad.model.BaseData;
 import v1.cn.unionc_pad.model.NetCouldPullData;
 import v1.cn.unionc_pad.network_frame.ConnectHttp;
 import v1.cn.unionc_pad.network_frame.UnionAPIPackage;
+import v1.cn.unionc_pad.network_frame.UnioncURL;
 import v1.cn.unionc_pad.network_frame.core.BaseObserver;
 import v1.cn.unionc_pad.ui.base.BaseActivity;
 import v1.cn.unionc_pad.view.X5WebView;
@@ -121,8 +122,9 @@ public class WebViewActivity extends BaseActivity {
             case 3:
 
                 break;
-            case 4:
-
+            case Common.WEB_HELP:
+//心电图使用说明
+                initHelp();
                 break;
             case 5:
 
@@ -147,6 +149,14 @@ public class WebViewActivity extends BaseActivity {
         String url = "http://192.168.21.93:8081/ipadH5/index.html";
         Log.d("linshi", "url" + url);
         webviewSearch.loadUrl(url);
+    }
+
+    private void initHelp() {
+        toplayout.setVisibility(View.GONE);
+        String url = UnioncURL.Unionc_WEB_Host + "pages/index.html#/help" ;
+        Log.d("linshi", "url" + url);
+        webviewSearch.loadUrl(url);
+
     }
 
     public class JsInteration {

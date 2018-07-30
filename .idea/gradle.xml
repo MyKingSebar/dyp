@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/faceplatform-release" />
             <option value="$PROJECT_DIR$/faceplatform-ui" />
             <option value="$PROJECT_DIR$/facesdk" />
+            <option value="$PROJECT_DIR$/labels" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

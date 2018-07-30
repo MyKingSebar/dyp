@@ -10,17 +10,23 @@ import com.baidu.aip.FaceEnvironment;
 import com.baidu.aip.FaceSDKManager;
 import com.baidu.aip.fl.Config;
 import com.baidu.idl.facesdk.FaceTracker;
+import com.mhealth365.osdk.EcgOpenApiCallback;
+import com.mhealth365.osdk.EcgOpenApiHelper;
+
+import java.io.IOException;
 
 import cn.jpush.android.api.JPushInterface;
 import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.Message;
+import v1.cn.unionc_pad.ui.health.LogUtils;
 
 public class UnioncApp extends MultiDexApplication {
     //百度人脸识别
 //    public static List<LivenessTypeEnum> livenessList = new ArrayList<LivenessTypeEnum>();
     public static boolean isLivenessRandom = false;
 
+    public DisplayMetrics displayMetrics;
 
     private static UnioncApp app;
 
@@ -35,9 +41,10 @@ public class UnioncApp extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         app = this;
+        displayMetrics = getResources().getDisplayMetrics();
 
-
-
+//蓝牙心电记录仪SDK的初始化
+        initmHelath365SDK();
         initRongYun();
         initJiGuang();
 //        initLib();
@@ -78,7 +85,7 @@ public class UnioncApp extends MultiDexApplication {
     }
     private void initRongYun() {
         //        RongIM.init(this);
-        RongIM.init(this,"tdrvipkstxpf5");
+        RongIM.init(this,"3argexb63mx4e");
         RongIM.setOnReceiveMessageListener(new RongIMClient.OnReceiveMessageListener() {
             @Override
             public boolean onReceived(Message message, int i) {
@@ -124,5 +131,72 @@ public class UnioncApp extends MultiDexApplication {
         tracker.set_isCheckQuality(true);
         // 是否进行活体校验
         tracker.set_isVerifyLive(false);
+    }
+
+    //蓝牙心电记录仪SDK的初始化
+    //************************************************************************************心电图***********************************************************************
+    EcgOpenApiCallback.OsdkCallback displayMessage;
+    public void setOsdkCallback(EcgOpenApiCallback.OsdkCallback osdkCallback) {
+        displayMessage = osdkCallback;
+    }
+    EcgOpenApiCallback.OsdkCallback mOsdkCallback = new EcgOpenApiCallback.OsdkCallback() {
+
+        @Override
+        public void deviceSocketLost() {
+            if (displayMessage != null)
+                displayMessage.deviceSocketLost();
+        }
+        @Override
+        public void deviceSocketConnect() {
+            if (displayMessage != null)
+                displayMessage.deviceSocketConnect();
+        }
+        @Override
+        public void devicePlugOut() {
+            if (displayMessage != null)
+                displayMessage.devicePlugOut();
+        }
+        @Override
+        public void devicePlugIn() {
+            if (displayMessage != null)
+                displayMessage.devicePlugIn();
+        }
+        @Override
+        public void deviceReady(int sample) {
+            if (displayMessage != null)
+                displayMessage.deviceReady(sample);
+        }
+        @Override
+        public void deviceNotReady(int msg) {
+            if (displayMessage != null)
+                displayMessage.deviceNotReady(msg);
+        }
+    };
+    private void initmHelath365SDK() {
+        EcgOpenApiHelper mHelper = EcgOpenApiHelper.getInstance();
+        String thirdPartyId = "9002e85acfc29e3687c849a88e46c40b";
+        String appId = "5d8cef316b20774d99ef76484b620005";
+        String appSecret = "";
+        String UserOrgName = "医巴士";
+        String pakageName = "v1.cn.unionc_pad";
+        LogUtils.LOGD("心电thirdPartyId",thirdPartyId);
+        LogUtils.LOGD("心电appId",appId);
+        LogUtils.LOGD("心电UserOrgName",UserOrgName);
+        LogUtils.LOGD("心电pakageName",pakageName);
+        try {
+            mHelper.initOsdk(getApplicationContext(), thirdPartyId, appId, appSecret, UserOrgName, mOsdkCallback, pakageName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void finishSdk() throws IOException {
+        EcgOpenApiHelper mHelper = EcgOpenApiHelper.getInstance();
+        mHelper.finishSdk();
+    }
+    //蓝牙心电记录仪SDK的初始化完毕
+    //************************************************************************************心电图完毕***********************************************************************
+
+    public static Context getContext() {
+        return getInstance().getBaseContext();
     }
 }

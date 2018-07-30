@@ -144,7 +144,6 @@ public class Main2 extends BaseActivity {
         ButterKnife.bind(this);
 //        initData();
         if (isLogin()) {
-
             tvLogin.setText("退出登录");
             tv_bind.setVisibility(View.VISIBLE);
         }
@@ -186,6 +185,7 @@ public class Main2 extends BaseActivity {
     private void initlivelist() {
 
         String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
+        Log.d("linshi","token:"+token);
         ConnectHttp.connect(UnionAPIPackage.getlivelist(token, "1", "20"), new BaseObserver<NetCouldPullData>(context) {
             @Override
             public void onResponse(NetCouldPullData data) {
@@ -223,6 +223,7 @@ public class Main2 extends BaseActivity {
     private void initDocOrNurse() {
 
         String Token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
+        Log.d("linshi","token:"+Token);
         ConnectHttp.connect(UnionAPIPackage.getdocornurse(Token),
                 new BaseObserver<DocOrNurseData>(context) {
                     @Override
