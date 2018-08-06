@@ -1,4 +1,4 @@
-include ':app', ':IMLib', ':CallLib','IMKit','CallKit',':labels'
+include ':app', ':IMLib', ':CallLib','IMKit','CallKit',':labels',':photoview'
 include ':faceplatform-ui'
 include ':faceplatform-release'
 include ':facesdk'

@@ -127,4 +127,5 @@ dependencies {
     api 'com.contrarywind:Android-PickerView:4.1.5'
     implementation files('libs/mhealth365-osdk-v1.3.2.jar')
     implementation project(':labels')
+    implementation project(':photoview')
 }

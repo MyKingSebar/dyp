@@ -175,9 +175,9 @@ public class UnioncApp extends MultiDexApplication {
     private void initmHelath365SDK() {
         EcgOpenApiHelper mHelper = EcgOpenApiHelper.getInstance();
         String thirdPartyId = "9002e85acfc29e3687c849a88e46c40b";
-        String appId = "5d8cef316b20774d99ef76484b620005";
+        String appId = "d9fe9670dc955d53cab8c3e9295e1240";
         String appSecret = "";
-        String UserOrgName = "医巴士";
+        String UserOrgName = "壹家医养";
         String pakageName = "v1.cn.unionc_pad";
         LogUtils.LOGD("心电thirdPartyId",thirdPartyId);
         LogUtils.LOGD("心电appId",appId);

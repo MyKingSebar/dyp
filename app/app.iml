@@ -194,6 +194,7 @@
     <orderEntry type="module" module-name="CallLib" />
     <orderEntry type="module" module-name="IMLib" />
     <orderEntry type="module" module-name="IMKit" />
+    <orderEntry type="module" module-name="photoview" />
     <orderEntry type="module" module-name="facesdk" />
   </component>
 </module>

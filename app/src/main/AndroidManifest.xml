@@ -165,6 +165,18 @@
             android:name=".ui.WebViewActivity"
             android:screenOrientation="landscape">
         </activity>
+        <activity
+            android:name=".ui.LiveListActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".ui.DoctorListActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".ui.NurseAndWorkerActivity"
+            android:screenOrientation="landscape">
+        </activity>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

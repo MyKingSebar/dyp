@@ -193,14 +193,19 @@ public class Main2 extends BaseActivity {
 
 
                     if (data.getData().getLives().size() > 0) {
+                        tv_live_name.setText("" + data.getData().getLives().get(0).getLiveTitle());
+                        tv_live_time.setText("" + data.getData().getLives().get(0).getStartTime());
+                        re_live_describe.setVisibility(View.VISIBLE);
+                        try {
                         Glide.with(context)
                                 .load(data.getData().getLives().get(0).getBanner())
                                 .placeholder(R.drawable.pad_main2).dontAnimate()
                                 .error(R.drawable.pad_main2)
                                 .into(bt2);
-                        tv_live_name.setText("" + data.getData().getLives().get(0).getLiveTitle());
-                        tv_live_time.setText("" + data.getData().getLives().get(0).getStartTime());
-                        re_live_describe.setVisibility(View.VISIBLE);
+                        } catch (Exception mE) {
+                            return;
+                        }
+
                     } else {
                         re_live_describe.setVisibility(View.INVISIBLE);
                     }
@@ -390,7 +395,8 @@ public class Main2 extends BaseActivity {
             case R.id.re_bt1:
                 if (isLogin()) {
 //                    RongCallKit.startSingleCall(Main2.this, "bfc37490f5b94604a4a78cfc7a34446b", RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
-                    getDoc();
+//                    getDoc();
+                    goNewActivity(DoctorListActivity.class);
                 } else {
                     showTost("请先登陆");
 //                    goNewActivity(FaceDetectExpActivity.class);
@@ -402,7 +408,8 @@ public class Main2 extends BaseActivity {
                 //健康直播
 //                goNewActivity(NEMainActivity.class);
                 if (isLogin()) {
-                    initrecommenddoctor2();
+//                    initrecommenddoctor2();
+                    goNewActivity(LiveListActivity.class);
                 } else {
                     showTost("请先登陆");
 //                    goNewActivity(FaceDetectExpActivity.class);
@@ -411,8 +418,9 @@ public class Main2 extends BaseActivity {
                 break;
             case R.id.re_bt3:
                 if (isLogin()) {
-                    unfinishedappoint();
+//                    unfinishedappoint();
                     //一户上门
+                    goNewActivity(NurseAndWorkerActivity.class);
 
                 } else {
                     showTost("请先登陆");

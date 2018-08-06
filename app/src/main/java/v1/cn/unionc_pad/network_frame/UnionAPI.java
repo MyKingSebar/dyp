@@ -24,6 +24,7 @@ import v1.cn.unionc_pad.model.DoctorOrClinicData;
 import v1.cn.unionc_pad.model.DoctorScheduleData;
 import v1.cn.unionc_pad.model.GetGuardianshipInfoData;
 import v1.cn.unionc_pad.model.GetLiveDoctorListData;
+import v1.cn.unionc_pad.model.GetNurseListData;
 import v1.cn.unionc_pad.model.GetRongTokenData;
 import v1.cn.unionc_pad.model.HasUnfinishedAppointData;
 import v1.cn.unionc_pad.model.HeartHistoryData;
@@ -627,4 +628,20 @@ public interface UnionAPI {
     @FormUrlEncoded
     @POST("doctor/video-doctors")
     Observable<GetLiveDoctorListData> getvideodoctors(@FieldMap Map<String, Object> params);
+    /**
+     * 查护工/护士列表：
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("nurse/visit-nursers")
+    Observable<GetNurseListData> getnurses(@FieldMap Map<String, Object> params);
+    /**
+     * 预约上门：
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("nurse/appoint-nurse")
+    Observable<BaseData> subscribenurses(@FieldMap Map<String, Object> params);
 }

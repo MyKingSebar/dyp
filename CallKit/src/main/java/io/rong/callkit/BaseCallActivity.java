@@ -384,6 +384,7 @@ public class BaseCallActivity extends BaseNoActionBarActivity implements IRongCa
             RongCallKit.getCustomerHandlerListener().onCallConnected(callProfile, localVideo);
         }
         shouldShowFloat = true;
+        stopRing();
         AudioRecordManager.getInstance().destroyRecord();
     }
 

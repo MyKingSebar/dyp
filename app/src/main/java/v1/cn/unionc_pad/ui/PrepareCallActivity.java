@@ -37,6 +37,7 @@ import v1.cn.unionc_pad.ui.base.BaseActivity;
 
 public class PrepareCallActivity extends BaseActivity {
     private int progresstime;
+    final static  int calltime=15;
     Spannable sp;
     private String IMUserId = "";
     private String HeadImage = "";
@@ -102,9 +103,9 @@ public class PrepareCallActivity extends BaseActivity {
     private void init() {
         sp = new SpannableString("秒后自动呼叫");
         sp.setSpan(new AbsoluteSizeSpan(24,false),0,5,Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-        progresstime=30;
+        progresstime=calltime;
 
-        myProgress.setProgressTextFormatPattern("30\n秒后自动呼叫" );
+        myProgress.setProgressTextFormatPattern(calltime+"\n秒后自动呼叫" );
         handler.sendEmptyMessageDelayed(5000, 1000);
         MediaPlayer mMediaPlayer;
         mMediaPlayer=MediaPlayer.create(this, R.raw.call);
@@ -128,7 +129,9 @@ public class PrepareCallActivity extends BaseActivity {
                     progresstime--;
 
 
-                    myProgress.setProgress(30-progresstime);
+                    myProgress.setProgress(calltime
+
+                            -progresstime);
                     myProgress.setProgressTextFormatPattern("" + progresstime+"\n"+"秒后自动呼叫");
 //                    myProgress.setProgressTextFormatPattern(Html.fromHtml("今天" + "<font color='#FF0000'>" + progresstime + "</font>"));
                     handler.sendEmptyMessageDelayed(5000, 1000);
@@ -159,8 +162,6 @@ public class PrepareCallActivity extends BaseActivity {
                                 RongCallKit.startSingleCall(PrepareCallActivity.this,data.getData().getIMUserId(), RongCallKit.CallMediaType.CALL_MEDIA_TYPE_AUDIO);
                                 finish();
                             }
-
-
                         } else {
                             showTost(data.getMessage() + "");
                         }
