@@ -20,6 +20,7 @@ import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.Message;
 import v1.cn.unionc_pad.ui.health.LogUtils;
+import v1.cn.unionc_pad.utils.Density;
 
 public class UnioncApp extends MultiDexApplication {
     //百度人脸识别
@@ -40,6 +41,7 @@ public class UnioncApp extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+//        Density.setDensity(this, 640f);
         app = this;
         displayMetrics = getResources().getDisplayMetrics();
 

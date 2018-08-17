@@ -70,4 +70,25 @@ public class Common {
 
     public static final String MESSAGE_JGPUSH_PAD_ACTION = "MESSAGE_JGPUSH_PAD_ACTION";
 
+
+
+    //首页推送列表
+    //推送类型（1-活动，2-直播，3-医生，4-护士5-绑定监护人）6：视频问诊  7：一键呼叫监护人8：预约护士上门
+    public static final String PUSH_ACTICITY = "1";
+    public static final String PUSH_LIVE = "2";
+    public static final String PUSH_DOC = "3";
+    public static final String PUSH_NUR = "4";
+    public static final String PUSH_BIND= "5";
+    public static final String PUSH_VIDEO = "6";
+    public static final String PUSH_CALL= "7";
+    public static final String PUSH_CALLNURSE = "8";
+    public static final String PUSH_PRESCRIPTION = "9";
+
+    public static String docvideoid;
+    public static String DoctImagePath;
+    public static String DoctName;
+    public static String ClinicName;
+    public static String Major;
+    public static String ProfessName;
+
 }

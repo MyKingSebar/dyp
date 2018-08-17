@@ -36,6 +36,7 @@ import v1.cn.unionc_pad.model.IsBindJianhurenData;
 import v1.cn.unionc_pad.model.IsDoctorData;
 import v1.cn.unionc_pad.model.IsDoctorSignData;
 import v1.cn.unionc_pad.model.LoginData;
+import v1.cn.unionc_pad.model.MainMessagePushData;
 import v1.cn.unionc_pad.model.MapClinicData;
 import v1.cn.unionc_pad.model.MeWatchingDoctorListData;
 import v1.cn.unionc_pad.model.MeWatchingHospitalListData;
@@ -44,6 +45,7 @@ import v1.cn.unionc_pad.model.MyDutyDoctorsData;
 import v1.cn.unionc_pad.model.MyRecommenDoctorsData;
 import v1.cn.unionc_pad.model.NetCouldPullData;
 import v1.cn.unionc_pad.model.OMLHistoryData;
+import v1.cn.unionc_pad.model.PrescriptionInfoData;
 import v1.cn.unionc_pad.model.RecommendDoctorsData;
 import v1.cn.unionc_pad.model.TIMSigData;
 import v1.cn.unionc_pad.model.UpdateBaiduFileData;
@@ -51,6 +53,9 @@ import v1.cn.unionc_pad.model.UpdateFileData;
 import v1.cn.unionc_pad.model.UserInfoData;
 import v1.cn.unionc_pad.model.WatchingActivityData;
 import v1.cn.unionc_pad.model.WeiXinQRcodeData;
+import v1.cn.unionc_pad.model.saveinterrogationrecordsData;
+import v1.cn.unionc_pad.model.visitnurserdiseaseData;
+import v1.cn.unionc_pad.model.visitnurseservicesData;
 
 /**
  * Created by qy on 2018/1/31.
@@ -611,7 +616,7 @@ public interface UnionAPI {
      */
     @FormUrlEncoded
     @POST("old-man/save-interrogation-records")
-    Observable<BaseData> saveinterrogation(@FieldMap Map<String, Object> params);
+    Observable<saveinterrogationrecordsData> saveinterrogation(@FieldMap Map<String, Object> params);
     /**
      * pad老人查询是否有未完成的预约护士订单
      *
@@ -644,4 +649,56 @@ public interface UnionAPI {
     @FormUrlEncoded
     @POST("nurse/appoint-nurse")
     Observable<BaseData> subscribenurses(@FieldMap Map<String, Object> params);
+
+    /**
+     * 消息记录：
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("message/message-push-record")
+    Observable<MainMessagePushData> messagepushrecord(@FieldMap Map<String, Object> params);
+
+    /**
+     * 删除消息：：
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("message/message-delete")
+    Observable<BaseData> deletemessage(@FieldMap Map<String, Object> params);
+
+
+    /**
+     * 查询处方详细
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("old-man/prescription-info")
+    Observable<PrescriptionInfoData> prescriptioninfo(@FieldMap Map<String, Object> params);
+    /**
+     * 视频问诊评价接口
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("doctor/video-doctor-evaluate")
+    Observable<BaseData> videodoctorevaluate(@FieldMap Map<String, Object> params);
+    /**
+     * 上门服务项列表：
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("nurse/visit-nurse-services")
+    Observable<visitnurseservicesData> visitnurseservices(@FieldMap Map<String, Object> params);
+    /**
+     * 上门护理疾病列表：
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("nurse/visit-nurser-disease")
+    Observable<visitnurserdiseaseData> visitnurserdisease(@FieldMap Map<String, Object> params);
 }

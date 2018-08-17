@@ -72,6 +72,19 @@
     <string name="rc_voip_video_no_response">视频聊天未接听</string>
     <string name="rc_voip_video_observer">为了保证会议流畅，后续用户只能以观众模式加入，是否继续？</string>
     <string name="rc_voip_whiteboard">白板</string>
+    <style name="MyDialog" parent="@android:style/Theme.Holo.Dialog">
+        <!-- 是否有边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!--是否在悬浮Activity之上  -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--阴影  -->
+        <item name="android:windowIsTranslucent">true</item><!--半透明-->
+        <!--背景透明-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 还可以加入一些弹出和退出的动画 (lan)-->
+    </style>
     <style name="rc_voip_text_style_style" parent="@android:style/TextAppearance.Widget.TextView">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">14sp</item>

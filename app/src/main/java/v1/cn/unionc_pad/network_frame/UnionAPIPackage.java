@@ -37,6 +37,7 @@ import v1.cn.unionc_pad.model.IsBindJianhurenData;
 import v1.cn.unionc_pad.model.IsDoctorData;
 import v1.cn.unionc_pad.model.IsDoctorSignData;
 import v1.cn.unionc_pad.model.LoginData;
+import v1.cn.unionc_pad.model.MainMessagePushData;
 import v1.cn.unionc_pad.model.MapClinicData;
 import v1.cn.unionc_pad.model.MeWatchingDoctorListData;
 import v1.cn.unionc_pad.model.MeWatchingHospitalListData;
@@ -45,6 +46,7 @@ import v1.cn.unionc_pad.model.MyDutyDoctorsData;
 import v1.cn.unionc_pad.model.MyRecommenDoctorsData;
 import v1.cn.unionc_pad.model.NetCouldPullData;
 import v1.cn.unionc_pad.model.OMLHistoryData;
+import v1.cn.unionc_pad.model.PrescriptionInfoData;
 import v1.cn.unionc_pad.model.RecommendDoctorsData;
 import v1.cn.unionc_pad.model.TIMSigData;
 import v1.cn.unionc_pad.model.UpdateBaiduFileData;
@@ -52,6 +54,9 @@ import v1.cn.unionc_pad.model.UpdateFileData;
 import v1.cn.unionc_pad.model.UserInfoData;
 import v1.cn.unionc_pad.model.WatchingActivityData;
 import v1.cn.unionc_pad.model.WeiXinQRcodeData;
+import v1.cn.unionc_pad.model.saveinterrogationrecordsData;
+import v1.cn.unionc_pad.model.visitnurserdiseaseData;
+import v1.cn.unionc_pad.model.visitnurseservicesData;
 import v1.cn.unionc_pad.utils.MobileConfigUtil;
 
 /**
@@ -896,7 +901,7 @@ public class UnionAPIPackage {
     /**
      * 保存问诊记录：
      */
-    public static Observable<BaseData> saveinterrogation(String token,String doctId) {
+    public static Observable<saveinterrogationrecordsData> saveinterrogation(String token, String doctId) {
         HashMap<String, String> params = new HashMap<>();
         params.put("token", token);
         params.put("doctId", doctId);
@@ -913,15 +918,17 @@ public class UnionAPIPackage {
     /**
      * 视频问诊医生列表
      */
-    public static Observable<GetLiveDoctorListData> getvideodoctors(String token,String pageNo,String pageSize) {
+    public static Observable<GetLiveDoctorListData> getvideodoctors(String token,String pageNo,String pageSize,String longitude,String latitude) {
         HashMap<String, String> params = new HashMap<>();
         params.put("token", token);
         params.put("pageNo", pageNo);
         params.put("pageSize", pageSize);
+        params.put("longitude", longitude);
+        params.put("latitude", latitude);
         return ConnectHttp.getUnionAPI().getvideodoctors(dataProcess(params));
     }
     /**
-     * 视频问诊医生列表    roleId(4-护士，6-护工)
+     * 查护工/护士列表：    roleId(4-护士，6-护工)
      */
     public static Observable<GetNurseListData> getnurses(String roleId, String pageNo, String pageSize) {
         HashMap<String, String> params = new HashMap<>();
@@ -931,7 +938,7 @@ public class UnionAPIPackage {
         return ConnectHttp.getUnionAPI().getnurses(dataProcess(params));
     }
     /**
-     * 视频问诊医生列表    roleId(4-护士，6-护工)
+     * 预约上门：
      */
     public static Observable<BaseData> subscribenurses(String token, String doctId, String serviceId, String serviceTime, String serviceType, String name, String addr, String telphone, String addrId,String userType) {
         HashMap<String, String> params = new HashMap<>();
@@ -947,5 +954,61 @@ public class UnionAPIPackage {
         params.put("userType", userType);
         return ConnectHttp.getUnionAPI().subscribenurses(dataProcess(params));
     }
+    /**
+     * 消息记录
+     */
+    public static Observable<MainMessagePushData> messagepushrecord(String token) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+        return ConnectHttp.getUnionAPI().messagepushrecord(dataProcess(params));
+    }
 
+    /**
+     * 删除消息
+     */
+    public static Observable<BaseData> deletemessage(String token,String messageId) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+        params.put("messageId", messageId);
+        return ConnectHttp.getUnionAPI().deletemessage(dataProcess(params));
+    }
+
+    /**
+     * 查询处方详细
+     */
+    public static Observable<PrescriptionInfoData> prescriptioninfo(String token, String recordId) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+        params.put("recordId", recordId);
+        return ConnectHttp.getUnionAPI().prescriptioninfo(dataProcess(params));
+    }
+    /**
+     * 视频问诊评价接口
+     */
+    public static Observable<BaseData> videodoctorevaluate(String token, String recordId, String starCount, String content,String isAnonymity) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+        params.put("recordId", recordId);
+        params.put("starCount", starCount);
+        params.put("content", content);
+        params.put("isAnonymity", isAnonymity);
+        return ConnectHttp.getUnionAPI().videodoctorevaluate(dataProcess(params));
+    }
+    /**
+     * 上门服务项列表
+     */
+    public static Observable<visitnurseservicesData> visitnurseservices(String token) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+        return ConnectHttp.getUnionAPI().visitnurseservices(dataProcess(params));
+    }
+    /**
+     *上门护理疾病列表：
+     */
+    public static Observable<visitnurserdiseaseData> visitnurserdisease(String token) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+
+        return ConnectHttp.getUnionAPI().visitnurserdisease(dataProcess(params));
+    }
 }

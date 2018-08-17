@@ -105,7 +105,8 @@ public class StartActivity extends BaseActivity {
                                         goNewActivity(v1.cn.unionc_pad.ui.StartActivity.class);
                                     } else {
 //            非第一次启动直接跳转
-                                        goNewActivity(Main2.class);
+//                                        goNewActivity(Main2.class);
+                                        goNewActivity(Main.class);
                                     }
 //                goNewActivity(cn.v1.unionc_user.ui.welcome.StartActivity.class);
                                     finish();

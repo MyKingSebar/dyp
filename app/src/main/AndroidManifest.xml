@@ -133,6 +133,10 @@
             android:screenOrientation="landscape">
         </activity>
         <activity
+            android:name=".ui.Main"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
             android:name=".ui.SuperviseActivity"
             android:screenOrientation="landscape">
         </activity>
@@ -174,6 +178,30 @@
             android:screenOrientation="landscape">
         </activity>
         <activity
+            android:name=".ui.DocInfoActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".ui.HurseDoorActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".ui.CommentDocActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+            <action android:name="v1.cn.unionc_pad.ui.CommentDocActivity"/>
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.PrescriptionActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+            <action android:name="v1.cn.unionc_pad.ui.PrescriptionActivity"/>
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
+        <activity
             android:name=".ui.NurseAndWorkerActivity"
             android:screenOrientation="landscape">
         </activity>
@@ -199,7 +227,7 @@
         <activity android:name=".ui.health.DossierWheelViewActivity"></activity>
         <activity android:name=".ui.health.DossierHertrateNotIndicationsActivitys"></activity>
         <activity android:name=".ui.health.DossierHertRateHistoryActivity"></activity>
-        
+        <service android:name="com.amap.api.location.APSService"></service>
       <!--  <activity
             android:name="io.rong.callkit.MultiVideoCallActivity"
             android:launchMode="singleTop"
@@ -270,7 +298,9 @@
             </intent-filter>
 
         </activity>
-
+        //开发者申请的key
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="68694536e205145a4a0e36b801388f01">
+        </meta-data>
         <!--第三方的推送 权限 广播 和服务-->
 
         <!-- 小米 配置开始 < -->

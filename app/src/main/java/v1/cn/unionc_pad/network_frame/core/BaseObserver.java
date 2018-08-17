@@ -1,9 +1,12 @@
 package v1.cn.unionc_pad.network_frame.core;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.baidu.aip.fl.DetectActivity;
 import com.google.gson.Gson;
 import com.orhanobut.logger.Logger;
 
@@ -12,6 +15,8 @@ import java.net.SocketTimeoutException;
 import io.reactivex.Observer;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
+import v1.cn.unionc_pad.data.Common;
+import v1.cn.unionc_pad.data.SPUtil;
 import v1.cn.unionc_pad.model.BaseData;
 import v1.cn.unionc_pad.utils.NetWorkUtils;
 
@@ -39,11 +44,11 @@ public abstract class BaseObserver<T> implements Observer<T> {
             BaseData baseData = (BaseData)t;
             //检查Token是否过期
             if(TextUtils.equals("0100",baseData.getCode())){
-//                SPUtil.remove(context, Common.USER_TOKEN);
-//                SPUtil.remove(context, Common.USER_ADD);
-//                Intent intent = new Intent(context, LoginActivity.class);
-//                Log.d("linshi","LoginActivity:BaseObserver");
-//                context.startActivity(intent);
+                SPUtil.remove(context, Common.USER_TOKEN);
+                SPUtil.remove(context, Common.USER_ADD);
+                Intent intent = new Intent(context, DetectActivity.class);
+                Log.d("linshi","LoginActivity:BaseObserver");
+                context.startActivity(intent);
                 //登出
             }
         }

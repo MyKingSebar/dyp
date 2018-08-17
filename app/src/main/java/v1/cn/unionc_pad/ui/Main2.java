@@ -69,6 +69,7 @@ import v1.cn.unionc_pad.model.JiGuangData;
 import v1.cn.unionc_pad.model.LogInEventData;
 import v1.cn.unionc_pad.model.LogInFailEventData;
 import v1.cn.unionc_pad.model.NetCouldPullData;
+import v1.cn.unionc_pad.model.saveinterrogationrecordsData;
 import v1.cn.unionc_pad.network_frame.ConnectHttp;
 import v1.cn.unionc_pad.network_frame.UnionAPIPackage;
 import v1.cn.unionc_pad.network_frame.core.BaseObserver;
@@ -355,9 +356,9 @@ public class Main2 extends BaseActivity {
 
         String Token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
         ConnectHttp.connect(UnionAPIPackage.saveinterrogation(Token, id),
-                new BaseObserver<BaseData>(context) {
+                new BaseObserver<saveinterrogationrecordsData>(context) {
                     @Override
-                    public void onResponse(BaseData data) {
+                    public void onResponse(saveinterrogationrecordsData data) {
                         closeDialog();
                         if (TextUtils.equals("4000", data.getCode())) {
 

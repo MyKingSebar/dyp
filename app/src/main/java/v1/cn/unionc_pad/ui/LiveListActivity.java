@@ -33,6 +33,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import recycler.coverflow.RecyclerCoverFlow;
 import v1.cn.demo.activity.NEVideoPlayerActivity;
 import v1.cn.demo.receiver.NELivePlayerObserver;
 import v1.cn.demo.receiver.Observer;
@@ -71,7 +72,7 @@ public class LiveListActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doctorlist);
+        setContentView(R.layout.activity_doctorlist2);
         unbinder= ButterKnife.bind(this);
         /**   6.0权限申请     **/
         bPermission = checkPublishPermission();

@@ -128,4 +128,10 @@ dependencies {
     implementation files('libs/mhealth365-osdk-v1.3.2.jar')
     implementation project(':labels')
     implementation project(':photoview')
+    compile 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0'
+    compile 'com.chenlittleping:recyclercoverflow:1.0.6'
+
+
+
+
 }

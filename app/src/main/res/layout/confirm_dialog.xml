@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg_button_line"
+    android:orientation="vertical"
+    android:layout_width="@dimen/dp_257"
+    android:layout_height="@dimen/dp_161">
+<TextView
+    android:layout_gravity="center_horizontal"
+    android:id="@+id/title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+android:text="您是否要结束当前会话？"
+    android:textColor="@color/white"
+    android:textSize="@dimen/sp_15"
+    android:layout_marginTop="@dimen/dp_40"
+    />
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp_41"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_30">
+        <TextView
+            android:id="@+id/goon"
+            android:layout_width="@dimen/dp_90"
+            android:layout_height="match_parent"
+            android:text="继续问诊"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12"
+            android:background="@drawable/bg_button_call_yellow"
+            />
+        <TextView
+            android:id="@+id/no"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_width="@dimen/dp_90"
+            android:layout_height="match_parent"
+            android:text="结束会话"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12"
+            android:background="@drawable/bg_button_line"
+            />
+    </LinearLayout>
+</LinearLayout>

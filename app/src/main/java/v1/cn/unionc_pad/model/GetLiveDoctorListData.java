@@ -1,5 +1,6 @@
 package v1.cn.unionc_pad.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -25,35 +26,26 @@ public class GetLiveDoctorListData extends BaseData {
      "data": {
      "videoDoctors": [
      {
-     "DoctId": "58",
-     "DoctImagePath": "http://192.168.21.93:8081/image/webServer/compress/101/10/10/107497db-6193-466a-aa2d-3c21ee08701c_641947948088577221.jpg",
-     "EvaluateCount": "1",		//评价数
-     "ProfessName": "主任医师",	//级别
-     "Telphone": "15615611111",
-     "DepartName": "儿科",		//科室
-     "AtteCount": "1",			//关注数
-     "Major": "儿科",			//擅长
-     "OnlineState": "0",			是否在线
-     "ClinicName": "孟的测试医院",
-     "ClinicId": "779427",
-     "DoctName": "孟医生"
-     },
-     {
-     "DoctId": "42",
-     "DoctImagePath": "http://192.168.21.93:8081/image/webServer/compress/78/9/14/0765cd6b-03c9-4cdd-b9dc-8efd43ca9f30_file.jpg",
+     "DoctImagePath": ": "http://192.168.21.93:8081/image/webServer/compress/79/7/0/98e3a481-7255-46a9-8f17-2ea4dc77ed80_20001.jpg",
+     ",
+     "DoctId": "34",
+     "DoctUserId": "85",
      "EvaluateCount": "0",
-     "ProfessName": "副主任医师",
-     "Telphone": "15615672129",
+     "ProfessName": "知名专家",
+     "Telphone": "13502212321",
      "DepartName": "儿科",
      "AtteCount": "0",
-     "Major": "啊啊啊啊",
-     "OnlineState": "0",
-     "ClinicName": "孟的测试医院",
-     "ClinicId": "779416",
-     "DoctName": "小孟"
+     "Identifier": "91c6cfe42e7a44dd97be1654bed5540b",
+     "Major": "大幅度上冻豆腐受到",
+     "OnlineState": "2",
+     "ClinicName": "望京新世界",
+     "ClinicId": "779417",
+     "ServicePrice": "0.00",
+     "DoctName": "王天明",
+     "Distance": "2.52"
      }
      ],
-     "videoDoctorsCount": 2
+     "videoDoctorsCount": 1
      },
      "message": "成功"
      }
@@ -69,7 +61,7 @@ public class GetLiveDoctorListData extends BaseData {
             this.videoDoctors = videoDoctors;
         }
 
-        public class DataDataData {
+        public class DataDataData implements Serializable {
             private String DoctId;
             private String DoctImagePath;
             private String EvaluateCount;
@@ -83,6 +75,33 @@ public class GetLiveDoctorListData extends BaseData {
             private String ClinicId;
             private String DoctName;
             private String Identifier;
+            private String Distance;
+            private String ServicePrice;
+            private String Remarks;
+
+            public String getRemarks() {
+                return Remarks;
+            }
+
+            public void setRemarks(String remarks) {
+                Remarks = remarks;
+            }
+
+            public String getDistance() {
+                return Distance;
+            }
+
+            public void setDistance(String distance) {
+                Distance = distance;
+            }
+
+            public String getServicePrice() {
+                return ServicePrice;
+            }
+
+            public void setServicePrice(String servicePrice) {
+                ServicePrice = servicePrice;
+            }
 
             public String getIdentifier() {
                 return Identifier;

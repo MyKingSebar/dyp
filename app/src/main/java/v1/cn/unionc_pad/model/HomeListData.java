@@ -1,7 +1,5 @@
 package v1.cn.unionc_pad.model;
 
-import android.os.Message;
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -68,6 +66,35 @@ public class HomeListData extends BaseData  {
         }
 
         public static class HomeData implements Serializable{
+            @Override
+            public String toString() {
+                return "HomeData{" +
+                        "type='" + type + '\'' +
+                        ", lastMessage="  +
+                        ", lasttime='" + lasttime + '\'' +
+                        ", unReadMessage='" + unReadMessage + '\'' +
+                        ", clinicId='" + clinicId + '\'' +
+                        ", clinicName='" + clinicName + '\'' +
+                        ", departName='" + departName + '\'' +
+                        ", distance='" + distance + '\'' +
+                        ", doctId='" + doctId + '\'' +
+                        ", doctorName='" + doctorName + '\'' +
+                        ", identifier='" + identifier + '\'' +
+                        ", imagePath='" + imagePath + '\'' +
+                        ", major='" + major + '\'' +
+                        ", professLevel='" + professLevel + '\'' +
+                        ", LinkUrl='" + LinkUrl + '\'' +
+                        ", EndTime='" + EndTime + '\'' +
+                        ", activityId='" + ActivityId + '\'' +
+                        ", StartTime='" + StartTime + '\'' +
+                        ", ImagePath='" + ImagePath + '\'' +
+                        ", LinkType='" + LinkType + '\'' +
+                        ", MessageId='" + MessageId + '\'' +
+                        ", Name='" + Name + '\'' +
+                        ", Address='" + Address + '\'' +
+                        ", CreatedTime='" + CreatedTime + '\'' +
+                        '}';
+            }
 
             private String type;
 
@@ -79,15 +106,6 @@ public class HomeListData extends BaseData  {
                 this.type = type;
             }
 
-            private Message lastMessage;
-
-            public Message getLastMessage() {
-                return lastMessage;
-            }
-
-            public void setLastMessage(Message lastMessage) {
-                this.lastMessage = lastMessage;
-            }
 
             private String lasttime;
 
@@ -234,18 +252,23 @@ public class HomeListData extends BaseData  {
              */
             private String LinkUrl;
             private String EndTime;
-            private String activityId;
+            private String ActivityId;
             private String StartTime;
             private String ImagePath;
             private String LinkType;
             private String MessageId;
             private String Name;
-
-
-
             private String Address;
             private String CreatedTime;
 
+
+            public String getActivityId() {
+                return ActivityId;
+            }
+
+            public void setActivityId(String activityId) {
+                ActivityId = activityId;
+            }
 
             public String getImagePath2() {
                 return ImagePath;
@@ -270,13 +293,7 @@ public class HomeListData extends BaseData  {
                 EndTime = endTime;
             }
 
-            public String getActivityId() {
-                return activityId;
-            }
 
-            public void setActivityId(String activityId) {
-                this.activityId = activityId;
-            }
 
             public String getStartTime() {
                 return StartTime;
@@ -326,6 +343,72 @@ public class HomeListData extends BaseData  {
                 CreatedTime = createdTime;
             }
 
+
+            private String JumpId;
+//            private String CreatedTime;
+//            private String MessageId;
+            private String OrderBy;
+            private String IsDelete;
+            private String IsJump;
+            private String IsRead;
+            private String PushCategory;//"推送类型（1-活动，2-直播，3-医生，4-护士5-绑定监护人）",
+            private MainMessagePushData.DataData.DataDataData.MessageData Content;
+
+            public String getJumpId() {
+                return JumpId;
+            }
+
+            public void setJumpId(String jumpId) {
+                JumpId = jumpId;
+            }
+
+            public String getOrderBy() {
+                return OrderBy;
+            }
+
+            public void setOrderBy(String orderBy) {
+                OrderBy = orderBy;
+            }
+
+            public String getIsDelete() {
+                return IsDelete;
+            }
+
+            public void setIsDelete(String isDelete) {
+                IsDelete = isDelete;
+            }
+
+            public String getIsJump() {
+                return IsJump;
+            }
+
+            public void setIsJump(String isJump) {
+                IsJump = isJump;
+            }
+
+            public String getIsRead() {
+                return IsRead;
+            }
+
+            public void setIsRead(String isRead) {
+                IsRead = isRead;
+            }
+
+            public String getPushCategory() {
+                return PushCategory;
+            }
+
+            public void setPushCategory(String pushCategory) {
+                PushCategory = pushCategory;
+            }
+
+            public MainMessagePushData.DataData.DataDataData.MessageData getContent() {
+                return Content;
+            }
+
+            public void setContent(MainMessagePushData.DataData.DataDataData.MessageData content) {
+                Content = content;
+            }
         }
 
     }

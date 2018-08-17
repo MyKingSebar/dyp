@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll"
+    android:layout_width="170dp"
+    android:layout_height="250dp"
+    android:background="@drawable/bg_doc_list_item"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="135dp">
+
+        <ImageView
+            android:id="@+id/img_message_avator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tv_isonline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="@drawable/bg_button_online_green"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="6sp"
+            tools:text="在线" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textColor="#26282E"
+            android:textSize="15sp"
+            tools:text="李晓光"
+            />
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textColor="#F78126"
+            android:textSize="12sp"
+
+            tools:text="45元"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="9dp"
+            android:textColor="#3F3F3C"
+            android:textSize="9sp"
+
+            android:text="/10min"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+
+        <TextView
+            android:id="@+id/tv_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:textColor="#F78126"
+            android:textSize="10sp"
+            tools:text="小儿内科" />
+
+        <TextView
+            android:id="@+id/tv_identity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:textColor="#999996"
+            android:textSize="10sp"
+            tools:text="主治医师" />
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_marginLeft="9dp"
+        android:id="@+id/tv_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="#999996"
+        android:textSize="10sp"
+        tools:text="北京协和医院广安门附属医院" />
+
+
+
+    <LinearLayout
+        android:layout_marginLeft="9dp"
+        android:id="@+id/l_like"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="9dp"
+            android:layout_height="9dp"
+            android:background="@drawable/icon_like" />
+
+        <TextView
+            android:id="@+id/tv_like"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:textColor="#9B9CA0"
+            android:textSize="9sp"
+            tools:text="100" />
+
+        <ImageView
+            android:layout_width="9dp"
+            android:layout_height="9dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/icon_comment" />
+
+        <TextView
+            android:id="@+id/tv_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="3dp"
+            android:textColor="@color/detail_text"
+            android:textSize="9sp"
+            tools:text="100" />
+
+    </LinearLayout>
+<View
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"/>
+<TextView
+    android:id="@+id/tv_allow"
+    android:layout_width="match_parent"
+    android:layout_height="20dp"
+    android:background="#00D154"
+    android:textColor="@color/white"
+    android:textSize="9dp"
+    android:text="可接入视频问诊"
+    android:gravity="center"
+    />
+</LinearLayout>
+
+

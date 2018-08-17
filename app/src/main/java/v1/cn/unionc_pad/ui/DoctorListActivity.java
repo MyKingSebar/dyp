@@ -1,21 +1,29 @@
 package v1.cn.unionc_pad.ui;
 
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import recycler.coverflow.RecyclerCoverFlow;
 import v1.cn.unionc_pad.R;
 import v1.cn.unionc_pad.adapter.DoctorListAdapter;
+import v1.cn.unionc_pad.adapter.DoctorListAdapter2;
 import v1.cn.unionc_pad.data.Common;
 import v1.cn.unionc_pad.data.SPUtil;
 import v1.cn.unionc_pad.model.GetLiveDoctorListData;
@@ -23,12 +31,15 @@ import v1.cn.unionc_pad.network_frame.ConnectHttp;
 import v1.cn.unionc_pad.network_frame.UnionAPIPackage;
 import v1.cn.unionc_pad.network_frame.core.BaseObserver;
 import v1.cn.unionc_pad.ui.base.BaseActivity;
+import v1.cn.unionc_pad.utils.GPSUtils;
+
+import static v1.cn.unionc_pad.utils.GPSUtils.locationListener;
 
 public class DoctorListActivity extends BaseActivity {
     private Unbinder unbinder;
-    private DoctorListAdapter doctorListAdapter;
+    private DoctorListAdapter2 doctorListAdapter;
     @BindView(R.id.recyclerview)
-    RecyclerView recyclerview;
+    RecyclerCoverFlow recyclerview;
     @BindView(R.id.tv_title)
     TextView title;
     @BindView(R.id.im_back)
@@ -48,10 +59,42 @@ public class DoctorListActivity extends BaseActivity {
         initdoclist();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initdoclist();
+    }
+    //从网络获取经纬度
+    public String getLngAndLatWithNetwork() {
+        double latitude = 0.0;
+        double longitude = 0.0;
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 0, locationListener);
+        Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        if (location != null) {
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
+                            SPUtil.put(context, Common.USER_LATITUDE, ""+latitude);
+                SPUtil.put(context, Common.USER_LONGITUDE,""+longitude);
+        }
+        Log.d("linshi","la:"+longitude + "," + latitude);
+        return longitude + "," + latitude;
+    }
     private void initdoclist() {
-
+//            Map map= GPSUtils.getInstance(context).getLocation();
+//            if(map!=null){
+//                SPUtil.put(context, Common.USER_LATITUDE, (String)map.get("latitude"));
+//                SPUtil.put(context, Common.USER_LONGITUDE, (String)map.get("longitude"));
+//                Log.d("linshi","la:"+map.get("latitude"));
+//            }else{
+//                Log.d("linshi","map==null");
+//            }
+        getLngAndLatWithNetwork();
         String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
-        ConnectHttp.connect(UnionAPIPackage.getvideodoctors(token,"1","50"), new BaseObserver<GetLiveDoctorListData>(context) {
+        String la = (String) SPUtil.get(context, Common.USER_LATITUDE, "");
+        String lo = (String) SPUtil.get(context, Common.USER_LONGITUDE, "");
+        Log.d("linshi","la2:"+la + "," + lo);
+        ConnectHttp.connect(UnionAPIPackage.getvideodoctors(token,"1","50",lo,la), new BaseObserver<GetLiveDoctorListData>(context) {
             @Override
             public void onResponse(GetLiveDoctorListData data) {
                 if (TextUtils.equals("4000", data.getCode())) {
@@ -76,8 +119,8 @@ public class DoctorListActivity extends BaseActivity {
     private void initView() {
         title.setText("视频复诊");
 
-        recyclerview.setLayoutManager(new LinearLayoutManager(context));
-        doctorListAdapter = new DoctorListAdapter(context);
+//        recyclerview.setLayoutManager(new LinearLayoutManager(context));
+        doctorListAdapter = new DoctorListAdapter2(context);
         recyclerview.setAdapter(doctorListAdapter);
 
     }

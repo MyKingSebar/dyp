@@ -491,7 +491,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
             pickupDetector.register(this);
         }
     }
-
+    //通话中的挂断按钮
     public void onHangupBtnClick(View view) {
         RongCallSession session = RongCallClient.getInstance().getCallSession();
         if (session == null || isFinishing) {
@@ -500,6 +500,11 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
         }
         RongCallClient.getInstance().hangUpCall(session.getCallId());
         stopRing();
+
+    Intent intent=new Intent("v1.cn.unionc_pad.ui.CommentDocActivity");
+    startActivity(intent);
+
+
     }
 
     public void onReceiveBtnClick(View view) {
@@ -603,6 +608,8 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
         postRunnableDelay(new Runnable() {
             @Override
             public void run() {
+                Intent intent=new Intent("v1.cn.unionc_pad.ui.PrescriptionActivity");
+                startActivity(intent);
                 finish();
             }
         });
