@@ -130,10 +130,52 @@
         </activity>
         <activity
             android:name=".ui.Main2"
+            android:launchMode="singleTask"
             android:screenOrientation="landscape">
         </activity>
         <activity
+            android:name=".ui.door.ChooseHuliServiceActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".ui.kangyang.kangYangvidoeActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".ui.kangyang.kangYangActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".ui.door.ServiceInfoActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".ui.door.YuyueTimeActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".ui.door.YuyueOkActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".ui.door.NowYuyueActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".ui.door.YuyueBingActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
             android:name=".ui.Main"
+            android:launchMode="singleTask"
             android:screenOrientation="landscape">
         </activity>
         <activity

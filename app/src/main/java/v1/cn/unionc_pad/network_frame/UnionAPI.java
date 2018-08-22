@@ -8,6 +8,7 @@ import io.reactivex.Observable;
 import okhttp3.MultipartBody;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -53,6 +54,9 @@ import v1.cn.unionc_pad.model.UpdateFileData;
 import v1.cn.unionc_pad.model.UserInfoData;
 import v1.cn.unionc_pad.model.WatchingActivityData;
 import v1.cn.unionc_pad.model.WeiXinQRcodeData;
+import v1.cn.unionc_pad.model.YiYangData;
+import v1.cn.unionc_pad.model.YuYueOkData;
+import v1.cn.unionc_pad.model.getAddressData;
 import v1.cn.unionc_pad.model.saveinterrogationrecordsData;
 import v1.cn.unionc_pad.model.visitnurserdiseaseData;
 import v1.cn.unionc_pad.model.visitnurseservicesData;
@@ -648,7 +652,7 @@ public interface UnionAPI {
      */
     @FormUrlEncoded
     @POST("nurse/appoint-nurse")
-    Observable<BaseData> subscribenurses(@FieldMap Map<String, Object> params);
+    Observable<YuYueOkData> subscribenurses(@FieldMap Map<String, Object> params);
 
     /**
      * 消息记录：
@@ -701,4 +705,33 @@ public interface UnionAPI {
     @FormUrlEncoded
     @POST("nurse/visit-nurser-disease")
     Observable<visitnurserdiseaseData> visitnurserdisease(@FieldMap Map<String, Object> params);
+    /**
+     * 地址列表	num不是必传，老人只查询一条时传1
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/addrs")
+    Observable<getAddressData> getaddress(@FieldMap Map<String, Object> params);
+    /**
+     * 1.	yiyang获取文章列表API
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("third/lists")
+    Observable<YiYangData> getyiyangVideo(@FieldMap Map<String, Object> params);
+
+//    @GET("third/lists")
+//    Observable<YiYangData> getyiyangVideo2(@FieldMap Map<String, Object> params);
+
+    /**
+     * processData.put("catId", "QeV8mZMAsrBa9b3H");
+     processData.put("direction", direction);
+     processData.put("lasttime", lasttime);
+     * @return
+     */
+    //获取豆瓣Top250 榜单
+    @GET("third/lists")
+    Observable<YiYangData> getyiyangVideo2(@Query("catId") String catId,@Query("direction")String direction,@Query("lasttime")String lasttime);
 }

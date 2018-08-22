@@ -29,6 +29,13 @@ public class RetrofitConfigure {
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();
+    //APP
+    public static Retrofit yiyangRetrofitapp = new Retrofit.Builder()
+            .baseUrl(UnioncURL.YiYang_Host)
+            .client(OkHttpConfigure.httpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build();
 
 
     /**

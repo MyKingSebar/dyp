@@ -19,6 +19,9 @@ public class ConnectHttp<T> {
     public static UnionAPI getUnionappAPI() {
         return RetrofitConfigure.unioncRetrofitapp.create(UnionAPI.class);
     }
+    public static UnionAPI getYiYangAPI() {
+        return RetrofitConfigure.yiyangRetrofitapp.create(UnionAPI.class);
+    }
 
 
     /**

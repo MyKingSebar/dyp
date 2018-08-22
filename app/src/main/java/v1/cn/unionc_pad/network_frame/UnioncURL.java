@@ -6,6 +6,7 @@ package v1.cn.unionc_pad.network_frame;
 
 public class UnioncURL {
 
+    public static final String YiYang_Host = "https://dbapi.myhaowai.com/api/";
     public static final String Unionc_Host = "http://192.168.21.93:8080/unionWeb/";
     public static final String Unionc_app_Host = "http://192.168.21.93:8080/unionApp/";
     public static final String Unionc_WEB_Host = "http://192.168.21.93:8080/unionWeb/";

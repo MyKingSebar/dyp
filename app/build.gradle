@@ -132,6 +132,6 @@ dependencies {
     compile 'com.chenlittleping:recyclercoverflow:1.0.6'
 
 
-
+    compile 'com.github.fodroid:XRadioGroup:v1.1'
 
 }

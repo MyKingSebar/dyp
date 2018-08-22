@@ -1,5 +1,6 @@
 package v1.cn.unionc_pad.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,7 +11,6 @@ public class visitnurseservicesData extends BaseData {
 
 
     /**
-     *
      * {"code":"4000","data":{"
      * data":[{"ServiceName":"静脉采血","ServiceDesc":"用于常规或特殊检测、辅助诊断疾病等","ServicePrice":"50.00","ServiceIcon":"","ServiceImage":"":"http://www.yihu365.com/images/nurseImg_007.png","S","ServiceId":"3"},{"ServiceName":"静脉输液","ServiceDesc":"专业护士静脉点滴","ServicePrice":"50.00","ServiceIcon":"","ServiceImage":"":"http://www.yihu365.com/images/nurseImg_002.png","S","ServiceId":"2"},{"ServiceName":"留置针输液","ServiceDesc":"适用于输液疗程长，血管穿刺困难者","ServicePrice":"50.00","ServiceIcon":"","ServiceImage":"":"http://www.yihu365.com/images/nurseImg_015.png","S","ServiceId":"4"},{"ServiceName":"导尿","ServiceDesc":"插尿管，尿管护理，更换尿管","ServicePrice":"50.00","ServiceIcon":"","ServiceImage":"":"http://www.yihu365.com/images/nurseImg_004.png","S","ServiceId":"7"},{"ServiceName":"雾化治疗","ServiceDesc":"药物气化为雾，吸入治疗","ServicePrice":"50.00","ServiceIcon":"","ServiceImage":"":"http://www.yihu365.com/images/nurseImg_018.png","S","ServiceId":"14"},{"ServiceName":"灌肠护理","ServiceDesc":"经肛门灌注液体，通便排气","ServicePrice":"50.00","ServiceIcon":"","ServiceImage":"":"http://www.yihu365.com/images/nurseImg_014.png","S","ServiceId":"12"}]
      * },"message":"成功"}
@@ -47,13 +47,13 @@ public class visitnurseservicesData extends BaseData {
          * "ServiceImage":"http://www.yihu365.com/images/nurseImg_007.png",
          * "ServiceId":"3"}
          */
-        public static class ServiceData{
-private String ServiceName;
-private String ServiceDesc;
-private String ServicePrice;
-private String ServiceIcon;
-private String ServiceImage;
-private String ServiceId;
+        public static class ServiceData implements Serializable {
+            private String ServiceName;
+            private String ServiceDesc;
+            private String ServicePrice;
+            private String ServiceIcon;
+            private String ServiceImage;
+            private String ServiceId;
 
             public String getBuyCount() {
                 return buyCount;

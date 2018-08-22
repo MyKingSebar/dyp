@@ -75,6 +75,8 @@ import v1.cn.unionc_pad.network_frame.ConnectHttp;
 import v1.cn.unionc_pad.network_frame.UnionAPIPackage;
 import v1.cn.unionc_pad.network_frame.core.BaseObserver;
 import v1.cn.unionc_pad.ui.base.BaseActivity;
+import v1.cn.unionc_pad.ui.door.YuyueBingActivity;
+import v1.cn.unionc_pad.ui.kangyang.kangYangActivity;
 import v1.cn.unionc_pad.utils.GPSUtils;
 import v1.cn.unionc_pad.utils.MacUtil;
 import v1.cn.unionc_pad.utils.jiguang.ExampleUtil;
@@ -170,7 +172,7 @@ initloca();
 //        setFaceConfig();
     }
 
-    @OnClick({R.id.tv_spwz, R.id.tv_jkzb, R.id.tv_smhl, R.id.tv_znjc, R.id.tv_jjhj})
+    @OnClick({R.id.tv_spwz, R.id.tv_jkzb, R.id.tv_smhl, R.id.tv_znjc, R.id.tv_jjhj,R.id.tv_grzx,R.id.tv_wyhd})
     public void onClick(View view) {
 
         switch (view.getId()) {
@@ -235,6 +237,23 @@ initloca();
 //                    goNewActivity(DetectActivity.class);
                 }
                 break;
+            case R.id.tv_grzx:
+//                getRongInfo();
+                if (isLogin()) {
+                    goNewActivity(YuyueBingActivity.class);
+                } else {
+                    showTost("请先登陆");
+                    goNewActivity(DetectActivity.class);
+//                    goNewActivity(FaceDetectExpActivity.class);
+//                    goNewActivity(DetectActivity.class);
+                }
+                break;
+
+            case R.id.tv_wyhd:
+                //文娱活动
+                goNewActivity(kangYangActivity.class);
+                break;
+
         }
     }
 

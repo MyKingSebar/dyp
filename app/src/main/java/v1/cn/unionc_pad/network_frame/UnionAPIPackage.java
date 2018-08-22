@@ -54,6 +54,9 @@ import v1.cn.unionc_pad.model.UpdateFileData;
 import v1.cn.unionc_pad.model.UserInfoData;
 import v1.cn.unionc_pad.model.WatchingActivityData;
 import v1.cn.unionc_pad.model.WeiXinQRcodeData;
+import v1.cn.unionc_pad.model.YiYangData;
+import v1.cn.unionc_pad.model.YuYueOkData;
+import v1.cn.unionc_pad.model.getAddressData;
 import v1.cn.unionc_pad.model.saveinterrogationrecordsData;
 import v1.cn.unionc_pad.model.visitnurserdiseaseData;
 import v1.cn.unionc_pad.model.visitnurseservicesData;
@@ -940,7 +943,7 @@ public class UnionAPIPackage {
     /**
      * 预约上门：
      */
-    public static Observable<BaseData> subscribenurses(String token, String doctId, String serviceId, String serviceTime, String serviceType, String name, String addr, String telphone, String addrId,String userType) {
+    public static Observable<YuYueOkData> subscribenurses(String token, String doctId, String serviceTime, String serviceType, String serviceId, String name, String addrId, String diseaseId, String remark, String price) {
         HashMap<String, String> params = new HashMap<>();
         params.put("token", token);
         params.put("doctId", doctId);
@@ -948,10 +951,14 @@ public class UnionAPIPackage {
         params.put("serviceTime", serviceTime);
         params.put("serviceType", serviceType);
         params.put("name", name);
-        params.put("addr", addr);
-        params.put("telphone", telphone);
         params.put("addrId", addrId);
-        params.put("userType", userType);
+        params.put("diseaseId", diseaseId);
+        params.put("remark", remark);
+        params.put("price", price);
+//        params.put("addr", addr);
+//        params.put("telphone", telphone);
+//        params.put("addrId", addrId);
+//        params.put("userType", userType);
         return ConnectHttp.getUnionAPI().subscribenurses(dataProcess(params));
     }
     /**
@@ -997,9 +1004,10 @@ public class UnionAPIPackage {
     /**
      * 上门服务项列表
      */
-    public static Observable<visitnurseservicesData> visitnurseservices(String token) {
+    public static Observable<visitnurseservicesData> visitnurseservices(String token,String serviceId) {
         HashMap<String, String> params = new HashMap<>();
         params.put("token", token);
+        params.put("serviceId", serviceId);
         return ConnectHttp.getUnionAPI().visitnurseservices(dataProcess(params));
     }
     /**
@@ -1010,5 +1018,34 @@ public class UnionAPIPackage {
         params.put("token", token);
 
         return ConnectHttp.getUnionAPI().visitnurserdisease(dataProcess(params));
+    }
+    /**
+     *地址列表	num不是必传，老人只查询一条时传1
+     */
+    public static Observable<getAddressData> getaddress(String token,String num) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+        params.put("num", num);
+
+        return ConnectHttp.getUnionAPI().getaddress(dataProcess(params));
+    }
+    /**
+     *1.	yiyang获取文章列表API
+     */
+    public static Observable<YiYangData> getyiyangVideo(String direction, String lasttime) {
+//        HashMap<String, Object> processData = new HashMap<>();
+//        processData.put("catId", "QeV8mZMAsrBa9b3H");
+//        processData.put("direction", direction);
+//        processData.put("lasttime", lasttime);
+//       Log.d("linshi","getyiyangVideo"+gson.toJson(processData).toString());
+        return ConnectHttp.getYiYangAPI().getyiyangVideo2
+                ("QeV8mZMAsrBa9b3H",direction,lasttime);
+//        HashMap<String, Object> processData = new HashMap<>();
+//        processData.put("catId", "QeV8mZMAsrBa9b3H");
+//        processData.put("direction", direction);
+//        processData.put("lasttime", lasttime);
+//       Log.d("linshi","getyiyangVideo"+gson.toJson(processData).toString());
+//        return ConnectHttp.getYiYangAPI().getyiyangVideo
+//                (processData);
     }
 }

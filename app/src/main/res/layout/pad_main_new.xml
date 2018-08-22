@@ -107,13 +107,22 @@
                 android:gravity="center"
 
                 />
+<LinearLayout
+    android:id="@+id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/main_background"
+    >
+</LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:background="#14FFFFFF"
+        android:id="@+id/recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-           <android.support.v7.widget.RecyclerView
-               android:id="@+id/recycle"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
 
-           </android.support.v7.widget.RecyclerView>
 
 
         </LinearLayout>

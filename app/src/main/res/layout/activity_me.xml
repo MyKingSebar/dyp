@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/dp_20"
+    android:paddingRight="@dimen/dp_20">
+
+    <include layout="@layout/layout_toolbar_black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_12">
+
+        <v1.cn.unionc_pad.view.CircleImageView
+            android:id="@+id/img"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_15"
+                tools:text="张大妈" />
+
+            <TextView
+                android:id="@+id/jhr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_15"
+                tools:text="监护人：李春生" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_75"
+        android:layout_marginTop="@dimen/dp_7"
+        android:background="#14FFFFFF">
+
+        <RelativeLayout
+            android:id="@+id/re_dd"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_25"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_11"
+                android:background="@drawable/me_dd" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_46"
+                android:text="我的订单"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/dd_num"
+                android:layout_width="@dimen/dp_12"
+                android:layout_height="@dimen/dp_12"
+                android:layout_marginLeft="@dimen/dp_55"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@drawable/shape_circle_red"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_8"
+                tools:text="1" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/re_jd"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_25"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_11"
+                android:background="@drawable/me_jd" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_46"
+                android:text="待接单"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/jd_num"
+                android:layout_width="@dimen/dp_12"
+                android:layout_height="@dimen/dp_12"
+                android:layout_marginLeft="@dimen/dp_55"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@drawable/shape_circle_red"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_8"
+                tools:text="1" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/re_qr"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_25"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_11"
+                android:background="@drawable/me_qr" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_46"
+                android:text="待确认"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/qr_num"
+                android:layout_width="@dimen/dp_12"
+                android:layout_height="@dimen/dp_12"
+                android:layout_marginLeft="@dimen/dp_55"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@drawable/shape_circle_red"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_8"
+                tools:text="1" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/re_pj"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_25"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_11"
+                android:background="@drawable/me_pj" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_46"
+                android:text="待评价"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/pj_num"
+                android:layout_width="@dimen/dp_12"
+                android:layout_height="@dimen/dp_12"
+                android:layout_marginLeft="@dimen/dp_55"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@drawable/shape_circle_red"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_8"
+                tools:text="1" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_75">
+            <TextView
+                android:id="@+id/jkda"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/me_jkda"
+                />
+            <TextView
+                android:layout_marginLeft="@dimen/dp_6"
+                android:id="@+id/wzjl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/me_wzjl"
+                />
+            <TextView
+                android:layout_marginLeft="@dimen/dp_6"
+                android:id="@+id/hljl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/me_hljl"
+                />
+            <TextView
+                android:layout_marginLeft="@dimen/dp_6"
+                android:id="@+id/dcjl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/me_dcjl"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_75">
+            <TextView
+                android:id="@+id/jkjc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/me_jkjc"
+                />
+            <TextView
+                android:layout_marginLeft="@dimen/dp_6"
+                android:id="@+id/kfzx"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/me_kfzx"
+                />
+            <TextView
+                android:layout_marginLeft="@dimen/dp_6"
+                android:id="@+id/xtsz"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/me_xtsz"
+                />
+            <TextView
+                android:layout_marginLeft="@dimen/dp_6"
+                android:id="@+id/gyyj"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/me_gyyj"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -142,7 +142,7 @@ public class NurseWorkerListFragment extends BaseFragment {
             @Override
             public void onTimeSelect(Date date, View v) {
                 Log.i("pvTime", "onTimeSelect");
-                pickeduptime(getTime(date), idd);
+//                pickeduptime(getTime(date), idd);
             }
         })
                 .setTimeSelectChangeListener(new OnTimeSelectChangeListener() {
@@ -158,32 +158,32 @@ public class NurseWorkerListFragment extends BaseFragment {
 
     }
 
-    private void pickeduptime(String time, String id) {
-        if (!isLogin()) {
-            showTost("请先登录");
-            return;
-        }
-        String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
-        //serviceType：1-护士，2-护工  :
-        //userType
-        //1-手机用户，2-老人
-        ConnectHttp.connect(UnionAPIPackage.subscribenurses(token, id, "1", time, "2", "", "", "", "", "2"), new BaseObserver<BaseData>(context) {
-            @Override
-            public void onResponse(BaseData data) {
-                if (TextUtils.equals("4000", data.getCode())) {
-                    showTost("预约成功");
-
-                } else {
-                    showTost(data.getMessage() + "");
-                }
-
-            }
-
-            @Override
-            public void onFail(Throwable e) {
-            }
-        });
-    }
+//    private void pickeduptime(String time, String id) {
+//        if (!isLogin()) {
+//            showTost("请先登录");
+//            return;
+//        }
+//        String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
+//        //serviceType：1-护士，2-护工  :
+//        //userType
+//        //1-手机用户，2-老人
+//        ConnectHttp.connect(UnionAPIPackage.subscribenurses(token, id, "1", time, "2", "", "", "", "", "2"), new BaseObserver<BaseData>(context) {
+//            @Override
+//            public void onResponse(BaseData data) {
+//                if (TextUtils.equals("4000", data.getCode())) {
+//                    showTost("预约成功");
+//
+//                } else {
+//                    showTost(data.getMessage() + "");
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onFail(Throwable e) {
+//            }
+//        });
+//    }
 
     private String getTime(Date date) {//可根据需要自行截取数据显示
         Log.d("getTime()", "choice date millis: " + date.getTime());

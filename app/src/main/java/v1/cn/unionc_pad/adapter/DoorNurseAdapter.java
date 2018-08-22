@@ -1,6 +1,7 @@
 package v1.cn.unionc_pad.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -20,6 +22,7 @@ import java.util.List;
 import v1.cn.unionc_pad.R;
 import v1.cn.unionc_pad.model.GetNurseListData;
 import v1.cn.unionc_pad.model.visitnurseservicesData;
+import v1.cn.unionc_pad.ui.door.ChooseHuliServiceActivity;
 import v1.cn.unionc_pad.view.CircleImageView;
 
 public class DoorNurseAdapter extends BaseAdapter {
@@ -93,6 +96,15 @@ public class DoorNurseAdapter extends BaseAdapter {
             holder.tv_fans.setText("粉丝"+data.getAtteCount()+"");
             holder.tv_comment = (TextView) convertView.findViewById(R.id.tv_comment);
             holder.tv_comment.setText("评论"+data.getEvaluateCount()+"");
+            holder.ll= (LinearLayout) convertView.findViewById(R.id.ll);
+            holder.ll.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent =new Intent(context, ChooseHuliServiceActivity.class);
+                    intent.putExtra("docid",data.getDoctId());
+                    context.startActivity(intent);
+                }
+            });
             convertView.setTag(holder);
         } else {
             holder = (Holder) convertView.getTag();
@@ -115,5 +127,6 @@ public class DoorNurseAdapter extends BaseAdapter {
         TextView tv_like;
         TextView tv_comment;
         TextView tv_fans;
+        LinearLayout ll;
     }
 }

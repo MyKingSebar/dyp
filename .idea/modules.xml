@@ -11,8 +11,8 @@
       <module fileurl="file://$PROJECT_DIR$/faceplatform-ui/faceplatform-ui.iml" filepath="$PROJECT_DIR$/faceplatform-ui/faceplatform-ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/facesdk/facesdk.iml" filepath="$PROJECT_DIR$/facesdk/facesdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/labels/labels.iml" filepath="$PROJECT_DIR$/labels/labels.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pad.iml" filepath="$PROJECT_DIR$/pad.iml" />
       <module fileurl="file://$PROJECT_DIR$/photoview/photoview.iml" filepath="$PROJECT_DIR$/photoview/photoview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/v1.cn.unionc_pad.iml" filepath="$PROJECT_DIR$/v1.cn.unionc_pad.iml" />
     </modules>
   </component>
 </project>

@@ -113,7 +113,7 @@ gv.setAdapter(activityAdapter);
     }
 
     private void initcollect(String token) {
-        ConnectHttp.connect(UnionAPIPackage.visitnurseservices(token), new BaseObserver<visitnurseservicesData>(context) {
+        ConnectHttp.connect(UnionAPIPackage.visitnurseservices(token,""), new BaseObserver<visitnurseservicesData>(context) {
             @Override
             public void onResponse(visitnurseservicesData data) {
                 Log.d("linshi", "datas:" + new Gson().toJson(datas));

@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Gradle: __local_aars__:E.\work\gitlab\pad\v1.cn.unionc_pad\CallLib\libs\blink_quic.jar:unspecified@jar">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/CallLib/libs/blink_quic.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

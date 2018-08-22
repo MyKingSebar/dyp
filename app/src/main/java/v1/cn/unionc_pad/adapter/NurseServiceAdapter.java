@@ -1,6 +1,9 @@
 package v1.cn.unionc_pad.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ServiceInfo;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +13,7 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -19,6 +23,7 @@ import java.util.List;
 
 import v1.cn.unionc_pad.R;
 import v1.cn.unionc_pad.model.visitnurseservicesData;
+import v1.cn.unionc_pad.ui.door.ServiceInfoActivity;
 
 public class NurseServiceAdapter extends BaseAdapter {
 
@@ -87,7 +92,20 @@ public class NurseServiceAdapter extends BaseAdapter {
             holder.tv_price.setText("￥"+data.getServicePrice()+"/次 ");
             holder.tv_address = (TextView) convertView.findViewById(R.id.tv_address);
             holder.tv_address.setText(data.getServiceDesc()+"");
+            holder.ll = (LinearLayout) convertView.findViewById(R.id.ll);
+            holder.ll.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent =new Intent(context, ServiceInfoActivity.class);
+//                    Bundle bundle = new Bundle();
+//                    bundle.putSerializable("data", data);
+//                    intent.putExtras(bundle);
+                    intent.putExtra("id",data.getServiceId());
+                    context.startActivity(intent);
+                }
+            });
             convertView.setTag(holder);
+
         } else {
             holder = (Holder) convertView.getTag();
         }
@@ -107,5 +125,6 @@ public class NurseServiceAdapter extends BaseAdapter {
         TextView tv_name;
         TextView tv_price;
         TextView tv_address;
+        LinearLayout ll;
     }
 }
