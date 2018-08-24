@@ -9,10 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.handmark.pulltorefresh.library.PullToRefreshGridView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,12 +29,12 @@ import v1.cn.unionc_pad.view.CircleImageView;
 public class KangYangAdapter extends BaseAdapter {
 
     private Context context;
-    private GridView mGv;
+    private PullToRefreshGridView mGv;
     private List<YiYangData.DataData> serviceDatas;
     private static int ROW_NUMBER = 3;
 
 
-    public KangYangAdapter(Context context, GridView gv) {
+    public KangYangAdapter(Context context, PullToRefreshGridView gv) {
         this.context = context;
         this.mGv = gv;
         serviceDatas = new ArrayList<>();
@@ -72,7 +74,7 @@ public class KangYangAdapter extends BaseAdapter {
             holder = new Holder();
 //            convertView = LayoutInflater.from(context).inflate(R.layout.item_nurselist, null);
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_kangyangvideolist,parent,false);
-            holder.img_message_avator = (CircleImageView) convertView.findViewById(R.id.img_message_avator);
+            holder.img_message_avator = (ImageView) convertView.findViewById(R.id.img_message_avator);
             if (TextUtils.isEmpty(data.getImgUrl())) {
                 holder.img_message_avator.setImageResource(R.drawable.icon_doctor_default);
             } else {
@@ -84,9 +86,9 @@ public class KangYangAdapter extends BaseAdapter {
 
             }
             holder.tv_address = (TextView) convertView.findViewById(R.id.tv_address);
-            holder.tv_address.setText(data.getDescription()+"");
+            holder.tv_address.setText(data.getTitle()+"");
             holder.tv_name = (TextView) convertView.findViewById(R.id.tv_name);
-            holder.tv_name.setText(data.getTitle()+"");
+            holder.tv_name.setText(data.getXiaokaName()+"");
             holder.tv_price = (TextView) convertView.findViewById(R.id.tv_price);
             holder.tv_price.setText(data.getReadNum()+"");
             holder.ll= (LinearLayout) convertView.findViewById(R.id.ll);
@@ -94,7 +96,7 @@ public class KangYangAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
                     Intent intent =new Intent(context, kangYangvidoeActivity.class);
-                    intent.putExtra("url",data.getUrl());
+                    intent.putExtra("url",data.getVideoUrl());
                     context.startActivity(intent);
                 }
             });
@@ -113,7 +115,7 @@ public class KangYangAdapter extends BaseAdapter {
     }
 
     class Holder {
-        CircleImageView img_message_avator;
+        ImageView img_message_avator;
         TextView tv_address;
         TextView tv_name;
         TextView tv_price;

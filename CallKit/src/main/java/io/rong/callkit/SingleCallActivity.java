@@ -39,6 +39,8 @@ import io.rong.imlib.model.Conversation;
 import io.rong.imlib.model.UserInfo;
 
 public class SingleCallActivity extends BaseCallActivity implements Handler.Callback {
+
+    private boolean connected=false;
     private static final String TAG = "VoIPSingleActivity";
     private LayoutInflater inflater;
     private RongCallSession callSession;
@@ -328,7 +330,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
     public void onCallConnected(RongCallSession callSession, SurfaceView localVideo) {
         super.onCallConnected(callSession, localVideo);
         this.callSession = callSession;
-
+        connected=true;
         if (callSession.getMediaType().equals(RongCallCommon.CallMediaType.AUDIO)) {
             findViewById(R.id.rc_voip_call_minimize).setVisibility(View.VISIBLE);
             FrameLayout btnLayout = (FrameLayout) inflater.inflate(R.layout.rc_voip_call_bottom_connected_button_layout, null);
@@ -500,9 +502,14 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
         }
         RongCallClient.getInstance().hangUpCall(session.getCallId());
         stopRing();
+if(connected){
 
     Intent intent=new Intent("v1.cn.unionc_pad.ui.CommentDocActivity");
     startActivity(intent);
+    connected=false;
+}else{
+    Log.d("linshi","没接通");
+}
 
 
     }
@@ -608,11 +615,18 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
         postRunnableDelay(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent("v1.cn.unionc_pad.ui.PrescriptionActivity");
-                startActivity(intent);
+                if(connected){
+                    connected=false;
+                    Intent intent=new Intent("v1.cn.unionc_pad.ui.PrescriptionActivity");
+                    startActivity(intent);
+                }else{
+                    Log.d("linshi","没接通");
+                }
                 finish();
             }
         });
+
+
     }
 
     @Override

@@ -88,11 +88,16 @@ private PrescriptionAdapter prescriptionAdapter;
 //            recordId=intent.getStringExtra("recordId");
 //            Log.d("recordId","recordId:"+recordId);
 //        }
-        if(TextUtils.isEmpty(Common.docvideoid)){
-            finish();
-        }else{
-            recordId=Common.docvideoid;
-        }
+//        if(TextUtils.isEmpty(Common.docvideoid)){
+//            Log.d("linshi", "on isEmpty");
+//            showTost("on isEmpty");
+//            finish();
+//        }else{
+//            recordId=Common.docvideoid;
+//            Log.d("linshi", "recordIdd"+recordId);
+//            showTost("recordIdd"+recordId);
+//        }
+        recordId="680";
     }
 
     @Override
@@ -105,6 +110,8 @@ private PrescriptionAdapter prescriptionAdapter;
 
 
     private void initprescription() {
+        showTost("initprescription"+recordId);
+        Log.d("linshi","recordId:"+recordId);
         String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
         if(TextUtils.isEmpty(recordId)){
             finish();
@@ -113,7 +120,12 @@ private PrescriptionAdapter prescriptionAdapter;
         ConnectHttp.connect(UnionAPIPackage.prescriptioninfo(token,recordId), new BaseObserver<PrescriptionInfoData>(context) {
             @Override
             public void onResponse(PrescriptionInfoData data) {
+                Log.d("linshi","data:"+data.getCode());
                 if (TextUtils.equals("4000", data.getCode())) {
+                    if(TextUtils.isEmpty(data.getData().getPrescription().getUserName())){
+                        finish();
+                        return;
+                    }
                     datas.clear();
                     tv_clinicname.setText(data.getData().getPrescription().getClinicName());
                     tv_num.setText("NO.1702141212");

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="E:\work\gitlab\pad\v1.cn.unionc_pad\photoview\src\main\assets"/><source path="E:\work\gitlab\pad\v1.cn.unionc_pad\photoview\build\generated\assets\shaders\release"/></dataSet><dataSet config="release"><source path="E:\work\gitlab\pad\v1.cn.unionc_pad\photoview\src\release\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="E:\work\newgitlab\pad\photoview\src\main\assets"/><source path="E:\work\newgitlab\pad\photoview\build\generated\assets\shaders\release"/></dataSet><dataSet config="release"><source path="E:\work\newgitlab\pad\photoview\src\release\assets"/></dataSet></merger>

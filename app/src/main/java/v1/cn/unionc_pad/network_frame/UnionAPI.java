@@ -57,8 +57,11 @@ import v1.cn.unionc_pad.model.WeiXinQRcodeData;
 import v1.cn.unionc_pad.model.YiYangData;
 import v1.cn.unionc_pad.model.YuYueOkData;
 import v1.cn.unionc_pad.model.getAddressData;
+import v1.cn.unionc_pad.model.getunreadmessageData;
+import v1.cn.unionc_pad.model.getuserinfoData;
 import v1.cn.unionc_pad.model.saveinterrogationrecordsData;
 import v1.cn.unionc_pad.model.visitnurserdiseaseData;
+import v1.cn.unionc_pad.model.visitnurserordersData;
 import v1.cn.unionc_pad.model.visitnurseservicesData;
 
 /**
@@ -714,24 +717,45 @@ public interface UnionAPI {
     @POST("user/addrs")
     Observable<getAddressData> getaddress(@FieldMap Map<String, Object> params);
     /**
-     * 1.	yiyang获取文章列表API
+     * 查询上门护理订单列表（orderId订单id，不是必传）（status 订单状态：1-待接单，3-待确认，4-待评价
      *
      * @return
      */
     @FormUrlEncoded
-    @POST("third/lists")
-    Observable<YiYangData> getyiyangVideo(@FieldMap Map<String, Object> params);
-
-//    @GET("third/lists")
-//    Observable<YiYangData> getyiyangVideo2(@FieldMap Map<String, Object> params);
+    @POST("nurse/visit-nurser-orders")
+    Observable<visitnurserordersData> visitnurserorders(@FieldMap Map<String, Object> params);
+    /**
+     * 上门护理订单评价	orderId必传，evaluate和starCount不能同时为空
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("nurse/visit-nurser-order-evaluate")
+    Observable<BaseData> visitnurserorderevaluate(@FieldMap Map<String, Object> params);
+    /**
+     * 个人中心：
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/user-info")
+    Observable<getuserinfoData> userinfo(@FieldMap Map<String, Object> params);
+    /**
+     * 首页和个人中心页查询未读消息数量
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/unread-message")
+    Observable<getunreadmessageData> unreadmessage(@FieldMap Map<String, Object> params);
 
     /**
+     * yiyang获取文章列表API
      * processData.put("catId", "QeV8mZMAsrBa9b3H");
      processData.put("direction", direction);
      processData.put("lasttime", lasttime);
      * @return
      */
-    //获取豆瓣Top250 榜单
     @GET("third/lists")
     Observable<YiYangData> getyiyangVideo2(@Query("catId") String catId,@Query("direction")String direction,@Query("lasttime")String lasttime);
 }

@@ -57,8 +57,11 @@ import v1.cn.unionc_pad.model.WeiXinQRcodeData;
 import v1.cn.unionc_pad.model.YiYangData;
 import v1.cn.unionc_pad.model.YuYueOkData;
 import v1.cn.unionc_pad.model.getAddressData;
+import v1.cn.unionc_pad.model.getunreadmessageData;
+import v1.cn.unionc_pad.model.getuserinfoData;
 import v1.cn.unionc_pad.model.saveinterrogationrecordsData;
 import v1.cn.unionc_pad.model.visitnurserdiseaseData;
+import v1.cn.unionc_pad.model.visitnurserordersData;
 import v1.cn.unionc_pad.model.visitnurseservicesData;
 import v1.cn.unionc_pad.utils.MobileConfigUtil;
 
@@ -1028,6 +1031,50 @@ public class UnionAPIPackage {
         params.put("num", num);
 
         return ConnectHttp.getUnionAPI().getaddress(dataProcess(params));
+    }
+    /**
+     *查询上门护理订单列表（orderId订单id，不是必传）（status 订单状态：1-待接单，3-待确认，4-待评价
+     *
+     */
+    public static Observable<visitnurserordersData> visitnurserorders(String token, String pageNo, String pageSize, String orderId, String status) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+        params.put("pageNo", pageNo);
+        params.put("pageSize", pageSize);
+        params.put("orderId", orderId);
+        params.put("status", status);
+
+        return ConnectHttp.getUnionAPI().visitnurserorders(dataProcess(params));
+    }
+    /**
+     *上门护理订单评价	orderId必传，evaluate和starCount不能同时为空
+     */
+    public static Observable<BaseData> visitnurserorderevaluate(String token,String orderId,String evaluate,String starCount) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+        params.put("orderId", orderId);
+        params.put("evaluate", evaluate);
+        params.put("starCount", starCount);
+
+        return ConnectHttp.getUnionAPI().visitnurserorderevaluate(dataProcess(params));
+    }
+    /**
+     *个人中心：
+     */
+    public static Observable<getuserinfoData> userinfo(String token) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+
+        return ConnectHttp.getUnionAPI().userinfo(dataProcess(params));
+    }
+    /**
+     *首页和个人中心页查询未读消息数量
+     */
+    public static Observable<getunreadmessageData> unreadmessage(String token) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+
+        return ConnectHttp.getUnionAPI().unreadmessage(dataProcess(params));
     }
     /**
      *1.	yiyang获取文章列表API

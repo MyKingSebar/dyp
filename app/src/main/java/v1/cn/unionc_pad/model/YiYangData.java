@@ -94,6 +94,16 @@ public class YiYangData {
         private String imgUrl;
         private String xiaokaLogo;
 
+        private String videoUrl;
+
+        public String getVideoUrl() {
+            return videoUrl;
+        }
+
+        public void setVideoUrl(String videoUrl) {
+            this.videoUrl = videoUrl;
+        }
+
         public String getTitle() {
             return title;
         }

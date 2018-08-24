@@ -122,11 +122,7 @@
             android:name=".ui.StartActivity"
             android:theme="@style/AppSplash"
             android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ui.Main2"
@@ -238,6 +234,11 @@
         <activity
             android:name=".ui.PrescriptionActivity"
             android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <intent-filter>
             <action android:name="v1.cn.unionc_pad.ui.PrescriptionActivity"/>
             <category android:name="android.intent.category.DEFAULT" />

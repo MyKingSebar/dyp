@@ -64,6 +64,7 @@ public class kangYangvidoeActivity extends BaseActivity {
         if(getIntent().hasExtra("url")){
             url= getIntent().getStringExtra("url");
         }
+        Log.d("linshi","url"+url);
     }
 
 
@@ -90,6 +91,7 @@ public class kangYangvidoeActivity extends BaseActivity {
 
             //开始播放视频
             videoView.start();
+//            videoView.requestFocus();
         }
     }
 

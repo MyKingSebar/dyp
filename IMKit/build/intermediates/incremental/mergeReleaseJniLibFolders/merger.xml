@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="E:\work\gitlab\pad\v1.cn.unionc_pad\IMKit\src\main\libs"><file name="Rong_IMKit.jar" path="E:\work\gitlab\pad\v1.cn.unionc_pad\IMKit\src\main\libs\Rong_IMKit.jar"/></source></dataSet><dataSet config="release"><source path="E:\work\gitlab\pad\v1.cn.unionc_pad\IMKit\src\release\jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="E:\work\newgitlab\pad\IMKit\src\main\libs"><file name="Rong_IMKit.jar" path="E:\work\newgitlab\pad\IMKit\src\main\libs\Rong_IMKit.jar"/></source></dataSet><dataSet config="release"><source path="E:\work\newgitlab\pad\IMKit\src\release\jniLibs"/></dataSet></merger>
