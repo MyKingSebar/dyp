@@ -50,6 +50,11 @@ public class SuperviseActivity extends BaseActivity {
     void back(){
         finish();
     }
+    @OnClick(R.id.toplayout)
+    void toplayout(){
+        finish();
+
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,7 +66,7 @@ init();
 
     private void init() {
         tvTitle.setVisibility(View.VISIBLE);
-        tvTitle.setText("亲情监护绑定");
+        tvTitle.setText("智能设备");
     }
 
 

@@ -11,14 +11,13 @@ import com.bumptech.glide.Priority;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.rong.photoview.PhotoView;
 import v1.cn.unionc_pad.R;
 import v1.cn.unionc_pad.ui.base.BaseActivity;
 
 public class DossierHeartRateECGPhotoActivity extends BaseActivity {
 
     @BindView(R.id.photoview)
-    PhotoView photoview;
+    com.github.chrisbanes.photoview.PhotoView photoview;
     @BindView(R.id.tv_title)
 
     TextView tvTitle;

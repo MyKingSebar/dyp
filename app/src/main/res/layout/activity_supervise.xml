@@ -5,25 +5,32 @@
     android:orientation="vertical">
 
     <include layout="@layout/include_toolbar" />
-
+<LinearLayout
+    android:layout_marginTop="@dimen/dp_10"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_90"
+    >
     <TextView
         android:id="@+id/tv_blood"
         android:layout_width="match_parent"
-        android:layout_height="140px"
-        android:layout_marginLeft="40px"
-        android:layout_marginRight="40px"
-        android:layout_marginTop="40px"
-        android:background="@drawable/supervise_blood"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_5"
+        android:background="@drawable/supervise_blood2"
         />
     <TextView
         android:id="@+id/tv_heart"
         android:layout_width="match_parent"
-        android:layout_height="140px"
-        android:layout_marginLeft="40px"
-        android:layout_marginRight="40px"
-        android:layout_marginTop="40px"
-        android:background="@drawable/supervise_heart"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:layout_marginRight="@dimen/dp_20"
+        android:background="@drawable/supervise_heart2"
         />
+
+</LinearLayout>
+
 
 
 </LinearLayout>

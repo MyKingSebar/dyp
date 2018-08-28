@@ -87,7 +87,8 @@
             android:layout_marginTop="@dimen/dp_10"
             android:background="#CCCCCC" />
 <LinearLayout
-    android:gravity="center_horizontal"
+
+    android:gravity="center"
     android:layout_marginTop="@dimen/dp_22"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp_18">

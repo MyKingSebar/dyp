@@ -543,15 +543,17 @@ if(connected){
         mButtonContainer.removeAllViews();
         mButtonContainer.addView(btnLayout);
         View view = findViewById(R.id.rc_voip_audio_chat);
-        view.setVisibility(View.VISIBLE);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RongCallClient.getInstance().changeCallMediaType(RongCallCommon.CallMediaType.AUDIO);
-                callSession.setMediaType(RongCallCommon.CallMediaType.AUDIO);
-                initAudioCallView();
-            }
-        });
+        //屏蔽切换
+        view.setVisibility(View.INVISIBLE);
+//        view.setVisibility(View.VISIBLE);
+//        view.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                RongCallClient.getInstance().changeCallMediaType(RongCallCommon.CallMediaType.AUDIO);
+//                callSession.setMediaType(RongCallCommon.CallMediaType.AUDIO);
+//                initAudioCallView();
+//            }
+//        });
     }
 
     public void onHandFreeButtonClick(View view) {

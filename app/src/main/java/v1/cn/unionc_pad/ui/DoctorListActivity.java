@@ -1,20 +1,22 @@
 package v1.cn.unionc_pad.ui;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,7 +24,6 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import recycler.coverflow.RecyclerCoverFlow;
 import v1.cn.unionc_pad.R;
-import v1.cn.unionc_pad.adapter.DoctorListAdapter;
 import v1.cn.unionc_pad.adapter.DoctorListAdapter2;
 import v1.cn.unionc_pad.data.Common;
 import v1.cn.unionc_pad.data.SPUtil;
@@ -31,11 +32,13 @@ import v1.cn.unionc_pad.network_frame.ConnectHttp;
 import v1.cn.unionc_pad.network_frame.UnionAPIPackage;
 import v1.cn.unionc_pad.network_frame.core.BaseObserver;
 import v1.cn.unionc_pad.ui.base.BaseActivity;
-import v1.cn.unionc_pad.utils.GPSUtils;
 
 import static v1.cn.unionc_pad.utils.GPSUtils.locationListener;
 
 public class DoctorListActivity extends BaseActivity {
+    private final int REQUEST_PHONE_PERMISSIONS = 0;
+
+
     private Unbinder unbinder;
     private DoctorListAdapter2 doctorListAdapter;
     @BindView(R.id.recyclerview)
@@ -49,14 +52,36 @@ public class DoctorListActivity extends BaseActivity {
     void back() {
         finish();
     }
+    @OnClick(R.id.rl_main)
+    void rl_main() {
+        finish();
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctorlist);
         unbinder= ButterKnife.bind(this);
-        initView();
-        initdoclist();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            /**
+             *
+             */
+            final List<String> permissionsList = new ArrayList<>();
+            if ((checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED))
+                permissionsList.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+            if ((checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED))
+                permissionsList.add(Manifest.permission.ACCESS_FINE_LOCATION);
+            if (permissionsList.size() == 0) {
+
+                initView();
+                initdoclist();
+            } else {
+                requestPermissions(permissionsList.toArray(new String[permissionsList.size()]),
+                        REQUEST_PHONE_PERMISSIONS);
+            }
+        }
+
+
     }
 
     @Override
@@ -89,10 +114,10 @@ public class DoctorListActivity extends BaseActivity {
 //            }else{
 //                Log.d("linshi","map==null");
 //            }
-        getLngAndLatWithNetwork();
+//        getLngAndLatWithNetwork();
         String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
-        String la = (String) SPUtil.get(context, Common.USER_LATITUDE, "");
-        String lo = (String) SPUtil.get(context, Common.USER_LONGITUDE, "");
+        String la = (String) SPUtil.get(context, Common.LATITUDE, "");
+        String lo = (String) SPUtil.get(context, Common.LONGITUDE, "");
         Log.d("linshi","la2:"+la + "," + lo);
         ConnectHttp.connect(UnionAPIPackage.getvideodoctors(token,"1","50",lo,la), new BaseObserver<GetLiveDoctorListData>(context) {
             @Override
@@ -125,5 +150,21 @@ public class DoctorListActivity extends BaseActivity {
 
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_PHONE_PERMISSIONS:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    initView();
+                    initdoclist();
+                } else {
+                    showTost("您需要开启权限");
+                    finish();
+                }
 
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
 }

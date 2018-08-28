@@ -172,7 +172,10 @@ public class NowYuyueActivity extends BaseActivity {
         if (TextUtils.isEmpty(token)) {
             return;
         }
-        ConnectHttp.connect(UnionAPIPackage.subscribenurses(token, docid, tv_time.getText().toString(), "1", id,tv_name.getText().toString(), addid, DiseaseId,tv_des.getText().toString(),price), new BaseObserver<YuYueOkData>(context) {
+        String la = (String) SPUtil.get(context, Common.LATITUDE, "");
+        String lo = (String) SPUtil.get(context, Common.LONGITUDE, "");
+        Log.d("linshi","la2:"+la + "," + lo);
+        ConnectHttp.connect(UnionAPIPackage.subscribenurses(token, docid, tv_time.getText().toString(), "1", id,tv_name.getText().toString(), addid, DiseaseId,tv_des.getText().toString(),price,lo,la), new BaseObserver<YuYueOkData>(context) {
             @Override
             public void onResponse(YuYueOkData data) {
                 Log.d("linshi", "datas:" + new Gson().toJson(data));

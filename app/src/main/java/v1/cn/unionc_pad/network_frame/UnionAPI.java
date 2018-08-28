@@ -60,6 +60,7 @@ import v1.cn.unionc_pad.model.getAddressData;
 import v1.cn.unionc_pad.model.getunreadmessageData;
 import v1.cn.unionc_pad.model.getuserinfoData;
 import v1.cn.unionc_pad.model.saveinterrogationrecordsData;
+import v1.cn.unionc_pad.model.videohasprescriptionData;
 import v1.cn.unionc_pad.model.visitnurserdiseaseData;
 import v1.cn.unionc_pad.model.visitnurserordersData;
 import v1.cn.unionc_pad.model.visitnurseservicesData;
@@ -692,6 +693,14 @@ public interface UnionAPI {
     @FormUrlEncoded
     @POST("doctor/video-doctor-evaluate")
     Observable<BaseData> videodoctorevaluate(@FieldMap Map<String, Object> params);
+    /**
+     * 当前视频问诊是否开处方状态
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("doctor/video-has-prescription")
+    Observable<videohasprescriptionData> videohasprescription(@FieldMap Map<String, Object> params);
     /**
      * 上门服务项列表：
      *

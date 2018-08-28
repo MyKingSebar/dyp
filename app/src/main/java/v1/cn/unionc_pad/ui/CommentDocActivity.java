@@ -109,15 +109,23 @@ public class CommentDocActivity extends BaseActivity {
             keshi.setText(Common.Major);
             zhiwei.setText(Common.ProfessName);
             add.setText(Common.ClinicName);
-            Common.docvideoid = "";
-            Common.DoctName = "";
-            Common.DoctImagePath = "";
-            Common.ClinicName = "";
-            Common.Major = "";
-            Common.ProfessName = "";
+            Log.d("linshi","Common"+ Common.docvideoid+ Common.DoctName+Common.DoctImagePath+Common.ClinicName+Common.Major+Common.ProfessName);
+
         }
 
         initView();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Common.docvideoid = "";
+        Common.DoctName = "";
+        Common.DoctImagePath = "";
+        Common.ClinicName = "";
+        Common.Major = "";
+        Common.ProfessName = "";
+        Common.ClinicName = "";
     }
 
     @Override

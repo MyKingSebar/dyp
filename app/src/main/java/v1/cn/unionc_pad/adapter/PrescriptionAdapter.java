@@ -58,8 +58,6 @@ public class PrescriptionAdapter extends RecyclerView.Adapter<PrescriptionAdapte
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.ll)
-        LinearLayout ll;
 
         @BindView(R.id.tv_yongfa)
         TextView tv_yongfa;

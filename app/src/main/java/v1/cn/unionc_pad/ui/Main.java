@@ -24,6 +24,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amap.api.location.AMapLocation;
 import com.baidu.aip.FaceEnvironment;
 import com.baidu.aip.FaceSDKManager;
 import com.baidu.aip.fl.Config;
@@ -78,12 +79,16 @@ import v1.cn.unionc_pad.ui.base.BaseActivity;
 import v1.cn.unionc_pad.ui.door.YuyueBingActivity;
 import v1.cn.unionc_pad.ui.kangyang.kangYangActivity;
 import v1.cn.unionc_pad.utils.GPSUtils;
+import v1.cn.unionc_pad.utils.Location;
 import v1.cn.unionc_pad.utils.MacUtil;
 import v1.cn.unionc_pad.utils.jiguang.ExampleUtil;
 import v1.cn.unionc_pad.utils.jiguang.LocalBroadcastManager;
 
 
 public class Main extends BaseActivity {
+    private String currentPoiname;
+    private String longitude;
+    private String latitude;
     private List<HomeListData.DataData.HomeData> pushactivitydatas = new ArrayList<>();
     private HomeListData.DataData.HomeData pushactivitydata;
     private HomeListAdapter homeListAdapter;
@@ -134,7 +139,7 @@ public class Main extends BaseActivity {
         initlive();
         initrecommenddoctor();
         registerMessageReceiver();
-initloca();
+//initloca();
         String mac = MacUtil.getMac(this);
         Log.d("linshi", "mac:" + mac);
 
@@ -150,9 +155,44 @@ initloca();
     }
 
     private void initView() {
+        initLocation();
+    }
+    private void initLocation() {
+        new Location(context) {
+            @Override
+            protected void locationSuccess(AMapLocation amapLocation) {
+                currentPoiname = amapLocation.getPoiName();
+//                    if (isLogin()&&!SPUtil.contains(context,Common.USER_ADD)) {
+//                        String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
+//                        updateAdd(token, amapLocation.getPoiName(),latitude,longitude);
+//                        SPUtil.put(context, Common.USER_ADD, amapLocation.getPoiName());
+//                        return;
+//                    }else {
+//                        tvAddress.setText((String)SPUtil.get(context,Common.USER_ADD,""));
+//                    }
+                String add = (String) SPUtil.get(context, Common.USER_ADD, "");
+                Log.d("linshi", "isLogin():" + isLogin());
+                Log.d("linshi", "SPUtil.contains(context, Common.USER_ADD):" + SPUtil.contains(context, Common.USER_ADD));
+                Log.d("linshi", "TextUtils.isEmpty(add):" + TextUtils.isEmpty(add));
+                stopLocation();
+                //位置确定弹框
+//                confirmLocationDialog();
+                //获取经纬度
+                longitude = amapLocation.getLongitude() + "";
+                latitude = amapLocation.getLatitude() + "";
+                SPUtil.put(context, Common.ADDRESS, amapLocation.getPoiName());
+                SPUtil.put(context, Common.LONGITUDE, longitude);
+                SPUtil.put(context, Common.LATITUDE, latitude);
+            }
+
+            @Override
+            protected void locationFailure() {
+                stopLocation();
+            }
+        };
+
 
     }
-
 
 
 
@@ -178,9 +218,29 @@ initloca();
         switch (view.getId()) {
             case R.id.tv_spwz:
                 if (isLogin()) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        /**
+                         *
+                         */
+                        final List<String> permissionsList = new ArrayList<>();
+                        if ((checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED))
+                            permissionsList.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+                        if ((checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED))
+                            permissionsList.add(Manifest.permission.ACCESS_FINE_LOCATION);
+                        if (permissionsList.size() == 0) {
+
+                            goNewActivity(DoctorListActivity.class);
+                        } else {
+                            requestPermissions(permissionsList.toArray(new String[permissionsList.size()]),
+                                    0);
+                        }
+                    }
+
+
+
 //                    RongCallKit.startSingleCall(Main2.this, "bfc37490f5b94604a4a78cfc7a34446b", RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
 //                    getDoc();
-                    goNewActivity(DoctorListActivity.class);
+
                 } else {
                     showTost("请先登陆");
 //                    goNewActivity(FaceDetectExpActivity.class);

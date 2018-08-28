@@ -60,6 +60,7 @@ import v1.cn.unionc_pad.model.getAddressData;
 import v1.cn.unionc_pad.model.getunreadmessageData;
 import v1.cn.unionc_pad.model.getuserinfoData;
 import v1.cn.unionc_pad.model.saveinterrogationrecordsData;
+import v1.cn.unionc_pad.model.videohasprescriptionData;
 import v1.cn.unionc_pad.model.visitnurserdiseaseData;
 import v1.cn.unionc_pad.model.visitnurserordersData;
 import v1.cn.unionc_pad.model.visitnurseservicesData;
@@ -936,17 +937,19 @@ public class UnionAPIPackage {
     /**
      * 查护工/护士列表：    roleId(4-护士，6-护工)
      */
-    public static Observable<GetNurseListData> getnurses(String roleId, String pageNo, String pageSize) {
+    public static Observable<GetNurseListData> getnurses(String roleId, String pageNo, String pageSize,String longitude,String latitude) {
         HashMap<String, String> params = new HashMap<>();
         params.put("roleId", roleId);
         params.put("pageNo", pageNo);
         params.put("pageSize", pageSize);
+        params.put("longitude", longitude);
+        params.put("latitude", latitude);
         return ConnectHttp.getUnionAPI().getnurses(dataProcess(params));
     }
     /**
      * 预约上门：
      */
-    public static Observable<YuYueOkData> subscribenurses(String token, String doctId, String serviceTime, String serviceType, String serviceId, String name, String addrId, String diseaseId, String remark, String price) {
+    public static Observable<YuYueOkData> subscribenurses(String token, String doctId, String serviceTime, String serviceType, String serviceId, String name, String addrId, String diseaseId, String remark, String price,String longitude,String latitude) {
         HashMap<String, String> params = new HashMap<>();
         params.put("token", token);
         params.put("doctId", doctId);
@@ -958,6 +961,8 @@ public class UnionAPIPackage {
         params.put("diseaseId", diseaseId);
         params.put("remark", remark);
         params.put("price", price);
+        params.put("longitude", longitude);
+        params.put("latitude", latitude);
 //        params.put("addr", addr);
 //        params.put("telphone", telphone);
 //        params.put("addrId", addrId);
@@ -1003,6 +1008,15 @@ public class UnionAPIPackage {
         params.put("content", content);
         params.put("isAnonymity", isAnonymity);
         return ConnectHttp.getUnionAPI().videodoctorevaluate(dataProcess(params));
+    }
+    /**
+     * 当前视频问诊是否开处方状态
+     */
+    public static Observable<videohasprescriptionData> videohasprescription(String token, String recordId) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+        params.put("recordId", recordId);
+        return ConnectHttp.getUnionAPI().videohasprescription(dataProcess(params));
     }
     /**
      * 上门服务项列表

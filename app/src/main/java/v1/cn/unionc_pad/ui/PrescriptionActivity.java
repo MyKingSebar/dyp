@@ -21,6 +21,7 @@ import v1.cn.unionc_pad.adapter.PrescriptionAdapter;
 import v1.cn.unionc_pad.data.Common;
 import v1.cn.unionc_pad.data.SPUtil;
 import v1.cn.unionc_pad.model.PrescriptionInfoData;
+import v1.cn.unionc_pad.model.videohasprescriptionData;
 import v1.cn.unionc_pad.network_frame.ConnectHttp;
 import v1.cn.unionc_pad.network_frame.UnionAPIPackage;
 import v1.cn.unionc_pad.network_frame.core.BaseObserver;
@@ -63,6 +64,7 @@ private PrescriptionAdapter prescriptionAdapter;
 
     @OnClick(R.id.img_back)
      void back(){
+        goNewActivity(CommentDocActivity.class);
         finish();
     }
 
@@ -74,7 +76,7 @@ private PrescriptionAdapter prescriptionAdapter;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Log.e("linshi","PrescriptionActivity:");
         setContentView(R.layout.activity_bingli_info);
         unbinder= ButterKnife.bind(this);
         initData();
@@ -83,21 +85,21 @@ private PrescriptionAdapter prescriptionAdapter;
     }
 
     private void initData() {
-//        Intent intent=getIntent();
-//        if(intent.hasExtra("prescriptionId")){
-//            recordId=intent.getStringExtra("recordId");
-//            Log.d("recordId","recordId:"+recordId);
-//        }
-//        if(TextUtils.isEmpty(Common.docvideoid)){
-//            Log.d("linshi", "on isEmpty");
+        Intent intent=getIntent();
+        if(intent.hasExtra("prescriptionId")){
+            recordId=intent.getStringExtra("recordId");
+            Log.d("recordId","recordId:"+recordId);
+        }
+        if(TextUtils.isEmpty(Common.docvideoid)){
+            Log.d("linshi", "on isEmpty");
 //            showTost("on isEmpty");
-//            finish();
-//        }else{
-//            recordId=Common.docvideoid;
-//            Log.d("linshi", "recordIdd"+recordId);
+            finish();
+        }else{
+            recordId=Common.docvideoid;
+            Log.d("linshi", "recordIdd"+recordId);
 //            showTost("recordIdd"+recordId);
-//        }
-        recordId="680";
+        }
+//        recordId="680";
     }
 
     @Override
@@ -110,44 +112,30 @@ private PrescriptionAdapter prescriptionAdapter;
 
 
     private void initprescription() {
-        showTost("initprescription"+recordId);
-        Log.d("linshi","recordId:"+recordId);
-        String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
+//        showTost("initprescription"+recordId);
+        Log.e("linshi","recordId:"+recordId);
+        final String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
         if(TextUtils.isEmpty(recordId)){
             finish();
             return;
         }
-        ConnectHttp.connect(UnionAPIPackage.prescriptioninfo(token,recordId), new BaseObserver<PrescriptionInfoData>(context) {
+        ConnectHttp.connect(UnionAPIPackage.videohasprescription(token,recordId), new BaseObserver<videohasprescriptionData>(context) {
             @Override
-            public void onResponse(PrescriptionInfoData data) {
-                Log.d("linshi","data:"+data.getCode());
+            public void onResponse(videohasprescriptionData data) {
+                Log.e("linshi","data1:"+data.getCode());
                 if (TextUtils.equals("4000", data.getCode())) {
-                    if(TextUtils.isEmpty(data.getData().getPrescription().getUserName())){
-                        finish();
-                        return;
-                    }
-                    datas.clear();
-                    tv_clinicname.setText(data.getData().getPrescription().getClinicName());
-                    tv_num.setText("NO.1702141212");
-                    tv_keshi.setText(data.getData().getPrescription().getDepartName());
-                    tv_name.setText(data.getData().getPrescription().getUserName());
-                    tv_sex.setText(data.getData().getPrescription().getGender());
-                    tv_age.setText(data.getData().getPrescription().getAge());
-                    tv_zhenduan.setText(data.getData().getPrescription().getClinicalDiagnosis());
-                    tv_allmoney.setText(data.getData().getPrescription().getCharge());
-                    tv_date.setText(data.getData().getPrescription().getCreatedTime());
-                    tv_qianming.setText(data.getData().getPrescription().getDoctName());
-                    tv_buchong.setText(data.getData().getPrescription().getSupplement());
-                    datas=data.getData().getPrescription().getMedicines();
-                    prescriptionAdapter.setData(datas);
-//                    String src="医生姓名："+data.getData().getPrescription().getDoctName()+"\n补充说明:"+data.getData().getPrescription().getSupplement()+"\n临床诊断:"+data.getData().getPrescription().getClinicalDiagnosis()
-//                            +"\n医院:"+data.getData().getPrescription().getClinicName()+"\n价格:"+data.getData().getPrescription().getCharge();
-////                    tv.setText(new Gson().toJson(data.getData()));
-//                    tv.setText(src);
+                   if(TextUtils.equals(data.getData().getHasPrescription(),"1")){
+                       prescriptioninfo(token,recordId);
+                   }else {
+                       goNewActivity(CommentDocActivity.class);
+                       finish();
+                   }
                 }else{
-                    showTost(data.getMessage());
-                    finish();
+//                    showTost(data.getMessage());
                     goNewActivity(CommentDocActivity.class);
+                    finish();
+
+
                 }
 
             }
@@ -155,8 +143,44 @@ private PrescriptionAdapter prescriptionAdapter;
             public void onFail(Throwable e) {
             }
         });
-    }
 
+    }
+private void prescriptioninfo(String token,String recordId){
+    ConnectHttp.connect(UnionAPIPackage.prescriptioninfo(token,recordId), new BaseObserver<PrescriptionInfoData>(context) {
+        @Override
+        public void onResponse(PrescriptionInfoData data) {
+            Log.e("linshi","data:"+data.getCode());
+            if (TextUtils.equals("4000", data.getCode())) {
+//                if(TextUtils.isEmpty(data.getData().getPrescription().getUserName())){
+//                    finish();
+//                    return;
+//                }
+                datas.clear();
+                tv_clinicname.setText(data.getData().getPrescription().getClinicName());
+                tv_num.setText("NO.1702141212");
+                tv_keshi.setText(data.getData().getPrescription().getDepartName());
+                tv_name.setText(data.getData().getPrescription().getUserName());
+                tv_sex.setText(data.getData().getPrescription().getGender());
+                tv_age.setText(data.getData().getPrescription().getAge());
+                tv_zhenduan.setText(data.getData().getPrescription().getClinicalDiagnosis());
+                tv_allmoney.setText(data.getData().getPrescription().getCharge());
+                tv_date.setText(data.getData().getPrescription().getCreatedTime());
+                tv_qianming.setText(data.getData().getPrescription().getDoctName());
+                tv_buchong.setText(data.getData().getPrescription().getSupplement());
+                datas=data.getData().getPrescription().getMedicines();
+                prescriptionAdapter.setData(datas);
+//                    String src="医生姓名："+data.getData().getPrescription().getDoctName()+"\n补充说明:"+data.getData().getPrescription().getSupplement()+"\n临床诊断:"+data.getData().getPrescription().getClinicalDiagnosis()
+//                            +"\n医院:"+data.getData().getPrescription().getClinicName()+"\n价格:"+data.getData().getPrescription().getCharge();
+////                    tv.setText(new Gson().toJson(data.getData()));
+//                    tv.setText(src);
+            }
+
+        }
+        @Override
+        public void onFail(Throwable e) {
+        }
+    });
+}
 
     private void initView() {
         title.setText("");

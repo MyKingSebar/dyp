@@ -59,7 +59,6 @@ public class DocInfoActivity extends BaseActivity {
     TextView title;
 
 
-
     @BindView(R.id.img_message_avator)
     ImageView imgMessageAvator;
     @BindView(R.id.tv_name)
@@ -89,35 +88,38 @@ public class DocInfoActivity extends BaseActivity {
     TextView tv_intro;
 
 
-
-
-
     @OnClick(R.id.toplayout)
     void back() {
         finish();
     }
+
     @OnClick(R.id.call)
     void call() {
-        if(doctorData!=null){
+        if (doctorData != null) {
 
-            if(TextUtils.equals(doctorData.getOnlineState(),"2")){
+            if (TextUtils.equals(doctorData.getOnlineState(), "2")) {
+                Common.DoctName = doctorData.getDoctName();
+                Common.DoctImagePath = doctorData.getDoctImagePath();
+                Common.ClinicName = doctorData.getClinicName();
+                Common.Major = doctorData.getMajor();
+                Common.ProfessName = doctorData.getProfessName();
                 saverecord(doctorData.getDoctId());
 
-            }else  if(TextUtils.equals(doctorData.getOnlineState(),"0")){
+            } else if (TextUtils.equals(doctorData.getOnlineState(), "0")) {
 
-                Toast.makeText(context,"医生不在线",Toast.LENGTH_SHORT).show();
-            }else  if(TextUtils.equals(doctorData.getOnlineState(),"1")){
-                Toast.makeText(context,"医生忙碌",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "医生不在线", Toast.LENGTH_SHORT).show();
+            } else if (TextUtils.equals(doctorData.getOnlineState(), "1")) {
+                Toast.makeText(context, "医生忙碌", Toast.LENGTH_SHORT).show();
             }
-        }else{
-            Log.d("linshi","doctorData=null");
+        } else {
+            Log.d("linshi", "doctorData=null");
         }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Common.docvideoid="";
+        Common.docvideoid = "";
     }
 
     private void saverecord(String id) {
@@ -129,12 +131,12 @@ public class DocInfoActivity extends BaseActivity {
                     public void onResponse(saveinterrogationrecordsData data) {
                         closeDialog();
                         if (TextUtils.equals("4000", data.getCode())) {
-                            Common.docvideoid=data.getData().getRecordId();
-                            if(!TextUtils.isEmpty(Common.docvideoid)){
-
+                            Common.docvideoid = data.getData().getRecordId();
+                            if (!TextUtils.isEmpty(Common.docvideoid)) {
+                                Log.e("linshi", "docvideoid:" + Common.docvideoid);
                                 RongCallKit.startSingleCall(context, doctorData.getIdentifier(), RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
-                            }else{
-                                showTost(data.getData().getRecordId() + "");
+                            } else {
+                                Log.e("linshi", "docvideoid:null");
                             }
                         } else {
                             showTost(data.getMessage() + "");
@@ -147,73 +149,72 @@ public class DocInfoActivity extends BaseActivity {
                 });
 
     }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_docinfo);
-        unbinder= ButterKnife.bind(this);
+        unbinder = ButterKnife.bind(this);
         initData();
         initView();
     }
 
     private void initData() {
-        if(getIntent().hasExtra("docdata")){
-            doctorData=(GetLiveDoctorListData.DataData.DataDataData) getIntent().getSerializableExtra("docdata");
+        if (getIntent().hasExtra("docdata")) {
+            doctorData = (GetLiveDoctorListData.DataData.DataDataData) getIntent().getSerializableExtra("docdata");
         }
     }
 
 
     private void initView() {
         title.setText("医生详情");
-if(doctorData!=null){
-    if(TextUtils.isEmpty(doctorData.getDoctImagePath())){
+        if (doctorData != null) {
+            if (TextUtils.isEmpty(doctorData.getDoctImagePath())) {
 
-        imgMessageAvator.setImageResource(R.drawable.icon_doctor_default);
-    }else{
-        Glide.with(context)
-                .load(doctorData.getDoctImagePath())
-                .placeholder(R.drawable.icon_doctor_default).dontAnimate()
-                .error(R.drawable.icon_doctor_default)
-                .into(imgMessageAvator);
+                imgMessageAvator.setImageResource(R.drawable.icon_doctor_default);
+            } else {
+                Glide.with(context)
+                        .load(doctorData.getDoctImagePath())
+                        .placeholder(R.drawable.icon_doctor_default).dontAnimate()
+                        .error(R.drawable.icon_doctor_default)
+                        .into(imgMessageAvator);
+
+            }
+            Common.DoctName = doctorData.getDoctName();
+            Common.DoctImagePath = doctorData.getDoctImagePath();
+            Common.ClinicName = doctorData.getClinicName();
+            Common.Major = doctorData.getMajor();
+            Common.ProfessName = doctorData.getProfessName();
+            tv_name.setText(doctorData.getDoctName());
+            tv_price.setText(doctorData.getServicePrice() + "元");
+            tv_price2.setText(doctorData.getServicePrice() + "元");
+            tv_role.setText(doctorData.getDepartName());
+            tv_identity.setText(doctorData.getProfessName());
+            tv_address.setText(doctorData.getClinicName());
+            tv_like.setText("推荐" + doctorData.getAtteCount());
+            tv_comment.setText("评论" + doctorData.getEvaluateCount());
+            if (TextUtils.equals(doctorData.getOnlineState(), "2")) {
+                tv_allow.setText("可接入视频问诊");
+                tv_allow.setBackgroundResource(R.color.green_00d154);
+                tv_isonline.setText("在线");
+                tv_isonline.setBackgroundResource(R.drawable.bg_button_online_green);
+            } else if (TextUtils.equals(doctorData.getOnlineState(), "0")) {
+                tv_allow.setText("未接诊");
+                tv_allow.setBackgroundResource(R.color.gray_999996);
+                tv_isonline.setText("离线");
+                tv_isonline.setBackgroundResource(R.drawable.bg_button_online_gray);
+            } else if (TextUtils.equals(doctorData.getOnlineState(), "1")) {
+                tv_allow.setText("排队中");
+                tv_allow.setBackgroundResource(R.color.yellow_ffcd0c);
+                tv_isonline.setText("忙碌");
+                tv_isonline.setBackgroundResource(R.drawable.bg_button_online_yellow);
+            }
+            tv_skilled.setText(doctorData.getMajor());
+            tv_intro.setText(doctorData.getRemarks());
+        }
+
 
     }
-    Common.DoctName=doctorData.getDoctName();
-    Common.DoctImagePath=doctorData.getDoctImagePath();
-    Common.ClinicName=doctorData.getClinicName();
-    Common.Major=doctorData.getMajor();
-    Common.ProfessName=doctorData.getProfessName();
-    tv_name.setText(doctorData.getDoctName());
-    tv_price.setText(doctorData.getServicePrice()+"元");
-    tv_price2.setText(doctorData.getServicePrice()+"元");
-    tv_role.setText(doctorData.getDepartName());
-    tv_identity.setText(doctorData.getProfessName());
-    tv_address.setText(doctorData.getClinicName());
-    tv_like.setText("推荐"+doctorData.getAtteCount());
-    tv_comment.setText("评论"+doctorData.getEvaluateCount());
-    if(TextUtils.equals(doctorData.getOnlineState(),"2")){
-        tv_allow.setText("可接入视频问诊");
-        tv_allow.setBackgroundResource(R.color.green_00d154);
-        tv_isonline.setText("在线");
-        tv_isonline.setBackgroundResource(R.drawable.bg_button_online_green);
-    }else  if(TextUtils.equals(doctorData.getOnlineState(),"0")){
-        tv_allow.setText("未接诊");
-        tv_allow.setBackgroundResource(R.color.gray_999996);
-        tv_isonline.setText("离线");
-        tv_isonline.setBackgroundResource(R.drawable.bg_button_online_gray);
-    }else  if(TextUtils.equals(doctorData.getOnlineState(),"1")){
-        tv_allow.setText("排队中");
-        tv_allow.setBackgroundResource(R.color.yellow_ffcd0c);
-        tv_isonline.setText("忙碌");
-        tv_isonline.setBackgroundResource(R.drawable.bg_button_online_yellow);
-    }
-    tv_skilled.setText(doctorData.getMajor());
-    tv_intro.setText(doctorData.getRemarks());
-}
-
-
-    }
-
-
 
 
 }
