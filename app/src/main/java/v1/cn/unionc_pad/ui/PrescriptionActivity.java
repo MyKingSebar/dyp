@@ -68,7 +68,12 @@ private PrescriptionAdapter prescriptionAdapter;
         finish();
     }
 
+    @OnClick(R.id.toplayout)
+    void toplayout(){
+        goNewActivity(CommentDocActivity.class);
+        finish();
 
+    }
 
 
 

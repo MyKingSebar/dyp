@@ -73,7 +73,10 @@ public class MeActivity extends BaseActivity {
     void back() {
         finish();
     }
-
+    @OnClick(R.id.toplayout)
+    void toplayout(){
+        finish();
+    }
 
     private String type;
     private List<GetNurseListData.DataData.DataDataData> datas = new ArrayList<>();

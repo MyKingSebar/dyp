@@ -60,7 +60,10 @@ private YuYueOkData.DataData yuyuedata;
     void back2() {
         goNewActivity(Main.class);
     }
-
+    @OnClick(R.id.toplayout)
+    void toplayout(){
+        goNewActivity(Main.class);
+    }
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -53,7 +53,10 @@ public class YuyueBingActivity extends BaseActivity {
     void back() {
         finish();
     }
-
+    @OnClick(R.id.toplayout)
+    void toplayout(){
+        finish();
+    }
     @OnClick(R.id.bt_ok)
     void ok() {
         if (TextUtils.isEmpty(DiseaseId)) {

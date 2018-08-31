@@ -30,7 +30,10 @@ public class HurseDoorActivity extends BaseActivity {
     CheckBox cbCollect;
 @BindView(R.id.ll_fragment_container)
 LinearLayout linearLayout;
-
+    @OnClick(R.id.tv_back)
+    void toplayout(){
+        finish();
+    }
     private Fragment mCurrentfragment;//记录选中的fragment
     HuliServiceFragment applyfragment;
     DoorNueseFragment collectfragment;

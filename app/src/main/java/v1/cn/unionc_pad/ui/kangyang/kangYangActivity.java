@@ -51,7 +51,10 @@ public class kangYangActivity extends BaseActivity {
         finish();
     }
 
-
+    @OnClick(R.id.toplayout)
+    void toplayout(){
+        finish();
+    }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

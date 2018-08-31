@@ -54,6 +54,10 @@ public class PrepareCallActivity extends BaseActivity {
     @BindView(R.id.img_back)
     ImageView imBack;
 
+    @OnClick(R.id.toplayout)
+    void toplayout(){
+        finish();
+    }
     @OnClick({R.id.bt_call, R.id.bt_cancel})
     public void onClick(View view) {
         switch (view.getId()) {
@@ -159,7 +163,7 @@ public class PrepareCallActivity extends BaseActivity {
                         closeDialog();
                         if (TextUtils.equals("4000", data.getCode())) {
                             if (!TextUtils.isEmpty(data.getData().getIMUserId())) {
-                                RongCallKit.startSingleCall(PrepareCallActivity.this,data.getData().getIMUserId(), RongCallKit.CallMediaType.CALL_MEDIA_TYPE_AUDIO);
+                                RongCallKit.startSingleCall(PrepareCallActivity.this,data.getData().getIMUserId(), RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
                                 finish();
                             }
                         } else {

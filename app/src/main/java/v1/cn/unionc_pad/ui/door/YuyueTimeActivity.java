@@ -29,6 +29,7 @@ import v1.cn.unionc_pad.R;
 import v1.cn.unionc_pad.model.YuYue7DayData;
 import v1.cn.unionc_pad.model.YuYueBingData;
 import v1.cn.unionc_pad.model.YuYueTimeData;
+import v1.cn.unionc_pad.ui.Main;
 import v1.cn.unionc_pad.ui.base.BaseActivity;
 
 public class YuyueTimeActivity extends BaseActivity {
@@ -91,7 +92,10 @@ public class YuyueTimeActivity extends BaseActivity {
 
     @BindView(R.id.rp)
     me.shihao.library.XRadioGroup rp;
-
+    @OnClick(R.id.toplayout)
+    void toplayout(){
+        finish();
+    }
 
     @OnClick(R.id.img_back)
     void back() {

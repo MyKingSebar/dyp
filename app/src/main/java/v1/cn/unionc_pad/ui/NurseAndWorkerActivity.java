@@ -55,7 +55,10 @@ public class NurseAndWorkerActivity extends BaseActivity {
     public void onClick() {
         finish();
     }
-
+    @OnClick(R.id.toplayout)
+    void toplayout(){
+        finish();
+    }
     private void initData() {
         if (getIntent().hasExtra("type")) {
             type = getIntent().getIntExtra("type",1);

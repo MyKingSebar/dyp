@@ -49,9 +49,20 @@ public class ServiceInfoActivity extends BaseActivity {
     void back() {
         finish();
     }
-
+    @OnClick(R.id.toplayout)
+    void toplayout(){
+        finish();
+    }
     @OnClick(R.id.next)
     void next() {
+        Intent intent = new Intent(ServiceInfoActivity.this, NowYuyueActivity.class);
+        intent.putExtra("id", id);
+        intent.putExtra("docid", docid);
+        intent.putExtra("price", pricenum);
+        startActivity(intent);
+    }
+    @OnClick(R.id.next2)
+    void next2() {
         Intent intent = new Intent(ServiceInfoActivity.this, NowYuyueActivity.class);
         intent.putExtra("id", id);
         intent.putExtra("docid", docid);

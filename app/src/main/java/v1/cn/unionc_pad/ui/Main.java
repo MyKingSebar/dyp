@@ -78,6 +78,7 @@ import v1.cn.unionc_pad.network_frame.core.BaseObserver;
 import v1.cn.unionc_pad.ui.base.BaseActivity;
 import v1.cn.unionc_pad.ui.door.YuyueBingActivity;
 import v1.cn.unionc_pad.ui.kangyang.kangYangActivity;
+import v1.cn.unionc_pad.ui.me.MeActivity;
 import v1.cn.unionc_pad.utils.GPSUtils;
 import v1.cn.unionc_pad.utils.Location;
 import v1.cn.unionc_pad.utils.MacUtil;
@@ -300,7 +301,7 @@ public class Main extends BaseActivity {
             case R.id.tv_grzx:
 //                getRongInfo();
                 if (isLogin()) {
-                    goNewActivity(YuyueBingActivity.class);
+                    goNewActivity(MeActivity.class);
                 } else {
                     showTost("请先登陆");
                     goNewActivity(DetectActivity.class);

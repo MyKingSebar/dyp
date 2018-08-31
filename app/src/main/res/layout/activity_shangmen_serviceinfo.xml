@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/toplayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_32">
 
@@ -291,7 +292,21 @@
                             android:textSize="@dimen/sp_12" />
                     </LinearLayout>
                 </LinearLayout>
+
             </LinearLayout>
+            <Button
+                android:id="@+id/next2"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_20"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="@dimen/dp_120"
+                android:layout_height="@dimen/dp_30"
+                android:layout_centerVertical="true"
+                android:background="@drawable/yellowf78126_btn_bg"
+                android:gravity="center"
+                android:text="下一步"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_12" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

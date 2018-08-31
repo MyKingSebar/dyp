@@ -40,6 +40,10 @@ public class BindActivity extends BaseActivity {
     void back(){
         finish();
     }
+    @OnClick(R.id.toplayout)
+    void toplayout(){
+        finish();
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

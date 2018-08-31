@@ -60,7 +60,11 @@ public class WebViewActivity extends BaseActivity {
     ProgressBar bar;
     int type = 0;
     String activityId = null;
+    @OnClick(R.id.toplayout)
+    void toplayout(){
+        finish();
 
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
