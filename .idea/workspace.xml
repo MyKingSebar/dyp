@@ -20,49 +20,15 @@
     <list default="true" id="718c0495-2eb7-4bb2-93b4-37698f2d85b7" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/classes/release/io/rong/callkit/SingleCallActivity$1.class" afterPath="$PROJECT_DIR$/CallKit/build/intermediates/classes/release/io/rong/callkit/SingleCallActivity$1.class" />
-      <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/classes/release/io/rong/callkit/SingleCallActivity$2.class" afterPath="$PROJECT_DIR$/CallKit/build/intermediates/classes/release/io/rong/callkit/SingleCallActivity$2.class" />
-      <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/classes/release/io/rong/callkit/SingleCallActivity$3.class" afterPath="$PROJECT_DIR$/CallKit/build/intermediates/classes/release/io/rong/callkit/SingleCallActivity$3.class" />
-      <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/classes/release/io/rong/callkit/SingleCallActivity$4.class" afterPath="$PROJECT_DIR$/CallKit/build/intermediates/classes/release/io/rong/callkit/SingleCallActivity$4.class" />
-      <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/classes/release/io/rong/callkit/SingleCallActivity$5.class" afterPath="$PROJECT_DIR$/CallKit/build/intermediates/classes/release/io/rong/callkit/SingleCallActivity$5.class" />
-      <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/classes/release/io/rong/callkit/SingleCallActivity$6.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/classes/release/io/rong/callkit/SingleCallActivity.class" afterPath="$PROJECT_DIR$/CallKit/build/intermediates/classes/release/io/rong/callkit/SingleCallActivity.class" />
-      <change beforePath="$PROJECT_DIR$/CallKit/build/intermediates/intermediate-jars/release/classes.jar" afterPath="$PROJECT_DIR$/CallKit/build/intermediates/intermediate-jars/release/classes.jar" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnioncURL.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnioncURL.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/BindActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/BindActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/HurseDoorActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/HurseDoorActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/LiveListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/LiveListActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/LiveListActivity2.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/LiveListActivity2.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/NurseAndWorkerActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/NurseAndWorkerActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/PrepareCallActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/PrepareCallActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/PrescriptionActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/PrescriptionActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/WebViewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/WebViewActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/door/ChooseHuliServiceActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/door/ChooseHuliServiceActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/door/NowYuyueActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/door/NowYuyueActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/door/ServiceInfoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/door/ServiceInfoActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/door/YuyueBingActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/door/YuyueBingActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/door/YuyueOkActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/door/YuyueOkActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/door/YuyueTimeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/door/YuyueTimeActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/kangyang/kangYangActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/kangyang/kangYangActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/kangyang/kangYangvidoeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/kangyang/kangYangvidoeActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/me/MeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/me/MeActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_hulishangmen.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_hulishangmen.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_shangmen_serviceinfo.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_shangmen_serviceinfo.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_shangmen_yuyue.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_shangmen_yuyue.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_shangmen_yuyue_bing.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_shangmen_yuyue_bing.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_shangmen_yuyue_ok.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_shangmen_yuyue_ok.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_shangmen_yuyue_time.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_shangmen_yuyue_time.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -146,24 +112,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UnioncURL.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UnioncURL.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnioncURL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="228">
+              <caret line="12" column="42" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NowYuyueActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/door/NowYuyueActivity.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+            <state relative-caret-position="398">
+              <caret line="234" column="107" lean-forward="false" selection-start-line="234" selection-start-column="107" selection-end-line="234" selection-end-column="107" />
               <folding>
-                <element signature="e#1838#1839#0" expanded="true" />
-                <element signature="e#1862#1863#0" expanded="true" />
+                <element signature="e#5180#5181#0" expanded="true" />
+                <element signature="e#5210#5211#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -10422,7 +10388,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/HurseDoorActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/BindActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/me/MeActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/kangyang/kangYangActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/kangyang/kangYangvidoeActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/door/ChooseHuliServiceActivity.java" />
@@ -10437,10 +10402,11 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_shangmen_serviceinfo.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/door/ServiceInfoActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnioncURL.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="710" />
     <option name="width" value="897" />
     <option name="height" value="867" />
@@ -10918,7 +10884,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32867134" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -10936,7 +10902,7 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20758355" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20758355" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27412587" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16783217" sideWeight="0.4974293" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -11304,17 +11270,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="303" column="44" lean-forward="false" selection-start-line="303" selection-start-column="44" selection-end-line="303" selection-end-column="44" />
-          <folding>
-            <element signature="e#5180#5181#0" expanded="false" />
-            <element signature="e#5210#5211#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_toolbar_black.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -11408,8 +11363,8 @@
         <state relative-caret-position="337">
           <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
           <folding>
-            <element signature="e#1838#1839#0" expanded="true" />
-            <element signature="e#1862#1863#0" expanded="true" />
+            <element signature="e#1838#1839#0" expanded="false" />
+            <element signature="e#1862#1863#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -11509,9 +11464,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/network_frame/UnioncURL.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="228">
+          <caret line="12" column="42" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="42" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/v1/cn/unionc_pad/ui/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="234" column="107" lean-forward="false" selection-start-line="234" selection-start-column="107" selection-end-line="234" selection-end-column="107" />
+          <folding>
+            <element signature="e#5180#5181#0" expanded="true" />
+            <element signature="e#5210#5211#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

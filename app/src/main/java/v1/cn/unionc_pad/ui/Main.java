@@ -229,7 +229,7 @@ public class Main extends BaseActivity {
                         if ((checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED))
                             permissionsList.add(Manifest.permission.ACCESS_FINE_LOCATION);
                         if (permissionsList.size() == 0) {
-
+                            initLocation();
                             goNewActivity(DoctorListActivity.class);
                         } else {
                             requestPermissions(permissionsList.toArray(new String[permissionsList.size()]),
